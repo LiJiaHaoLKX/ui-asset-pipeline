@@ -1,0 +1,18 @@
+{
+  "region-001/object-001.png": "player-avatar",
+  "region-001/object-002.png": "level-pill",
+  "region-001/object-003.png": "coin-icon",
+  "region-001/object-004.png": "notification-bell",
+  "region-001/object-005.png": "hero-carousel",
+  "region-002/object-001.png": "quick-match-icon",
+  "region-002/object-002.png": "ranking-icon",
+  "region-002/object-003.png": "daily-task-icon",
+  "region-002/object-004.png": "invite-friends-icon",
+  "region-003/object-001.png": "neon-racing-cover",
+  "region-003/object-002.png": "magic-brawl-cover",
+  "region-004/object-001.png": "weekend-reward-banner",
+  "region-004/object-002.png": "nav-home-icon",
+  "region-004/object-003.png": "nav-games-icon",
+  "region-004/object-004.png": "nav-community-icon",
+  "region-004/object-005.png": "nav-profile-icon"
+}

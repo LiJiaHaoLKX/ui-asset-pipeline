@@ -1,0 +1,610 @@
+{
+  "canvas": {
+    "width": 750,
+    "height": 1334
+  },
+  "coordinateNotice": "API output may rescale or recenter assets. Do not map extractedImageBox directly to page coordinates.",
+  "assets": [
+    {
+      "id": "asset-001",
+      "file": "asset-001.png",
+      "sourceRegion": "region-001",
+      "sourceMarkedBox": {
+        "x": 12,
+        "y": 226,
+        "width": 728,
+        "height": 265
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 194,
+        "width": 750,
+        "height": 329
+      },
+      "sourceTargets": [
+        {
+          "x": 14,
+          "y": 16,
+          "width": 713,
+          "height": 247,
+          "purpose": "",
+          "approved": true,
+          "id": "target-001",
+          "markedCropBox": {
+            "x": 26,
+            "y": 48,
+            "width": 713,
+            "height": 247
+          },
+          "pageBox": {
+            "x": 26,
+            "y": 242,
+            "width": 713,
+            "height": 247
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "x": 14,
+        "y": 16,
+        "width": 713,
+        "height": 247,
+        "purpose": "",
+        "approved": true,
+        "id": "target-001",
+        "markedCropBox": {
+          "x": 26,
+          "y": 48,
+          "width": 713,
+          "height": 247
+        }
+      },
+      "extractedImageBox": {
+        "x": 0,
+        "y": 181,
+        "width": 1024,
+        "height": 704
+      },
+      "name": "asset-001",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "confirmed-from-browser-review",
+        "bbox": null
+      },
+      "approved": true,
+      "semanticDescription": "",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "asset-002",
+      "file": "asset-002.png",
+      "sourceRegion": "region-002",
+      "sourceMarkedBox": {
+        "x": 556,
+        "y": 40,
+        "width": 184,
+        "height": 144
+      },
+      "sourceCropBox": {
+        "x": 524,
+        "y": 8,
+        "width": 226,
+        "height": 208
+      },
+      "sourceTargets": [
+        {
+          "x": 46,
+          "y": 13,
+          "width": 61,
+          "height": 46,
+          "purpose": "",
+          "approved": true,
+          "id": "target-001",
+          "markedCropBox": {
+            "x": 78,
+            "y": 45,
+            "width": 61,
+            "height": 46
+          },
+          "pageBox": {
+            "x": 602,
+            "y": 53,
+            "width": 61,
+            "height": 46
+          }
+        },
+        {
+          "x": 117,
+          "y": 14,
+          "width": 54,
+          "height": 46,
+          "purpose": "",
+          "approved": true,
+          "id": "target-002",
+          "markedCropBox": {
+            "x": 149,
+            "y": 46,
+            "width": 54,
+            "height": 46
+          },
+          "pageBox": {
+            "x": 673,
+            "y": 54,
+            "width": 54,
+            "height": 46
+          }
+        },
+        {
+          "x": 112,
+          "y": 78,
+          "width": 52,
+          "height": 49,
+          "purpose": "",
+          "approved": true,
+          "id": "target-003",
+          "markedCropBox": {
+            "x": 144,
+            "y": 110,
+            "width": 52,
+            "height": 49
+          },
+          "pageBox": {
+            "x": 668,
+            "y": 118,
+            "width": 52,
+            "height": 49
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "x": 46,
+        "y": 13,
+        "width": 61,
+        "height": 46,
+        "purpose": "",
+        "approved": true,
+        "id": "target-001",
+        "markedCropBox": {
+          "x": 78,
+          "y": 45,
+          "width": 61,
+          "height": 46
+        }
+      },
+      "extractedImageBox": {
+        "x": 148,
+        "y": 181,
+        "width": 353,
+        "height": 312
+      },
+      "name": "asset-002",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "confirmed-from-browser-review",
+        "bbox": null
+      },
+      "approved": true,
+      "semanticDescription": "",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "asset-003",
+      "file": "asset-003.png",
+      "sourceRegion": "region-002",
+      "sourceMarkedBox": {
+        "x": 556,
+        "y": 40,
+        "width": 184,
+        "height": 144
+      },
+      "sourceCropBox": {
+        "x": 524,
+        "y": 8,
+        "width": 226,
+        "height": 208
+      },
+      "sourceTargets": [
+        {
+          "x": 46,
+          "y": 13,
+          "width": 61,
+          "height": 46,
+          "purpose": "",
+          "approved": true,
+          "id": "target-001",
+          "markedCropBox": {
+            "x": 78,
+            "y": 45,
+            "width": 61,
+            "height": 46
+          },
+          "pageBox": {
+            "x": 602,
+            "y": 53,
+            "width": 61,
+            "height": 46
+          }
+        },
+        {
+          "x": 117,
+          "y": 14,
+          "width": 54,
+          "height": 46,
+          "purpose": "",
+          "approved": true,
+          "id": "target-002",
+          "markedCropBox": {
+            "x": 149,
+            "y": 46,
+            "width": 54,
+            "height": 46
+          },
+          "pageBox": {
+            "x": 673,
+            "y": 54,
+            "width": 54,
+            "height": 46
+          }
+        },
+        {
+          "x": 112,
+          "y": 78,
+          "width": 52,
+          "height": 49,
+          "purpose": "",
+          "approved": true,
+          "id": "target-003",
+          "markedCropBox": {
+            "x": 144,
+            "y": 110,
+            "width": 52,
+            "height": 49
+          },
+          "pageBox": {
+            "x": 668,
+            "y": 118,
+            "width": 52,
+            "height": 49
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "x": 117,
+        "y": 14,
+        "width": 54,
+        "height": 46,
+        "purpose": "",
+        "approved": true,
+        "id": "target-002",
+        "markedCropBox": {
+          "x": 149,
+          "y": 46,
+          "width": 54,
+          "height": 46
+        }
+      },
+      "extractedImageBox": {
+        "x": 578,
+        "y": 181,
+        "width": 356,
+        "height": 312
+      },
+      "name": "asset-003",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "confirmed-from-browser-review",
+        "bbox": null
+      },
+      "approved": true,
+      "semanticDescription": "",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "asset-004",
+      "file": "asset-004.png",
+      "sourceRegion": "region-002",
+      "sourceMarkedBox": {
+        "x": 556,
+        "y": 40,
+        "width": 184,
+        "height": 144
+      },
+      "sourceCropBox": {
+        "x": 524,
+        "y": 8,
+        "width": 226,
+        "height": 208
+      },
+      "sourceTargets": [
+        {
+          "x": 46,
+          "y": 13,
+          "width": 61,
+          "height": 46,
+          "purpose": "",
+          "approved": true,
+          "id": "target-001",
+          "markedCropBox": {
+            "x": 78,
+            "y": 45,
+            "width": 61,
+            "height": 46
+          },
+          "pageBox": {
+            "x": 602,
+            "y": 53,
+            "width": 61,
+            "height": 46
+          }
+        },
+        {
+          "x": 117,
+          "y": 14,
+          "width": 54,
+          "height": 46,
+          "purpose": "",
+          "approved": true,
+          "id": "target-002",
+          "markedCropBox": {
+            "x": 149,
+            "y": 46,
+            "width": 54,
+            "height": 46
+          },
+          "pageBox": {
+            "x": 673,
+            "y": 54,
+            "width": 54,
+            "height": 46
+          }
+        },
+        {
+          "x": 112,
+          "y": 78,
+          "width": 52,
+          "height": 49,
+          "purpose": "",
+          "approved": true,
+          "id": "target-003",
+          "markedCropBox": {
+            "x": 144,
+            "y": 110,
+            "width": 52,
+            "height": 49
+          },
+          "pageBox": {
+            "x": 668,
+            "y": 118,
+            "width": 52,
+            "height": 49
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "x": 112,
+        "y": 78,
+        "width": 52,
+        "height": 49,
+        "purpose": "",
+        "approved": true,
+        "id": "target-003",
+        "markedCropBox": {
+          "x": 144,
+          "y": 110,
+          "width": 52,
+          "height": 49
+        }
+      },
+      "extractedImageBox": {
+        "x": 103,
+        "y": 602,
+        "width": 820,
+        "height": 243
+      },
+      "name": "asset-004",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "confirmed-from-browser-review",
+        "bbox": null
+      },
+      "approved": true,
+      "semanticDescription": "",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "asset-005",
+      "file": "asset-005.png",
+      "sourceRegion": "region-003",
+      "sourceMarkedBox": {
+        "x": 24,
+        "y": 548,
+        "width": 706,
+        "height": 557
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 516,
+        "width": 750,
+        "height": 621
+      },
+      "sourceTargets": [
+        {
+          "x": 14,
+          "y": 20,
+          "width": 160,
+          "height": 151,
+          "purpose": "",
+          "approved": true,
+          "id": "target-001",
+          "markedCropBox": {
+            "x": 38,
+            "y": 52,
+            "width": 160,
+            "height": 151
+          },
+          "pageBox": {
+            "x": 38,
+            "y": 568,
+            "width": 160,
+            "height": 151
+          }
+        },
+        {
+          "x": 199,
+          "y": 163,
+          "width": 23,
+          "height": 24,
+          "purpose": "",
+          "approved": true,
+          "id": "target-002",
+          "markedCropBox": {
+            "x": 223,
+            "y": 195,
+            "width": 23,
+            "height": 24
+          },
+          "pageBox": {
+            "x": 223,
+            "y": 711,
+            "width": 23,
+            "height": 24
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "x": 14,
+        "y": 20,
+        "width": 160,
+        "height": 151,
+        "purpose": "",
+        "approved": true,
+        "id": "target-001",
+        "markedCropBox": {
+          "x": 38,
+          "y": 52,
+          "width": 160,
+          "height": 151
+        }
+      },
+      "extractedImageBox": {
+        "x": 73,
+        "y": 63,
+        "width": 485,
+        "height": 454
+      },
+      "name": "asset-005",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "confirmed-from-browser-review",
+        "bbox": null
+      },
+      "approved": true,
+      "semanticDescription": "",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "asset-006",
+      "file": "asset-006.png",
+      "sourceRegion": "region-003",
+      "sourceMarkedBox": {
+        "x": 24,
+        "y": 548,
+        "width": 706,
+        "height": 557
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 516,
+        "width": 750,
+        "height": 621
+      },
+      "sourceTargets": [
+        {
+          "x": 14,
+          "y": 20,
+          "width": 160,
+          "height": 151,
+          "purpose": "",
+          "approved": true,
+          "id": "target-001",
+          "markedCropBox": {
+            "x": 38,
+            "y": 52,
+            "width": 160,
+            "height": 151
+          },
+          "pageBox": {
+            "x": 38,
+            "y": 568,
+            "width": 160,
+            "height": 151
+          }
+        },
+        {
+          "x": 199,
+          "y": 163,
+          "width": 23,
+          "height": 24,
+          "purpose": "",
+          "approved": true,
+          "id": "target-002",
+          "markedCropBox": {
+            "x": 223,
+            "y": 195,
+            "width": 23,
+            "height": 24
+          },
+          "pageBox": {
+            "x": 223,
+            "y": 711,
+            "width": 23,
+            "height": 24
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "x": 199,
+        "y": 163,
+        "width": 23,
+        "height": 24,
+        "purpose": "",
+        "approved": true,
+        "id": "target-002",
+        "markedCropBox": {
+          "x": 223,
+          "y": 195,
+          "width": 23,
+          "height": 24
+        }
+      },
+      "extractedImageBox": {
+        "x": 73,
+        "y": 549,
+        "width": 485,
+        "height": 414
+      },
+      "name": "asset-006",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "confirmed-from-browser-review",
+        "bbox": null
+      },
+      "approved": true,
+      "semanticDescription": "",
+      "reviewStatus": "approved"
+    }
+  ],
+  "codeElements": []
+}

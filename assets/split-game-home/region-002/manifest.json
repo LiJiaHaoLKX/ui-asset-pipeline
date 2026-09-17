@@ -1,0 +1,32 @@
+[
+  {
+    "file": "object-001.png",
+    "bbox": {
+      "x": 44,
+      "y": 496,
+      "width": 451,
+      "height": 490
+    },
+    "foreground_area": 180157
+  },
+  {
+    "file": "object-002.png",
+    "bbox": {
+      "x": 46,
+      "y": 51,
+      "width": 454,
+      "height": 447
+    },
+    "foreground_area": 168158
+  },
+  {
+    "file": "object-003.png",
+    "bbox": {
+      "x": 510,
+      "y": 41,
+      "width": 491,
+      "height": 940
+    },
+    "foreground_area": 336773
+  }
+]

@@ -1,0 +1,132 @@
+[
+  {
+    "file": "object-001.png",
+    "bbox": {
+      "x": 0,
+      "y": 39,
+      "width": 1024,
+      "height": 441
+    },
+    "foreground_area": 440484
+  },
+  {
+    "file": "object-002.png",
+    "bbox": {
+      "x": 235,
+      "y": 40,
+      "width": 39,
+      "height": 9
+    },
+    "foreground_area": 31
+  },
+  {
+    "file": "object-003.png",
+    "bbox": {
+      "x": 0,
+      "y": 505,
+      "width": 1024,
+      "height": 477
+    },
+    "foreground_area": 479239
+  },
+  {
+    "file": "object-004.png",
+    "bbox": {
+      "x": 33,
+      "y": 975,
+      "width": 36,
+      "height": 9
+    },
+    "foreground_area": 28
+  },
+  {
+    "file": "object-005.png",
+    "bbox": {
+      "x": 105,
+      "y": 975,
+      "width": 32,
+      "height": 9
+    },
+    "foreground_area": 24
+  },
+  {
+    "file": "object-006.png",
+    "bbox": {
+      "x": 166,
+      "y": 975,
+      "width": 37,
+      "height": 9
+    },
+    "foreground_area": 29
+  },
+  {
+    "file": "object-007.png",
+    "bbox": {
+      "x": 242,
+      "y": 975,
+      "width": 53,
+      "height": 9
+    },
+    "foreground_area": 45
+  },
+  {
+    "file": "object-008.png",
+    "bbox": {
+      "x": 338,
+      "y": 503,
+      "width": 25,
+      "height": 9
+    },
+    "foreground_area": 17
+  },
+  {
+    "file": "object-009.png",
+    "bbox": {
+      "x": 379,
+      "y": 504,
+      "width": 35,
+      "height": 9
+    },
+    "foreground_area": 27
+  },
+  {
+    "file": "object-010.png",
+    "bbox": {
+      "x": 423,
+      "y": 503,
+      "width": 30,
+      "height": 9
+    },
+    "foreground_area": 22
+  },
+  {
+    "file": "object-011.png",
+    "bbox": {
+      "x": 442,
+      "y": 975,
+      "width": 49,
+      "height": 9
+    },
+    "foreground_area": 41
+  },
+  {
+    "file": "object-012.png",
+    "bbox": {
+      "x": 934,
+      "y": 975,
+      "width": 25,
+      "height": 9
+    },
+    "foreground_area": 17
+  },
+  {
+    "file": "object-013.png",
+    "bbox": {
+      "x": 984,
+      "y": 975,
+      "width": 40,
+      "height": 9
+    },
+    "foreground_area": 36
+  }
+]

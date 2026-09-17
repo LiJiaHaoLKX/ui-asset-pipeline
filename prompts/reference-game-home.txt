@@ -1,0 +1,22 @@
+Create a polished Chinese mobile mini-program game home page reference image.
+
+Final API and design canvas: exactly 750 x 1334 design pixels, portrait. Compose directly for this canvas; do not add external margins and do not assume any later crop.
+
+Product direction: a premium futuristic casual gaming hub. Dark navy background, translucent deep-teal cards, cyan and mint glow, restrained orange highlights. Refined, energetic, and playful, but not childish or visually noisy.
+
+Follow these exact design rules:
+- At least 32 px horizontal page padding and a clear 8 px spacing rhythm. No avatar, title, label, card, illustration, or navigation item may touch or cross either canvas edge.
+- Chinese system sans-serif appearance. Main title 34 px, section titles 28 px, body 24 px, captions 20 px, buttons 28 px.
+- Cards use 24 px radius. The hero uses 32 px radius. Primary buttons use 24 px radius.
+- High-contrast near-white text, muted blue-gray secondary text.
+- Avoid ultra-small labels, excessive glass effects, thin low-contrast strokes, or dense decoration.
+
+Page structure from top to bottom:
+1. Compact safe-area top bar with avatar, greeting “晚上好，玩家”, level pill “LV.12”, coin count “2,480”, and a notification icon.
+2. Large hero feature card titled “星际冒险季”, subtitle “组队探索未知星域”, a vivid original sci-fi game illustration on the right, progress badge “赛季进行中”, and mint primary button “立即开玩”.
+3. Section title “快捷入口” and four evenly spaced shortcut items: “快速匹配”, “排行榜”, “每日任务”, “邀请好友”. Use distinctive rounded neon game-style icons.
+4. Section title “热门游戏” with a small “查看全部” action. Show two horizontal game cards with original cover art, title, genre, online player count, and compact “开始” button. Use the titles “霓虹竞速” and “魔法乱斗”.
+5. A compact activity banner titled “周末双倍奖励” with an orange reward accent.
+6. Fixed bottom navigation with four items: “首页”, “游戏”, “社区”, “我的”; “首页” is selected in mint.
+
+The screenshot must look like a real shippable mini-program UI rather than a poster. Keep text on clean surfaces. Do not render device hardware, hands, watermarks, browser chrome, or external margins. Ordinary cards, buttons, text, dividers, and navigation must remain simple enough for accurate HTML/CSS reconstruction. Complex illustrations and icons may be raster assets extracted later.

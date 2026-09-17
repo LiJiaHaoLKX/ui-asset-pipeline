@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#071b2b">
+  <title>游戏首页</title>
+  <link rel="preload" href="../assets/approved/hero-carousel.png" as="image">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app" aria-label="游戏首页">
+    <header class="topbar">
+      <img class="avatar" src="../assets/approved/player-avatar.png" alt="玩家头像">
+      <strong class="greeting">晚上好，玩家</strong>
+      <img class="level-pill" src="../assets/approved/level-pill.png" alt="等级 LV.12">
+      <div class="coin-balance"><img src="../assets/approved/coin-icon.png" alt="金币"><span>2,480</span></div>
+      <button class="icon-button notification" type="button" aria-label="通知"><img src="../assets/approved/notification-bell.png" alt=""></button>
+    </header>
+
+    <button class="hero-button" type="button" aria-label="立即开始星际冒险季">
+      <img src="../assets/approved/hero-carousel.png" alt="星际冒险季，组队探索未知星域，立即开玩">
+    </button>
+
+    <section class="quick-section" aria-labelledby="quick-title">
+      <h2 id="quick-title" class="section-title">快捷入口</h2>
+      <div class="quick-grid">
+        <button type="button"><span class="quick-icon"><img src="../assets/approved/quick-match-icon.png" alt=""></span><strong>快速匹配</strong></button>
+        <button type="button"><span class="quick-icon"><img src="../assets/approved/ranking-icon.png" alt=""></span><strong>排行榜</strong></button>
+        <button type="button"><span class="quick-icon"><img src="../assets/approved/daily-task-icon.png" alt=""></span><strong>每日任务</strong></button>
+        <button type="button"><span class="quick-icon"><img src="../assets/approved/invite-friends-icon.png" alt=""></span><strong>邀请好友</strong></button>
+      </div>
+    </section>
+
+    <section class="games-section" aria-labelledby="games-title">
+      <div class="section-heading"><h2 id="games-title" class="section-title">热门游戏</h2><button type="button">查看全部 <span aria-hidden="true">›</span></button></div>
+      <div class="games-grid">
+        <article class="game-card">
+          <img class="cover" src="../assets/approved/neon-racing-cover.png" alt="霓虹竞速游戏画面">
+          <div class="game-info"><h3>霓虹竞速</h3><span class="genre">竞速</span><div class="game-row"><span class="players"><span class="people-icon" aria-hidden="true"></span>12.8万人在线</span><button type="button">开始</button></div></div>
+        </article>
+        <article class="game-card">
+          <img class="cover" src="../assets/approved/magic-brawl-cover.png" alt="魔法乱斗游戏画面">
+          <div class="game-info"><h3>魔法乱斗</h3><span class="genre">竞技</span><div class="game-row"><span class="players"><span class="people-icon" aria-hidden="true"></span>8.5万人在线</span><button type="button">开始</button></div></div>
+        </article>
+      </div>
+    </section>
+
+    <button class="reward-banner" type="button" aria-label="周末双倍奖励"><img src="../assets/approved/weekend-reward-banner.png" alt="周末双倍奖励，登录即享奖励翻倍"></button>
+
+    <nav class="bottom-nav" aria-label="主导航">
+      <button class="active" type="button"><img src="../assets/approved/nav-home-icon.png" alt=""><span>首页</span></button>
+      <button type="button"><img src="../assets/approved/nav-games-icon.png" alt=""><span>游戏</span></button>
+      <button type="button"><img src="../assets/approved/nav-community-icon.png" alt=""><span>社区</span></button>
+      <button type="button"><img src="../assets/approved/nav-profile-icon.png" alt=""><span>我的</span></button>
+    </nav>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "region-001",
+    "status": "completed",
+    "attempt": 1,
+    "output": "outputs\\ui-asset-pipeline\\assets\\raw-game-home-redbox\\region-001.png",
+    "fingerprint": "e29361a457c993d040044ff7acf79d1fcc41d92070880322d55ab635a75fa1ba"
+  },
+  {
+    "id": "region-002",
+    "status": "completed",
+    "attempt": 1,
+    "output": "outputs\\ui-asset-pipeline\\assets\\raw-game-home-redbox\\region-002.png",
+    "fingerprint": "1f02e1ec0b5619ad283182e875ae0c61ce8092870b77bde93b754e95dd8aeb37"
+  },
+  {
+    "id": "region-003",
+    "status": "completed",
+    "attempt": 1,
+    "output": "outputs\\ui-asset-pipeline\\assets\\raw-game-home-redbox\\region-003.png",
+    "fingerprint": "638cc74183f28420c50fc602dec2ea1850228f8719942709164bb2d123a94553"
+  },
+  {
+    "id": "region-004",
+    "status": "completed",
+    "attempt": 1,
+    "output": "outputs\\ui-asset-pipeline\\assets\\raw-game-home-redbox\\region-004.png",
+    "fingerprint": "cf38f7d233de2489bf89c7019d92475024766b44443fcd08b636469f236bb6ca"
+  }
+]

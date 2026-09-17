@@ -1,0 +1,52 @@
+[
+  {
+    "file": "object-001.png",
+    "bbox": {
+      "x": 0,
+      "y": 166,
+      "width": 498,
+      "height": 403
+    },
+    "foreground_area": 193672
+  },
+  {
+    "file": "object-002.png",
+    "bbox": {
+      "x": 527,
+      "y": 167,
+      "width": 497,
+      "height": 404
+    },
+    "foreground_area": 193429
+  },
+  {
+    "file": "object-003.png",
+    "bbox": {
+      "x": 540,
+      "y": 168,
+      "width": 71,
+      "height": 9
+    },
+    "foreground_area": 63
+  },
+  {
+    "file": "object-004.png",
+    "bbox": {
+      "x": 810,
+      "y": 168,
+      "width": 52,
+      "height": 9
+    },
+    "foreground_area": 44
+  },
+  {
+    "file": "object-005.png",
+    "bbox": {
+      "x": 888,
+      "y": 562,
+      "width": 37,
+      "height": 9
+    },
+    "foreground_area": 29
+  }
+]

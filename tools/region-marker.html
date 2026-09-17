@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>UI 素材区域标记器</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, sans-serif; }
+    body { margin: 0; background: #11151b; color: #eef2f7; }
+    header { position: sticky; top: 0; z-index: 2; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 12px 16px; background: #171d25; border-bottom: 1px solid #303947; }
+    button, label, select { border: 1px solid #3c4859; border-radius: 7px; padding: 8px 12px; background: #212a36; color: inherit; cursor: pointer; }
+    button:hover, label:hover, select:hover { background: #2a3544; }
+    button.active { border-color: #27e3a2; background: #164c40; }
+    input[type=file] { display: none; }
+    #status { color: #9eabba; }
+    main { padding: 24px; overflow: auto; }
+    #stage, #assetStage { position: relative; width: max-content; line-height: 0; user-select: none; }
+    #image, #assetCanvas { display: block; max-width: none; }
+    #overlay, #assetOverlay { position: absolute; inset: 0; cursor: crosshair; }
+    #assetStage { display: none; }
+    .region { position: absolute; box-sizing: border-box; border: 2px solid #27e3a2; background: rgb(39 227 162 / 12%); cursor: pointer; }
+    .region.selected { border-color: #ffe06b; background: rgb(255 224 107 / 15%); }
+    .target { position: absolute; box-sizing: border-box; border: 2px solid #ff4f68; background: rgb(255 79 104 / 12%); pointer-events: none; }
+    .region span, .target span { position: absolute; top: 0; left: 0; padding: 7px 6px; color: white; font: 12px/1 system-ui; white-space: nowrap; }
+    .region span { background: #0e604a; }
+    .target span { background: #9e2639; }
+    #selection { min-width: 180px; }
+  </style>
+</head>
+<body>
+  <header>
+    <label>加载参考图<input id="file" type="file" accept="image/png,image/jpeg,image/webp"></label>
+    <button id="cropMode" class="active">绿色框：切割区域</button>
+    <button id="assetMode">红色框：提取素材</button>
+    <select id="selection" disabled><option>先画绿色切割框</option></select>
+    <button id="undo">撤销当前层</button>
+    <button id="clear">清空全部</button>
+    <button id="export">导出 regions.json</button>
+    <span id="status">请加载图片，然后先画绿色切割框</span>
+  </header>
+  <main>
+    <div id="stage"><img id="image"><div id="overlay"></div></div>
+    <div id="assetStage"><canvas id="assetCanvas"></canvas><div id="assetOverlay"></div></div>
+  </main>
+  <script>
+    const file = document.querySelector('#file');
+    const image = document.querySelector('#image');
+    const overlay = document.querySelector('#overlay');
+    const stage = document.querySelector('#stage');
+    const assetStage = document.querySelector('#assetStage');
+    const assetCanvas = document.querySelector('#assetCanvas');
+    const assetOverlay = document.querySelector('#assetOverlay');
+    const selection = document.querySelector('#selection');
+    const status = document.querySelector('#status');
+    const regions = [];
+    let mode = 'crop';
+    let selectedRegion = -1;
+    let start = null;
+
+    function loadImage(src) {
+      regions.length = 0; selectedRegion = -1; mode = 'crop';
+      image.onload = () => { overlay.style.width = `${image.naturalWidth}px`; overlay.style.height = `${image.naturalHeight}px`; render(); };
+      image.src = src;
+    }
+    function render() {
+      stage.style.display = mode === 'crop' ? 'block' : 'none';
+      assetStage.style.display = mode === 'asset' ? 'block' : 'none';
+      if (mode === 'crop') {
+        overlay.replaceChildren();
+        regions.forEach((r, i) => {
+          const box = document.createElement('div'); box.className = `region${i === selectedRegion ? ' selected' : ''}`;
+          Object.assign(box.style, {left:`${r.x}px`, top:`${r.y}px`, width:`${r.width}px`, height:`${r.height}px`});
+          const tag = document.createElement('span'); tag.textContent = `切割-${String(i + 1).padStart(3, '0')}`; box.append(tag);
+          box.addEventListener('click', e => { e.stopPropagation(); selectedRegion = i; render(); }); overlay.append(box);
+        });
+      } else drawAssetCanvas();
+      selection.replaceChildren();
+      regions.forEach((r, i) => { const o = document.createElement('option'); o.value = i; o.textContent = `切割-${String(i + 1).padStart(3, '0')}（${r.targets.length} 个素材）`; o.selected = i === selectedRegion; selection.append(o); });
+      selection.disabled = !regions.length;
+      status.textContent = image.src ? `${image.naturalWidth} × ${image.naturalHeight}，切割区域 ${regions.length} 个，当前模式：${mode === 'crop' ? '绿色切割框' : '红色素材框'}` : '请加载图片';
+    }
+    function drawAssetCanvas() {
+      assetOverlay.replaceChildren();
+      const r = regions[selectedRegion]; if (!r) return;
+      assetCanvas.width = r.width; assetCanvas.height = r.height; assetStage.style.width = `${r.width}px`; assetStage.style.height = `${r.height}px`;
+      assetCanvas.getContext('2d').drawImage(image, r.x, r.y, r.width, r.height, 0, 0, r.width, r.height);
+      r.targets.forEach((t, i) => { const box = document.createElement('div'); box.className = 'target'; Object.assign(box.style, {left:`${t.x}px`, top:`${t.y}px`, width:`${t.width}px`, height:`${t.height}px`}); const tag = document.createElement('span'); tag.textContent = `素材-${String(i + 1).padStart(3, '0')}`; box.append(tag); assetOverlay.append(box); });
+    }
+    function pointerStart(event, target) { if (!image.src || (mode === 'asset' && selectedRegion < 0)) return; const rect = target.getBoundingClientRect(); start = {x:Math.round(event.clientX - rect.left), y:Math.round(event.clientY - rect.top)}; target.setPointerCapture(event.pointerId); }
+    function pointerEnd(event, target) {
+      if (!start) return; const rect = target.getBoundingClientRect(); const end = {x:Math.round(event.clientX - rect.left), y:Math.round(event.clientY - rect.top)}; const maxW = mode === 'crop' ? image.naturalWidth : regions[selectedRegion].width; const maxH = mode === 'crop' ? image.naturalHeight : regions[selectedRegion].height; const x = Math.max(0, Math.min(start.x, end.x)); const y = Math.max(0, Math.min(start.y, end.y)); const width = Math.min(maxW, Math.max(start.x, end.x)) - x; const height = Math.min(maxH, Math.max(start.y, end.y)) - y;
+      if (width >= 8 && height >= 8) mode === 'crop' ? regions.push({x, y, width, height, purpose:'', approved:true, targets:[]}) : regions[selectedRegion].targets.push({x, y, width, height, purpose:'', approved:true}); start = null; render();
+    }
+    overlay.addEventListener('pointerdown', e => pointerStart(e, overlay)); overlay.addEventListener('pointerup', e => pointerEnd(e, overlay));
+    assetOverlay.addEventListener('pointerdown', e => pointerStart(e, assetOverlay)); assetOverlay.addEventListener('pointerup', e => pointerEnd(e, assetOverlay));
+    document.querySelector('#cropMode').onclick = () => { mode = 'crop'; render(); document.querySelector('#cropMode').classList.add('active'); document.querySelector('#assetMode').classList.remove('active'); };
+    document.querySelector('#assetMode').onclick = () => { if (!regions.length) return; mode = 'asset'; if (selectedRegion < 0) selectedRegion = 0; render(); document.querySelector('#assetMode').classList.add('active'); document.querySelector('#cropMode').classList.remove('active'); };
+    selection.onchange = () => { selectedRegion = Number(selection.value); render(); };
+    document.querySelector('#undo').onclick = () => { if (mode === 'crop') regions.pop(); else if (regions[selectedRegion]) regions[selectedRegion].targets.pop(); render(); };
+    document.querySelector('#clear').onclick = () => { regions.length = 0; selectedRegion = -1; render(); };
+    document.querySelector('#export').onclick = () => { if (!image.src) return; const payload = {canvas:{width:image.naturalWidth,height:image.naturalHeight}, regions:regions.map((r,i)=>({id:`region-${String(i+1).padStart(3,'0')}`, ...r, targets:r.targets.map((t,j)=>({id:`target-${String(j+1).padStart(3,'0')}`, ...t}))}))}; const link = document.createElement('a'); link.href = URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:'application/json'})); link.download='regions.json'; link.click(); URL.revokeObjectURL(link.href); };
+    file.addEventListener('change', () => { if (file.files[0]) loadImage(URL.createObjectURL(file.files[0])); });
+    const defaultImage = new URLSearchParams(location.search).get('image'); if (defaultImage) loadImage(defaultImage);
+  </script>
+</body>
+</html>

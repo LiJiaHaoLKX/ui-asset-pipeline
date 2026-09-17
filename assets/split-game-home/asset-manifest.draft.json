@@ -1,0 +1,713 @@
+{
+  "canvas": {
+    "width": 750,
+    "height": 1334
+  },
+  "coordinateNotice": "API output may rescale or recenter assets. Do not map extractedImageBox directly to page coordinates.",
+  "assets": [
+    {
+      "id": "asset-001",
+      "file": "region-001/object-001.png",
+      "sourceRegion": "region-001",
+      "sourceMarkedBox": {
+        "x": 15,
+        "y": 14,
+        "width": 717,
+        "height": 393
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 0,
+        "width": 750,
+        "height": 439
+      },
+      "extractedImageBox": {
+        "x": 0,
+        "y": 31,
+        "width": 1024,
+        "height": 993
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-002",
+      "file": "region-001/object-002.png",
+      "sourceRegion": "region-001",
+      "sourceMarkedBox": {
+        "x": 15,
+        "y": 14,
+        "width": 717,
+        "height": 393
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 0,
+        "width": 750,
+        "height": 439
+      },
+      "extractedImageBox": {
+        "x": 0,
+        "y": 48,
+        "width": 51,
+        "height": 199
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-003",
+      "file": "region-002/object-001.png",
+      "sourceRegion": "region-002",
+      "sourceMarkedBox": {
+        "x": 18,
+        "y": 468,
+        "width": 719,
+        "height": 177
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 436,
+        "width": 750,
+        "height": 241
+      },
+      "extractedImageBox": {
+        "x": 44,
+        "y": 496,
+        "width": 451,
+        "height": 490
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-004",
+      "file": "region-002/object-002.png",
+      "sourceRegion": "region-002",
+      "sourceMarkedBox": {
+        "x": 18,
+        "y": 468,
+        "width": 719,
+        "height": 177
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 436,
+        "width": 750,
+        "height": 241
+      },
+      "extractedImageBox": {
+        "x": 46,
+        "y": 51,
+        "width": 454,
+        "height": 447
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-005",
+      "file": "region-002/object-003.png",
+      "sourceRegion": "region-002",
+      "sourceMarkedBox": {
+        "x": 18,
+        "y": 468,
+        "width": 719,
+        "height": 177
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 436,
+        "width": 750,
+        "height": 241
+      },
+      "extractedImageBox": {
+        "x": 510,
+        "y": 41,
+        "width": 491,
+        "height": 940
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-006",
+      "file": "region-003/object-001.png",
+      "sourceRegion": "region-003",
+      "sourceMarkedBox": {
+        "x": 20,
+        "y": 722,
+        "width": 716,
+        "height": 305
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 690,
+        "width": 750,
+        "height": 369
+      },
+      "extractedImageBox": {
+        "x": 0,
+        "y": 39,
+        "width": 1024,
+        "height": 441
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-007",
+      "file": "region-003/object-002.png",
+      "sourceRegion": "region-003",
+      "sourceMarkedBox": {
+        "x": 20,
+        "y": 722,
+        "width": 716,
+        "height": 305
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 690,
+        "width": 750,
+        "height": 369
+      },
+      "extractedImageBox": {
+        "x": 235,
+        "y": 40,
+        "width": 39,
+        "height": 9
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-008",
+      "file": "region-003/object-003.png",
+      "sourceRegion": "region-003",
+      "sourceMarkedBox": {
+        "x": 20,
+        "y": 722,
+        "width": 716,
+        "height": 305
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 690,
+        "width": 750,
+        "height": 369
+      },
+      "extractedImageBox": {
+        "x": 0,
+        "y": 505,
+        "width": 1024,
+        "height": 477
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-009",
+      "file": "region-003/object-004.png",
+      "sourceRegion": "region-003",
+      "sourceMarkedBox": {
+        "x": 20,
+        "y": 722,
+        "width": 716,
+        "height": 305
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 690,
+        "width": 750,
+        "height": 369
+      },
+      "extractedImageBox": {
+        "x": 33,
+        "y": 975,
+        "width": 36,
+        "height": 9
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-010",
+      "file": "region-003/object-005.png",
+      "sourceRegion": "region-003",
+      "sourceMarkedBox": {
+        "x": 20,
+        "y": 722,
+        "width": 716,
+        "height": 305
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 690,
+        "width": 750,
+        "height": 369
+      },
+      "extractedImageBox": {
+        "x": 105,
+        "y": 975,
+        "width": 32,
+        "height": 9
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-011",
+      "file": "region-003/object-006.png",
+      "sourceRegion": "region-003",
+      "sourceMarkedBox": {
+        "x": 20,
+        "y": 722,
+        "width": 716,
+        "height": 305
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 690,
+        "width": 750,
+        "height": 369
+      },
+      "extractedImageBox": {
+        "x": 166,
+        "y": 975,
+        "width": 37,
+        "height": 9
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-012",
+      "file": "region-003/object-007.png",
+      "sourceRegion": "region-003",
+      "sourceMarkedBox": {
+        "x": 20,
+        "y": 722,
+        "width": 716,
+        "height": 305
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 690,
+        "width": 750,
+        "height": 369
+      },
+      "extractedImageBox": {
+        "x": 242,
+        "y": 975,
+        "width": 53,
+        "height": 9
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-013",
+      "file": "region-003/object-008.png",
+      "sourceRegion": "region-003",
+      "sourceMarkedBox": {
+        "x": 20,
+        "y": 722,
+        "width": 716,
+        "height": 305
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 690,
+        "width": 750,
+        "height": 369
+      },
+      "extractedImageBox": {
+        "x": 338,
+        "y": 503,
+        "width": 25,
+        "height": 9
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-014",
+      "file": "region-003/object-009.png",
+      "sourceRegion": "region-003",
+      "sourceMarkedBox": {
+        "x": 20,
+        "y": 722,
+        "width": 716,
+        "height": 305
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 690,
+        "width": 750,
+        "height": 369
+      },
+      "extractedImageBox": {
+        "x": 379,
+        "y": 504,
+        "width": 35,
+        "height": 9
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-015",
+      "file": "region-003/object-010.png",
+      "sourceRegion": "region-003",
+      "sourceMarkedBox": {
+        "x": 20,
+        "y": 722,
+        "width": 716,
+        "height": 305
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 690,
+        "width": 750,
+        "height": 369
+      },
+      "extractedImageBox": {
+        "x": 423,
+        "y": 503,
+        "width": 30,
+        "height": 9
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-016",
+      "file": "region-003/object-011.png",
+      "sourceRegion": "region-003",
+      "sourceMarkedBox": {
+        "x": 20,
+        "y": 722,
+        "width": 716,
+        "height": 305
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 690,
+        "width": 750,
+        "height": 369
+      },
+      "extractedImageBox": {
+        "x": 442,
+        "y": 975,
+        "width": 49,
+        "height": 9
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-017",
+      "file": "region-003/object-012.png",
+      "sourceRegion": "region-003",
+      "sourceMarkedBox": {
+        "x": 20,
+        "y": 722,
+        "width": 716,
+        "height": 305
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 690,
+        "width": 750,
+        "height": 369
+      },
+      "extractedImageBox": {
+        "x": 934,
+        "y": 975,
+        "width": 25,
+        "height": 9
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-018",
+      "file": "region-003/object-013.png",
+      "sourceRegion": "region-003",
+      "sourceMarkedBox": {
+        "x": 20,
+        "y": 722,
+        "width": 716,
+        "height": 305
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 690,
+        "width": 750,
+        "height": 369
+      },
+      "extractedImageBox": {
+        "x": 984,
+        "y": 975,
+        "width": 40,
+        "height": 9
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-019",
+      "file": "region-004/object-001.png",
+      "sourceRegion": "region-004",
+      "sourceMarkedBox": {
+        "x": 19,
+        "y": 1046,
+        "width": 716,
+        "height": 275
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 1014,
+        "width": 750,
+        "height": 320
+      },
+      "extractedImageBox": {
+        "x": 0,
+        "y": 129,
+        "width": 1024,
+        "height": 829
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-020",
+      "file": "region-004/object-002.png",
+      "sourceRegion": "region-004",
+      "sourceMarkedBox": {
+        "x": 19,
+        "y": 1046,
+        "width": 716,
+        "height": 275
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 1014,
+        "width": 750,
+        "height": 320
+      },
+      "extractedImageBox": {
+        "x": 749,
+        "y": 85,
+        "width": 124,
+        "height": 136
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-021",
+      "file": "region-004/object-003.png",
+      "sourceRegion": "region-004",
+      "sourceMarkedBox": {
+        "x": 19,
+        "y": 1046,
+        "width": 716,
+        "height": 275
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 1014,
+        "width": 750,
+        "height": 320
+      },
+      "extractedImageBox": {
+        "x": 939,
+        "y": 240,
+        "width": 85,
+        "height": 116
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-022",
+      "file": "region-004/object-004.png",
+      "sourceRegion": "region-004",
+      "sourceMarkedBox": {
+        "x": 19,
+        "y": 1046,
+        "width": 716,
+        "height": 275
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 1014,
+        "width": 750,
+        "height": 320
+      },
+      "extractedImageBox": {
+        "x": 1016,
+        "y": 439,
+        "width": 8,
+        "height": 24
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    }
+  ]
+}

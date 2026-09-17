@@ -1,0 +1,29 @@
+{
+  "viewport": {
+    "width": 1440,
+    "height": 900,
+    "devicePixelRatio": 1
+  },
+  "spacing": {
+    "base": 4,
+    "pagePadding": 32,
+    "sectionGap": 24
+  },
+  "typography": {
+    "fontFamily": "Inter",
+    "titleSize": 32,
+    "bodySize": 14,
+    "lineHeight": 1.5
+  },
+  "colors": {
+    "background": "#0B1117",
+    "surface": "#12232D",
+    "primary": "#20E5B2",
+    "text": "#F4F7F8"
+  },
+  "radius": {
+    "card": 8,
+    "button": 6
+  },
+  "pageName": "测试"
+}

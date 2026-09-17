@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4f6f5">
+  <title>UI 素材工作台</title>
+  <link rel="stylesheet" href="/web/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">UI</span><div><strong>素材工作台</strong><small>本机流水线</small></div></div>
+      <nav id="stageNav" aria-label="工作阶段"></nav>
+      <div class="sidebar-project"><button id="projectSettingsButton" class="sidebar-settings">项目设置</button><div class="sidebar-status"><span id="apiIndicator" class="status-dot"></span><span id="apiLabel">正在读取配置</span></div></div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div class="title-cluster"><div class="page-switcher"><select id="pageSelector" aria-label="当前页面"></select><button id="newPageButton" class="secondary">新建页面</button><button id="renamePageButton" class="icon-command" title="重命名页面" aria-label="重命名页面">✎</button></div><div><h1 id="pageTitle">项目概览</h1><p id="pageSummary">从参考图到可复用素材与页面实现</p></div></div>
+        <div class="top-actions"><span id="phaseBadge" class="badge">读取中</span><button id="refreshButton" class="icon-command" title="刷新状态" aria-label="刷新状态">↻</button></div>
+      </header>
+
+      <div id="notice" class="notice" hidden></div>
+
+      <section class="view active" data-view="overview">
+        <div class="metric-strip">
+          <div><span>切割区域</span><strong id="regionMetric">0</strong></div>
+          <div><span>目标素材</span><strong id="targetMetric">0</strong></div>
+          <div><span>已批准素材</span><strong id="assetMetric">0</strong></div>
+          <div><span>对比轮次</span><strong id="iterationMetric">0</strong></div>
+        </div>
+        <div class="overview-grid">
+          <section class="plain-section"><div class="section-head"><h2>当前进度</h2><button data-go="reference" class="secondary">继续工作</button></div><div id="progressList" class="progress-list"></div></section>
+          <section class="plain-section"><div class="section-head"><h2>后台任务</h2><button id="clearCompleted" class="text-button">隐藏已完成</button></div><div id="jobList" class="job-list empty">暂无后台任务</div></section>
+        </div>
+      </section>
+
+      <section class="view" data-view="project-settings">
+        <div class="settings-layout">
+          <section id="designStudio" class="form-panel studio-panel">
+            <h2>一起确定项目的设计风格</h2>
+            <p class="field-help">回答几个问题、添加喜欢的参考图，AI 会帮你整理专业规范。预览满意后再确立，供所有页面使用。</p>
+            <ol class="studio-steps"><li>基础问答与参考</li><li>生成规范</li><li>预览与调整</li><li>确立规范</li></ol>
+            <fieldset id="studioInputs"><legend>01 · 告诉我们你的想法</legend>
+              <div class="form-grid">
+                <label><span>你想做什么产品？</span><input id="studioProduct" placeholder="例如：售卖游戏道具的小程序"></label>
+                <label><span>主要给谁使用？</span><input id="studioAudience" placeholder="例如：年轻游戏玩家，不确定也可以留空"></label>
+                <label><span>使用平台</span><select id="studioPlatform"><option>小程序</option><option>手机网页</option><option>电脑网页</option><option>跨端应用</option></select></label>
+                <label><span>设计画布</span><input id="studioCanvas" value="750x1334" placeholder="例如 750x1334"></label>
+                <label><span>希望是什么感觉？</span><input id="studioStyle" placeholder="例如：深色科技感，但不要太多发光"></label>
+                <label><span>必须保留或避免的内容</span><input id="studioConstraints" placeholder="品牌色、Logo、易读大字，或不喜欢的风格"></label>
+              </div>
+              <p class="field-help">参考图（可选，最多 5 张，每张不超过 4 MB）。生成规范时会交给文本模型分析配色、排版与组件风格。</p>
+              <input id="studioUpload" type="file" accept="image/png,image/jpeg,image/webp" multiple aria-label="添加设计参考图">
+              <div id="studioReferences" class="studio-references"></div>
+              <label><span>规范预览图片模型</span><input id="studioModel" value="gpt-image-2.5" placeholder="中转站中的 gpt-image-2.5 模型 ID"><small>使用下方已保存的图片 API 地址与密钥；如果中转站模型带后缀，请填写完整 ID。</small></label>
+              <div class="compact-actions"><button id="studioSave" type="button" class="secondary">保存问答</button><button id="studioGenerate" type="button" class="primary">AI 生成设计规范</button></div>
+            </fieldset>
+            <p id="studioStatus" role="status" aria-live="polite"></p>
+            <section id="studioProposal" hidden>
+              <div class="section-head"><h3 id="studioVersion">规范草稿</h3><span id="studioAdopted" class="badge"></span></div>
+              <div class="studio-result"><div><p id="studioSummary"></p><details><summary>查看专业设计规范 JSON</summary><pre id="studioSpec"></pre></details><details><summary>查看预览提示词</summary><pre id="studioPrompt"></pre></details></div><div><img id="studioPreviewImage" alt="当前规范的 AI 样式预览" hidden><p id="studioPreviewEmpty">尚未生成该版本预览</p><button id="studioPreview" type="button" class="secondary">生成样式预览</button></div></div>
+              <label><span>你希望调整哪里？</span><textarea id="studioFeedback" placeholder="例如：背景再亮一点，按钮不要这么圆，文字大一些。"></textarea></label>
+              <div class="compact-actions"><button id="studioAdjust" type="button" class="secondary">按意见调整规范</button><button id="studioAdopt" type="button" class="primary">确认预览，确立项目规范</button></div>
+              <p class="field-help">调整后需重新生成预览。确立规范会影响后续页面生成与新建 Codex 任务；已有页面、图片和任务不会自动重做。图片预览仅用于视觉确认，精确尺寸以 JSON 为准。</p>
+              <details><summary>规范版本记录</summary><div id="studioHistory"></div></details>
+            </section>
+          </section>
+          <form id="configForm" class="form-panel">
+            <div class="section-head"><div><h2>项目公共配置</h2><p>这里的规范、模型和处理参数对项目内全部页面生效。</p></div></div>
+            <details><summary>当前已生效的项目设计规范</summary><textarea id="projectDesignSpec" class="code project-spec-editor" spellcheck="false" readonly aria-label="已生效设计规范"></textarea></details>
+            <fieldset><legend>图片模型</legend><div class="section-head compact"><p>生成参考图并提取透明素材</p><div class="compact-actions"><button id="fetchImageModels" type="button" class="secondary">获取模型列表</button><button id="checkApi" type="button" class="secondary">检测图片 API</button></div></div>
+            <div class="form-grid">
+              <label><span>API 根地址</span><input name="imageBaseUrl" type="url" required></label>
+              <label><span>模型</span><select name="imageModel" required><option value="">请先获取模型列表</option></select><small id="imageModelHint">从当前中转站读取后选择</small></label>
+              <label class="wide"><span>API Key</span><input name="imageApiKey" type="password" autocomplete="off" placeholder="留空表示保留已有密钥"><small id="imageKeyHint"></small></label>
+              <label><span>参考图请求尺寸</span><select name="generationSize"><option>750x1334</option><option>1024x1024</option><option>1536x1024</option><option>1024x1536</option><option>750x750</option></select></label>
+              <label><span>素材提取请求尺寸</span><select name="extractionSize"><option>1024x1024</option><option>1536x1024</option><option>1024x1536</option><option>750x750</option></select></label>
+              <label><span>最终参考图尺寸</span><input name="finalSize" pattern="\d+x\d+" placeholder="750x1334"></label>
+              <label><span>质量</span><select name="quality"><option>low</option><option selected>medium</option><option>high</option></select></label>
+              <label><span>裁剪安全边距</span><input name="padding" type="number" min="0" max="256"></label>
+              <label><span>差异阈值</span><input name="threshold" type="number" min="0" max="255"></label>
+              <label><span>Codex 校准最大轮次</span><input name="codexMaxIterations" type="number" min="1" max="20"></label>
+            </div></fieldset>
+            <fieldset><legend>文本模型</legend><div class="section-head compact"><p>根据设计规范 JSON 生成 gpt-image-2 图片提示词</p><button id="checkTextApi" type="button" class="secondary">检测文本 API</button></div><div class="form-grid">
+              <label><span>API 根地址</span><input name="textBaseUrl" type="url" required></label>
+              <label><span>GPT 模型</span><input name="textModel" placeholder="填写中转站中的模型 ID" required></label>
+              <label class="wide"><span>API Key</span><input name="textApiKey" type="password" autocomplete="off" placeholder="留空表示保留已有密钥"><small id="textKeyHint"></small></label>
+            </div></fieldset>
+            <div class="form-actions"><button type="submit" class="primary">保存项目设置</button></div>
+          </form>
+        </div>
+      </section>
+
+      <section class="view" data-view="reference">
+        <div class="toolbar"><button id="uploadReference" class="secondary">上传参考图</button><input id="referenceFile" type="file" accept="image/png,image/jpeg,image/webp" hidden><button id="approveReference" class="primary">批准当前参考图</button><button id="rejectReference" class="secondary">标记为待修改</button><span id="referenceDimensions" class="toolbar-meta"></span></div>
+        <div class="canvas-layout">
+          <div class="canvas-panel checker"><img id="referenceImage" alt="参考图预览"><div id="referenceEmpty" class="empty-canvas">上传图片或从页面需求生成参考图</div></div>
+          <aside class="context-panel"><h3>审核重点</h3><p>确认整体风格、信息层级、文字内容和主要图片位置。批准后再进入标注。</p><div class="status-block"><span>审核状态</span><strong id="referenceStatus">未生成</strong></div></aside>
+        </div>
+      </section>
+
+      <section class="view" data-view="design">
+        <div class="editor-layout">
+          <div class="editor-panel"><label for="promptNotes">本页需求</label><textarea id="promptNotes" spellcheck="false" placeholder="描述当前页面的用途、结构、文案和需要突出显示的内容"></textarea></div>
+          <div class="editor-panel"><label for="designPrompt">AI 生成的图片提示词</label><textarea id="designPrompt" spellcheck="false" placeholder="填写本页需求后，点击 AI 生成提示词"></textarea></div>
+        </div>
+        <div class="sticky-actions"><span>项目规范自动参与生成，无需在每个页面重复配置。</span><button id="saveDesign" class="secondary">保存页面需求</button><button id="generatePrompt" class="secondary">AI 生成提示词</button><button id="generateReference" class="primary">生成参考图</button></div>
+      </section>
+
+      <section class="view" data-view="marker">
+        <div class="toolbar marker-tools">
+          <div class="segmented"><button id="cropMode" class="active">绿色切割框</button><button id="targetMode">红色元素框</button></div>
+          <select id="regionSelection" aria-label="当前切割区域"></select>
+          <button id="suggestElements" class="secondary">AI 建议元素</button><button id="undoMark" class="secondary">撤销</button><button id="clearMarks" class="danger-text">清空</button><button id="saveMarks" class="primary">保存人工校准</button>
+          <span id="markerStatus" class="toolbar-meta"></span>
+        </div>
+        <div class="marker-workspace">
+          <div id="markerScroller" class="marker-scroller checker"><div id="markerStage"><img id="markerImage" alt="待标注参考图"><div id="markerOverlay"></div></div><div id="targetStage"><canvas id="targetCanvas"></canvas><div id="targetOverlay"></div></div></div>
+          <aside class="marker-inspector"><div class="inspector-title"><h3>元素校准</h3><span id="targetReviewBadge" class="review-badge">未选择</span></div><label><span>区域用途</span><input id="regionPurpose" placeholder="例如：顶部导航区域"></label><label><span>当前元素</span><select id="targetSelection"></select></label><label><span>元素类型</span><select id="targetElementType"><option value="image-asset">图片素材</option><option value="code-element">代码元素</option><option value="complete-composite">完整复合图片</option></select></label><label><span>处理动作</span><select id="targetProcessingMode"><option value="local-transparent">本地透明化</option><option value="ai-transparent">AI 透明化</option><option value="complete-crop">完整裁剪</option><option value="background-repair">AI 背景补全</option><option value="none">不生成图片</option></select></label><label><span>语义名称</span><input id="targetName" placeholder="例如：hero-carousel"></label><label><span>用途说明</span><textarea id="targetPurpose" placeholder="说明必须保留的文字、装饰和边缘效果"></textarea></label><div class="form-grid compact hierarchy-fields"><label><span>父级</span><input id="targetParent" placeholder="可留空"></label><label><span>层级</span><input id="targetZIndex" type="number" placeholder="例如 10"></label></div><div id="scriptExtractionOptions" class="form-grid compact"><label><span>颜色容差</span><input id="backgroundTolerance" type="number" min="0" max="255" value="34"></label><label><span>边缘柔化</span><input id="edgeFeather" type="number" min="0" max="64" value="48"></label></div><label class="check-row"><input id="targetConfirmed" type="checkbox"><span>已人工确认此元素</span></label><label class="check-row"><input id="markApproved" type="checkbox" checked><span>启用当前切割区域</span></label><p id="markerHelp">AI 只提供候选。请逐个确认类型、动作、名称、坐标与层级；未确认的元素不会进入处理队列。</p></aside>
+        </div>
+      </section>
+
+      <section class="view" data-view="extract">
+        <div class="operation-header"><div><h2>处理中心</h2><p>所有操作独立执行，原始裁剪与处理结果始终并存。</p></div><span id="extractSummary" class="toolbar-meta"></span></div>
+        <div class="operation-strip"><button id="cropButton" class="operation-button"><strong>生成原始裁剪</strong><span>所有已确认目标</span></button><button id="scriptExtract" class="operation-button"><strong>执行本地处理</strong><span>透明化与完整裁剪</span></button><button id="extractButton" class="operation-button primary-operation"><strong>并发 AI 透明化</strong><span>按绿色裁剪区并发</span></button><button id="repairBackgrounds" class="operation-button"><strong>AI 背景补全</strong><span>仅处理背景候选</span></button><button id="splitButton" class="operation-button"><strong>拆分透明结果</strong><span>生成独立待审素材</span></button></div>
+        <div id="cropGallery" class="media-grid empty">尚未生成裁剪图</div>
+      </section>
+
+      <section class="view" data-view="assets">
+        <div class="toolbar"><div class="segmented asset-filter"><button data-asset-filter="all" class="active">全部</button><button data-asset-filter="image-asset">图片素材</button><button data-asset-filter="complete-composite">完整复合图片</button><button data-asset-filter="code-element">代码元素</button></div><button id="selectAllAssets" class="secondary">全选可见项</button><button id="approveAssets" class="primary">保存审核结果</button><span id="assetSummary" class="toolbar-meta"></span></div>
+        <div id="assetGallery" class="asset-review-list empty">尚无待审核元素</div>
+      </section>
+
+      <section class="view" data-view="code">
+        <div class="code-toolbar"><div class="tabs" id="codeTabs"><button data-file="index.html" class="active">HTML</button><button data-file="styles.css">CSS</button><button data-file="app.js">JavaScript</button></div><div class="toolbar-actions"><button id="copyPersistentSession" class="secondary">复制常驻会话指令</button><button id="createImplementationTask" class="secondary">创建 Codex 实现任务</button><button id="reloadPreview" class="secondary">刷新预览</button><button id="saveSource" class="primary">保存源码</button></div></div>
+        <section id="implementationTaskPanel" class="codex-task-panel empty-task" aria-live="polite"></section>
+        <div class="code-layout"><textarea id="sourceEditor" class="code" spellcheck="false"></textarea><div class="preview-frame"><iframe id="pagePreview" title="页面实时预览" sandbox="allow-scripts"></iframe></div></div>
+      </section>
+
+      <section class="view" data-view="compare">
+        <div class="toolbar"><label class="inline-field"><span>本轮调整记录</span><input id="iterationNote" placeholder="例如：修正轮播图高度和底部导航间距"></label><button id="createCalibrationTask" class="secondary">创建 Codex 校准任务</button><button id="compareButton" class="primary">手动渲染并对比</button><button id="completeButton" class="secondary">标记完成</button></div>
+        <section id="calibrationTaskPanel" class="codex-task-panel empty-task" aria-live="polite"></section>
+        <div id="comparisonPanel" class="comparison empty">尚无对比结果</div>
+      </section>
+    </main>
+  </div>
+  <dialog id="targetConfigDialog"><form id="targetConfigForm"><div class="dialog-head"><div><h2>确认元素与处理动作</h2><p id="targetConfigSize" class="dialog-subtitle"></p></div></div><div class="dialog-classification"><label><span>元素类型</span><select id="dialogElementType"><option value="image-asset">图片素材</option><option value="code-element">代码元素</option><option value="complete-composite">完整复合图片</option></select></label><label><span>处理动作</span><select id="dialogProcessingMode"><option value="local-transparent">本地透明化</option><option value="ai-transparent">AI 透明化</option><option value="complete-crop">完整裁剪</option><option value="background-repair">AI 背景补全</option><option value="none">不生成图片</option></select></label></div><label><span>语义名称</span><input id="dialogTargetName" placeholder="例如：hero-carousel"></label><label><span>用途说明</span><textarea id="dialogTargetPurpose" placeholder="例如：完整轮播图，保留背景、文字和按钮"></textarea></label><div id="dialogScriptOptions" class="form-grid compact"><label><span>颜色容差</span><input id="dialogBackgroundTolerance" type="number" min="0" max="255" value="34"></label><label><span>边缘柔化</span><input id="dialogEdgeFeather" type="number" min="0" max="64" value="48"></label></div><div class="dialog-actions"><button id="useDefaultTargetConfig" type="button" class="secondary">设为图片素材</button><button type="submit" class="primary">确认元素</button></div></form></dialog>
+  <dialog id="newPageDialog"><form method="dialog" id="newPageForm"><div class="dialog-head"><h2>新建页面</h2><button type="button" data-close-dialog class="icon-command" aria-label="关闭">×</button></div><label><span>页面名称</span><input name="name" required placeholder="例如：游戏详情页"></label><label><span>页面标识</span><input name="id" pattern="[a-z0-9]+(?:-[a-z0-9]+)*" placeholder="可选，例如 game-detail"><small>用于目录名，只允许小写字母、数字和连字符</small></label><div class="dialog-actions"><button type="button" data-close-dialog class="secondary">取消</button><button id="createPageSubmit" value="default" class="primary">创建页面</button></div></form></dialog>
+  <script src="/web/design-studio.js"></script>
+  <script src="/web/app.js"></script>
+</body>
+</html>

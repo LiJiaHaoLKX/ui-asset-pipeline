@@ -1,0 +1,26 @@
+[
+  {
+    "id": "region-001",
+    "status": "completed",
+    "attempt": 1,
+    "output": "outputs\\ui-asset-pipeline\\assets\\raw-game-home\\region-001.png"
+  },
+  {
+    "id": "region-002",
+    "status": "completed",
+    "attempt": 1,
+    "output": "outputs\\ui-asset-pipeline\\assets\\raw-game-home\\region-002.png"
+  },
+  {
+    "id": "region-003",
+    "status": "completed",
+    "attempt": 1,
+    "output": "outputs\\ui-asset-pipeline\\assets\\raw-game-home\\region-003.png"
+  },
+  {
+    "id": "region-004",
+    "status": "completed",
+    "attempt": 1,
+    "output": "outputs\\ui-asset-pipeline\\assets\\raw-game-home\\region-004.png"
+  }
+]

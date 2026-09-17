@@ -1,0 +1,2277 @@
+{
+  "canvas": {
+    "width": 750,
+    "height": 1334
+  },
+  "coordinateNotice": "API output may rescale or recenter assets. Do not map extractedImageBox directly to page coordinates.",
+  "assets": [
+    {
+      "id": "asset-001",
+      "file": "region-001/object-001.png",
+      "sourceRegion": "region-001",
+      "sourceMarkedBox": {
+        "x": 18,
+        "y": 13,
+        "width": 714,
+        "height": 392
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 0,
+        "width": 750,
+        "height": 437
+      },
+      "sourceTargets": [
+        {
+          "id": "target-001",
+          "x": 4,
+          "y": 6,
+          "width": 73,
+          "height": 66,
+          "purpose": "robot player avatar only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 22,
+            "y": 19,
+            "width": 73,
+            "height": 66
+          },
+          "pageBox": {
+            "x": 22,
+            "y": 19,
+            "width": 73,
+            "height": 66
+          }
+        },
+        {
+          "id": "target-002",
+          "x": 496,
+          "y": 17,
+          "width": 45,
+          "height": 40,
+          "purpose": "gold coin icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 514,
+            "y": 30,
+            "width": 45,
+            "height": 40
+          },
+          "pageBox": {
+            "x": 514,
+            "y": 30,
+            "width": 45,
+            "height": 40
+          }
+        },
+        {
+          "id": "target-003",
+          "x": 653,
+          "y": 7,
+          "width": 54,
+          "height": 58,
+          "purpose": "notification bell icon with red unread dot",
+          "approved": true,
+          "markedCropBox": {
+            "x": 671,
+            "y": 20,
+            "width": 54,
+            "height": 58
+          },
+          "pageBox": {
+            "x": 671,
+            "y": 20,
+            "width": 54,
+            "height": 58
+          }
+        },
+        {
+          "id": "target-004",
+          "x": 265,
+          "y": 19,
+          "width": 94,
+          "height": 36,
+          "purpose": "complete LV.12 gradient level pill including its text",
+          "approved": true,
+          "markedCropBox": {
+            "x": 283,
+            "y": 32,
+            "width": 94,
+            "height": 36
+          },
+          "pageBox": {
+            "x": 283,
+            "y": 32,
+            "width": 94,
+            "height": 36
+          }
+        },
+        {
+          "id": "target-005",
+          "x": 8,
+          "y": 97,
+          "width": 705,
+          "height": 290,
+          "purpose": "complete hero carousel as one rectangular asset, preserving its background illustration, badge, Chinese title and subtitle, and primary button",
+          "approved": true,
+          "markedCropBox": {
+            "x": 26,
+            "y": 110,
+            "width": 705,
+            "height": 290
+          },
+          "pageBox": {
+            "x": 26,
+            "y": 110,
+            "width": 705,
+            "height": 290
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "id": "target-001",
+        "x": 4,
+        "y": 6,
+        "width": 73,
+        "height": 66,
+        "purpose": "robot player avatar only",
+        "approved": true,
+        "markedCropBox": {
+          "x": 22,
+          "y": 19,
+          "width": 73,
+          "height": 66
+        }
+      },
+      "extractedImageBox": {
+        "x": 57,
+        "y": 169,
+        "width": 223,
+        "height": 224
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-002",
+      "file": "region-001/object-002.png",
+      "sourceRegion": "region-001",
+      "sourceMarkedBox": {
+        "x": 18,
+        "y": 13,
+        "width": 714,
+        "height": 392
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 0,
+        "width": 750,
+        "height": 437
+      },
+      "sourceTargets": [
+        {
+          "id": "target-001",
+          "x": 4,
+          "y": 6,
+          "width": 73,
+          "height": 66,
+          "purpose": "robot player avatar only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 22,
+            "y": 19,
+            "width": 73,
+            "height": 66
+          },
+          "pageBox": {
+            "x": 22,
+            "y": 19,
+            "width": 73,
+            "height": 66
+          }
+        },
+        {
+          "id": "target-002",
+          "x": 496,
+          "y": 17,
+          "width": 45,
+          "height": 40,
+          "purpose": "gold coin icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 514,
+            "y": 30,
+            "width": 45,
+            "height": 40
+          },
+          "pageBox": {
+            "x": 514,
+            "y": 30,
+            "width": 45,
+            "height": 40
+          }
+        },
+        {
+          "id": "target-003",
+          "x": 653,
+          "y": 7,
+          "width": 54,
+          "height": 58,
+          "purpose": "notification bell icon with red unread dot",
+          "approved": true,
+          "markedCropBox": {
+            "x": 671,
+            "y": 20,
+            "width": 54,
+            "height": 58
+          },
+          "pageBox": {
+            "x": 671,
+            "y": 20,
+            "width": 54,
+            "height": 58
+          }
+        },
+        {
+          "id": "target-004",
+          "x": 265,
+          "y": 19,
+          "width": 94,
+          "height": 36,
+          "purpose": "complete LV.12 gradient level pill including its text",
+          "approved": true,
+          "markedCropBox": {
+            "x": 283,
+            "y": 32,
+            "width": 94,
+            "height": 36
+          },
+          "pageBox": {
+            "x": 283,
+            "y": 32,
+            "width": 94,
+            "height": 36
+          }
+        },
+        {
+          "id": "target-005",
+          "x": 8,
+          "y": 97,
+          "width": 705,
+          "height": 290,
+          "purpose": "complete hero carousel as one rectangular asset, preserving its background illustration, badge, Chinese title and subtitle, and primary button",
+          "approved": true,
+          "markedCropBox": {
+            "x": 26,
+            "y": 110,
+            "width": 705,
+            "height": 290
+          },
+          "pageBox": {
+            "x": 26,
+            "y": 110,
+            "width": 705,
+            "height": 290
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "id": "target-004",
+        "x": 265,
+        "y": 19,
+        "width": 94,
+        "height": 36,
+        "purpose": "complete LV.12 gradient level pill including its text",
+        "approved": true,
+        "markedCropBox": {
+          "x": 283,
+          "y": 32,
+          "width": 94,
+          "height": 36
+        }
+      },
+      "extractedImageBox": {
+        "x": 314,
+        "y": 222,
+        "width": 281,
+        "height": 117
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-003",
+      "file": "region-001/object-003.png",
+      "sourceRegion": "region-001",
+      "sourceMarkedBox": {
+        "x": 18,
+        "y": 13,
+        "width": 714,
+        "height": 392
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 0,
+        "width": 750,
+        "height": 437
+      },
+      "sourceTargets": [
+        {
+          "id": "target-001",
+          "x": 4,
+          "y": 6,
+          "width": 73,
+          "height": 66,
+          "purpose": "robot player avatar only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 22,
+            "y": 19,
+            "width": 73,
+            "height": 66
+          },
+          "pageBox": {
+            "x": 22,
+            "y": 19,
+            "width": 73,
+            "height": 66
+          }
+        },
+        {
+          "id": "target-002",
+          "x": 496,
+          "y": 17,
+          "width": 45,
+          "height": 40,
+          "purpose": "gold coin icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 514,
+            "y": 30,
+            "width": 45,
+            "height": 40
+          },
+          "pageBox": {
+            "x": 514,
+            "y": 30,
+            "width": 45,
+            "height": 40
+          }
+        },
+        {
+          "id": "target-003",
+          "x": 653,
+          "y": 7,
+          "width": 54,
+          "height": 58,
+          "purpose": "notification bell icon with red unread dot",
+          "approved": true,
+          "markedCropBox": {
+            "x": 671,
+            "y": 20,
+            "width": 54,
+            "height": 58
+          },
+          "pageBox": {
+            "x": 671,
+            "y": 20,
+            "width": 54,
+            "height": 58
+          }
+        },
+        {
+          "id": "target-004",
+          "x": 265,
+          "y": 19,
+          "width": 94,
+          "height": 36,
+          "purpose": "complete LV.12 gradient level pill including its text",
+          "approved": true,
+          "markedCropBox": {
+            "x": 283,
+            "y": 32,
+            "width": 94,
+            "height": 36
+          },
+          "pageBox": {
+            "x": 283,
+            "y": 32,
+            "width": 94,
+            "height": 36
+          }
+        },
+        {
+          "id": "target-005",
+          "x": 8,
+          "y": 97,
+          "width": 705,
+          "height": 290,
+          "purpose": "complete hero carousel as one rectangular asset, preserving its background illustration, badge, Chinese title and subtitle, and primary button",
+          "approved": true,
+          "markedCropBox": {
+            "x": 26,
+            "y": 110,
+            "width": 705,
+            "height": 290
+          },
+          "pageBox": {
+            "x": 26,
+            "y": 110,
+            "width": 705,
+            "height": 290
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "id": "target-002",
+        "x": 496,
+        "y": 17,
+        "width": 45,
+        "height": 40,
+        "purpose": "gold coin icon only",
+        "approved": true,
+        "markedCropBox": {
+          "x": 514,
+          "y": 30,
+          "width": 45,
+          "height": 40
+        }
+      },
+      "extractedImageBox": {
+        "x": 648,
+        "y": 207,
+        "width": 145,
+        "height": 148
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-004",
+      "file": "region-001/object-004.png",
+      "sourceRegion": "region-001",
+      "sourceMarkedBox": {
+        "x": 18,
+        "y": 13,
+        "width": 714,
+        "height": 392
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 0,
+        "width": 750,
+        "height": 437
+      },
+      "sourceTargets": [
+        {
+          "id": "target-001",
+          "x": 4,
+          "y": 6,
+          "width": 73,
+          "height": 66,
+          "purpose": "robot player avatar only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 22,
+            "y": 19,
+            "width": 73,
+            "height": 66
+          },
+          "pageBox": {
+            "x": 22,
+            "y": 19,
+            "width": 73,
+            "height": 66
+          }
+        },
+        {
+          "id": "target-002",
+          "x": 496,
+          "y": 17,
+          "width": 45,
+          "height": 40,
+          "purpose": "gold coin icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 514,
+            "y": 30,
+            "width": 45,
+            "height": 40
+          },
+          "pageBox": {
+            "x": 514,
+            "y": 30,
+            "width": 45,
+            "height": 40
+          }
+        },
+        {
+          "id": "target-003",
+          "x": 653,
+          "y": 7,
+          "width": 54,
+          "height": 58,
+          "purpose": "notification bell icon with red unread dot",
+          "approved": true,
+          "markedCropBox": {
+            "x": 671,
+            "y": 20,
+            "width": 54,
+            "height": 58
+          },
+          "pageBox": {
+            "x": 671,
+            "y": 20,
+            "width": 54,
+            "height": 58
+          }
+        },
+        {
+          "id": "target-004",
+          "x": 265,
+          "y": 19,
+          "width": 94,
+          "height": 36,
+          "purpose": "complete LV.12 gradient level pill including its text",
+          "approved": true,
+          "markedCropBox": {
+            "x": 283,
+            "y": 32,
+            "width": 94,
+            "height": 36
+          },
+          "pageBox": {
+            "x": 283,
+            "y": 32,
+            "width": 94,
+            "height": 36
+          }
+        },
+        {
+          "id": "target-005",
+          "x": 8,
+          "y": 97,
+          "width": 705,
+          "height": 290,
+          "purpose": "complete hero carousel as one rectangular asset, preserving its background illustration, badge, Chinese title and subtitle, and primary button",
+          "approved": true,
+          "markedCropBox": {
+            "x": 26,
+            "y": 110,
+            "width": 705,
+            "height": 290
+          },
+          "pageBox": {
+            "x": 26,
+            "y": 110,
+            "width": 705,
+            "height": 290
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "id": "target-003",
+        "x": 653,
+        "y": 7,
+        "width": 54,
+        "height": 58,
+        "purpose": "notification bell icon with red unread dot",
+        "approved": true,
+        "markedCropBox": {
+          "x": 671,
+          "y": 20,
+          "width": 54,
+          "height": 58
+        }
+      },
+      "extractedImageBox": {
+        "x": 841,
+        "y": 216,
+        "width": 133,
+        "height": 145
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-005",
+      "file": "region-001/object-005.png",
+      "sourceRegion": "region-001",
+      "sourceMarkedBox": {
+        "x": 18,
+        "y": 13,
+        "width": 714,
+        "height": 392
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 0,
+        "width": 750,
+        "height": 437
+      },
+      "sourceTargets": [
+        {
+          "id": "target-001",
+          "x": 4,
+          "y": 6,
+          "width": 73,
+          "height": 66,
+          "purpose": "robot player avatar only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 22,
+            "y": 19,
+            "width": 73,
+            "height": 66
+          },
+          "pageBox": {
+            "x": 22,
+            "y": 19,
+            "width": 73,
+            "height": 66
+          }
+        },
+        {
+          "id": "target-002",
+          "x": 496,
+          "y": 17,
+          "width": 45,
+          "height": 40,
+          "purpose": "gold coin icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 514,
+            "y": 30,
+            "width": 45,
+            "height": 40
+          },
+          "pageBox": {
+            "x": 514,
+            "y": 30,
+            "width": 45,
+            "height": 40
+          }
+        },
+        {
+          "id": "target-003",
+          "x": 653,
+          "y": 7,
+          "width": 54,
+          "height": 58,
+          "purpose": "notification bell icon with red unread dot",
+          "approved": true,
+          "markedCropBox": {
+            "x": 671,
+            "y": 20,
+            "width": 54,
+            "height": 58
+          },
+          "pageBox": {
+            "x": 671,
+            "y": 20,
+            "width": 54,
+            "height": 58
+          }
+        },
+        {
+          "id": "target-004",
+          "x": 265,
+          "y": 19,
+          "width": 94,
+          "height": 36,
+          "purpose": "complete LV.12 gradient level pill including its text",
+          "approved": true,
+          "markedCropBox": {
+            "x": 283,
+            "y": 32,
+            "width": 94,
+            "height": 36
+          },
+          "pageBox": {
+            "x": 283,
+            "y": 32,
+            "width": 94,
+            "height": 36
+          }
+        },
+        {
+          "id": "target-005",
+          "x": 8,
+          "y": 97,
+          "width": 705,
+          "height": 290,
+          "purpose": "complete hero carousel as one rectangular asset, preserving its background illustration, badge, Chinese title and subtitle, and primary button",
+          "approved": true,
+          "markedCropBox": {
+            "x": 26,
+            "y": 110,
+            "width": 705,
+            "height": 290
+          },
+          "pageBox": {
+            "x": 26,
+            "y": 110,
+            "width": 705,
+            "height": 290
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "id": "target-005",
+        "x": 8,
+        "y": 97,
+        "width": 705,
+        "height": 290,
+        "purpose": "complete hero carousel as one rectangular asset, preserving its background illustration, badge, Chinese title and subtitle, and primary button",
+        "approved": true,
+        "markedCropBox": {
+          "x": 26,
+          "y": 110,
+          "width": 705,
+          "height": 290
+        }
+      },
+      "extractedImageBox": {
+        "x": 41,
+        "y": 444,
+        "width": 944,
+        "height": 409
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-006",
+      "file": "region-002/object-001.png",
+      "sourceRegion": "region-002",
+      "sourceMarkedBox": {
+        "x": 17,
+        "y": 472,
+        "width": 716,
+        "height": 175
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 440,
+        "width": 750,
+        "height": 239
+      },
+      "sourceTargets": [
+        {
+          "id": "target-001",
+          "x": 45,
+          "y": 32,
+          "width": 87,
+          "height": 73,
+          "purpose": "crossed-swords quick-match icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 62,
+            "y": 64,
+            "width": 87,
+            "height": 73
+          },
+          "pageBox": {
+            "x": 62,
+            "y": 504,
+            "width": 87,
+            "height": 73
+          }
+        },
+        {
+          "id": "target-002",
+          "x": 222,
+          "y": 35,
+          "width": 81,
+          "height": 69,
+          "purpose": "trophy ranking icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 239,
+            "y": 67,
+            "width": 81,
+            "height": 69
+          },
+          "pageBox": {
+            "x": 239,
+            "y": 507,
+            "width": 81,
+            "height": 69
+          }
+        },
+        {
+          "id": "target-003",
+          "x": 403,
+          "y": 35,
+          "width": 89,
+          "height": 68,
+          "purpose": "daily-task clipboard icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 420,
+            "y": 67,
+            "width": 89,
+            "height": 68
+          },
+          "pageBox": {
+            "x": 420,
+            "y": 507,
+            "width": 89,
+            "height": 68
+          }
+        },
+        {
+          "id": "target-004",
+          "x": 588,
+          "y": 36,
+          "width": 83,
+          "height": 68,
+          "purpose": "invite-friends icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 605,
+            "y": 68,
+            "width": 83,
+            "height": 68
+          },
+          "pageBox": {
+            "x": 605,
+            "y": 508,
+            "width": 83,
+            "height": 68
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "id": "target-002",
+        "x": 222,
+        "y": 35,
+        "width": 81,
+        "height": 69,
+        "purpose": "trophy ranking icon only",
+        "approved": true,
+        "markedCropBox": {
+          "x": 239,
+          "y": 67,
+          "width": 81,
+          "height": 69
+        }
+      },
+      "extractedImageBox": {
+        "x": 78,
+        "y": 104,
+        "width": 396,
+        "height": 363
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-007",
+      "file": "region-002/object-002.png",
+      "sourceRegion": "region-002",
+      "sourceMarkedBox": {
+        "x": 17,
+        "y": 472,
+        "width": 716,
+        "height": 175
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 440,
+        "width": 750,
+        "height": 239
+      },
+      "sourceTargets": [
+        {
+          "id": "target-001",
+          "x": 45,
+          "y": 32,
+          "width": 87,
+          "height": 73,
+          "purpose": "crossed-swords quick-match icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 62,
+            "y": 64,
+            "width": 87,
+            "height": 73
+          },
+          "pageBox": {
+            "x": 62,
+            "y": 504,
+            "width": 87,
+            "height": 73
+          }
+        },
+        {
+          "id": "target-002",
+          "x": 222,
+          "y": 35,
+          "width": 81,
+          "height": 69,
+          "purpose": "trophy ranking icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 239,
+            "y": 67,
+            "width": 81,
+            "height": 69
+          },
+          "pageBox": {
+            "x": 239,
+            "y": 507,
+            "width": 81,
+            "height": 69
+          }
+        },
+        {
+          "id": "target-003",
+          "x": 403,
+          "y": 35,
+          "width": 89,
+          "height": 68,
+          "purpose": "daily-task clipboard icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 420,
+            "y": 67,
+            "width": 89,
+            "height": 68
+          },
+          "pageBox": {
+            "x": 420,
+            "y": 507,
+            "width": 89,
+            "height": 68
+          }
+        },
+        {
+          "id": "target-004",
+          "x": 588,
+          "y": 36,
+          "width": 83,
+          "height": 68,
+          "purpose": "invite-friends icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 605,
+            "y": 68,
+            "width": 83,
+            "height": 68
+          },
+          "pageBox": {
+            "x": 605,
+            "y": 508,
+            "width": 83,
+            "height": 68
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "id": "target-003",
+        "x": 403,
+        "y": 35,
+        "width": 89,
+        "height": 68,
+        "purpose": "daily-task clipboard icon only",
+        "approved": true,
+        "markedCropBox": {
+          "x": 420,
+          "y": 67,
+          "width": 89,
+          "height": 68
+        }
+      },
+      "extractedImageBox": {
+        "x": 550,
+        "y": 95,
+        "width": 396,
+        "height": 372
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-008",
+      "file": "region-002/object-003.png",
+      "sourceRegion": "region-002",
+      "sourceMarkedBox": {
+        "x": 17,
+        "y": 472,
+        "width": 716,
+        "height": 175
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 440,
+        "width": 750,
+        "height": 239
+      },
+      "sourceTargets": [
+        {
+          "id": "target-001",
+          "x": 45,
+          "y": 32,
+          "width": 87,
+          "height": 73,
+          "purpose": "crossed-swords quick-match icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 62,
+            "y": 64,
+            "width": 87,
+            "height": 73
+          },
+          "pageBox": {
+            "x": 62,
+            "y": 504,
+            "width": 87,
+            "height": 73
+          }
+        },
+        {
+          "id": "target-002",
+          "x": 222,
+          "y": 35,
+          "width": 81,
+          "height": 69,
+          "purpose": "trophy ranking icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 239,
+            "y": 67,
+            "width": 81,
+            "height": 69
+          },
+          "pageBox": {
+            "x": 239,
+            "y": 507,
+            "width": 81,
+            "height": 69
+          }
+        },
+        {
+          "id": "target-003",
+          "x": 403,
+          "y": 35,
+          "width": 89,
+          "height": 68,
+          "purpose": "daily-task clipboard icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 420,
+            "y": 67,
+            "width": 89,
+            "height": 68
+          },
+          "pageBox": {
+            "x": 420,
+            "y": 507,
+            "width": 89,
+            "height": 68
+          }
+        },
+        {
+          "id": "target-004",
+          "x": 588,
+          "y": 36,
+          "width": 83,
+          "height": 68,
+          "purpose": "invite-friends icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 605,
+            "y": 68,
+            "width": 83,
+            "height": 68
+          },
+          "pageBox": {
+            "x": 605,
+            "y": 508,
+            "width": 83,
+            "height": 68
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "id": "target-001",
+        "x": 45,
+        "y": 32,
+        "width": 87,
+        "height": 73,
+        "purpose": "crossed-swords quick-match icon only",
+        "approved": true,
+        "markedCropBox": {
+          "x": 62,
+          "y": 64,
+          "width": 87,
+          "height": 73
+        }
+      },
+      "extractedImageBox": {
+        "x": 76,
+        "y": 539,
+        "width": 398,
+        "height": 386
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-009",
+      "file": "region-002/object-004.png",
+      "sourceRegion": "region-002",
+      "sourceMarkedBox": {
+        "x": 17,
+        "y": 472,
+        "width": 716,
+        "height": 175
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 440,
+        "width": 750,
+        "height": 239
+      },
+      "sourceTargets": [
+        {
+          "id": "target-001",
+          "x": 45,
+          "y": 32,
+          "width": 87,
+          "height": 73,
+          "purpose": "crossed-swords quick-match icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 62,
+            "y": 64,
+            "width": 87,
+            "height": 73
+          },
+          "pageBox": {
+            "x": 62,
+            "y": 504,
+            "width": 87,
+            "height": 73
+          }
+        },
+        {
+          "id": "target-002",
+          "x": 222,
+          "y": 35,
+          "width": 81,
+          "height": 69,
+          "purpose": "trophy ranking icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 239,
+            "y": 67,
+            "width": 81,
+            "height": 69
+          },
+          "pageBox": {
+            "x": 239,
+            "y": 507,
+            "width": 81,
+            "height": 69
+          }
+        },
+        {
+          "id": "target-003",
+          "x": 403,
+          "y": 35,
+          "width": 89,
+          "height": 68,
+          "purpose": "daily-task clipboard icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 420,
+            "y": 67,
+            "width": 89,
+            "height": 68
+          },
+          "pageBox": {
+            "x": 420,
+            "y": 507,
+            "width": 89,
+            "height": 68
+          }
+        },
+        {
+          "id": "target-004",
+          "x": 588,
+          "y": 36,
+          "width": 83,
+          "height": 68,
+          "purpose": "invite-friends icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 605,
+            "y": 68,
+            "width": 83,
+            "height": 68
+          },
+          "pageBox": {
+            "x": 605,
+            "y": 508,
+            "width": 83,
+            "height": 68
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "id": "target-004",
+        "x": 588,
+        "y": 36,
+        "width": 83,
+        "height": 68,
+        "purpose": "invite-friends icon only",
+        "approved": true,
+        "markedCropBox": {
+          "x": 605,
+          "y": 68,
+          "width": 83,
+          "height": 68
+        }
+      },
+      "extractedImageBox": {
+        "x": 551,
+        "y": 539,
+        "width": 398,
+        "height": 386
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-010",
+      "file": "region-003/object-001.png",
+      "sourceRegion": "region-003",
+      "sourceMarkedBox": {
+        "x": 23,
+        "y": 717,
+        "width": 710,
+        "height": 310
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 685,
+        "width": 750,
+        "height": 374
+      },
+      "sourceTargets": [
+        {
+          "id": "target-001",
+          "x": 6,
+          "y": 17,
+          "width": 339,
+          "height": 148,
+          "purpose": "complete neon racing cover artwork inside the red rectangle",
+          "approved": true,
+          "markedCropBox": {
+            "x": 29,
+            "y": 49,
+            "width": 339,
+            "height": 148
+          },
+          "pageBox": {
+            "x": 29,
+            "y": 734,
+            "width": 339,
+            "height": 148
+          }
+        },
+        {
+          "id": "target-002",
+          "x": 359,
+          "y": 20,
+          "width": 346,
+          "height": 147,
+          "purpose": "complete fantasy mage cover artwork inside the red rectangle",
+          "approved": true,
+          "markedCropBox": {
+            "x": 382,
+            "y": 52,
+            "width": 346,
+            "height": 147
+          },
+          "pageBox": {
+            "x": 382,
+            "y": 737,
+            "width": 346,
+            "height": 147
+          }
+        },
+        {
+          "id": "target-003",
+          "x": 21,
+          "y": 257,
+          "width": 29,
+          "height": 36,
+          "purpose": "small outlined player silhouette icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 44,
+            "y": 289,
+            "width": 29,
+            "height": 36
+          },
+          "pageBox": {
+            "x": 44,
+            "y": 974,
+            "width": 29,
+            "height": 36
+          }
+        }
+      ],
+      "matchedSourceTarget": null,
+      "extractedImageBox": {
+        "x": 0,
+        "y": 166,
+        "width": 498,
+        "height": 403
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-011",
+      "file": "region-003/object-002.png",
+      "sourceRegion": "region-003",
+      "sourceMarkedBox": {
+        "x": 23,
+        "y": 717,
+        "width": 710,
+        "height": 310
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 685,
+        "width": 750,
+        "height": 374
+      },
+      "sourceTargets": [
+        {
+          "id": "target-001",
+          "x": 6,
+          "y": 17,
+          "width": 339,
+          "height": 148,
+          "purpose": "complete neon racing cover artwork inside the red rectangle",
+          "approved": true,
+          "markedCropBox": {
+            "x": 29,
+            "y": 49,
+            "width": 339,
+            "height": 148
+          },
+          "pageBox": {
+            "x": 29,
+            "y": 734,
+            "width": 339,
+            "height": 148
+          }
+        },
+        {
+          "id": "target-002",
+          "x": 359,
+          "y": 20,
+          "width": 346,
+          "height": 147,
+          "purpose": "complete fantasy mage cover artwork inside the red rectangle",
+          "approved": true,
+          "markedCropBox": {
+            "x": 382,
+            "y": 52,
+            "width": 346,
+            "height": 147
+          },
+          "pageBox": {
+            "x": 382,
+            "y": 737,
+            "width": 346,
+            "height": 147
+          }
+        },
+        {
+          "id": "target-003",
+          "x": 21,
+          "y": 257,
+          "width": 29,
+          "height": 36,
+          "purpose": "small outlined player silhouette icon only",
+          "approved": true,
+          "markedCropBox": {
+            "x": 44,
+            "y": 289,
+            "width": 29,
+            "height": 36
+          },
+          "pageBox": {
+            "x": 44,
+            "y": 974,
+            "width": 29,
+            "height": 36
+          }
+        }
+      ],
+      "matchedSourceTarget": null,
+      "extractedImageBox": {
+        "x": 527,
+        "y": 167,
+        "width": 497,
+        "height": 404
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-012",
+      "file": "region-004/object-001.png",
+      "sourceRegion": "region-004",
+      "sourceMarkedBox": {
+        "x": 17,
+        "y": 1039,
+        "width": 700,
+        "height": 282
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 1007,
+        "width": 749,
+        "height": 327
+      },
+      "sourceTargets": [
+        {
+          "id": "target-001",
+          "x": 11,
+          "y": 11,
+          "width": 686,
+          "height": 138,
+          "purpose": "complete weekend double-reward banner as one rectangular asset, preserving treasure artwork, orange background, Chinese text, and arrow button",
+          "approved": true,
+          "markedCropBox": {
+            "x": 28,
+            "y": 43,
+            "width": 686,
+            "height": 138
+          },
+          "pageBox": {
+            "x": 28,
+            "y": 1050,
+            "width": 686,
+            "height": 138
+          }
+        },
+        {
+          "id": "target-002",
+          "x": 47,
+          "y": 190,
+          "width": 74,
+          "height": 57,
+          "purpose": "selected home navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 64,
+            "y": 222,
+            "width": 74,
+            "height": 57
+          },
+          "pageBox": {
+            "x": 64,
+            "y": 1229,
+            "width": 74,
+            "height": 57
+          }
+        },
+        {
+          "id": "target-003",
+          "x": 240,
+          "y": 195,
+          "width": 57,
+          "height": 48,
+          "purpose": "gamepad navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 257,
+            "y": 227,
+            "width": 57,
+            "height": 48
+          },
+          "pageBox": {
+            "x": 257,
+            "y": 1234,
+            "width": 57,
+            "height": 48
+          }
+        },
+        {
+          "id": "target-004",
+          "x": 413,
+          "y": 192,
+          "width": 65,
+          "height": 45,
+          "purpose": "community chat navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 430,
+            "y": 224,
+            "width": 65,
+            "height": 45
+          },
+          "pageBox": {
+            "x": 430,
+            "y": 1231,
+            "width": 65,
+            "height": 45
+          }
+        },
+        {
+          "id": "target-005",
+          "x": 597,
+          "y": 185,
+          "width": 67,
+          "height": 55,
+          "purpose": "profile navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 614,
+            "y": 217,
+            "width": 67,
+            "height": 55
+          },
+          "pageBox": {
+            "x": 614,
+            "y": 1224,
+            "width": 67,
+            "height": 55
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "id": "target-001",
+        "x": 11,
+        "y": 11,
+        "width": 686,
+        "height": 138,
+        "purpose": "complete weekend double-reward banner as one rectangular asset, preserving treasure artwork, orange background, Chinese text, and arrow button",
+        "approved": true,
+        "markedCropBox": {
+          "x": 28,
+          "y": 43,
+          "width": 686,
+          "height": 138
+        }
+      },
+      "extractedImageBox": {
+        "x": 9,
+        "y": 285,
+        "width": 1006,
+        "height": 231
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-013",
+      "file": "region-004/object-002.png",
+      "sourceRegion": "region-004",
+      "sourceMarkedBox": {
+        "x": 17,
+        "y": 1039,
+        "width": 700,
+        "height": 282
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 1007,
+        "width": 749,
+        "height": 327
+      },
+      "sourceTargets": [
+        {
+          "id": "target-001",
+          "x": 11,
+          "y": 11,
+          "width": 686,
+          "height": 138,
+          "purpose": "complete weekend double-reward banner as one rectangular asset, preserving treasure artwork, orange background, Chinese text, and arrow button",
+          "approved": true,
+          "markedCropBox": {
+            "x": 28,
+            "y": 43,
+            "width": 686,
+            "height": 138
+          },
+          "pageBox": {
+            "x": 28,
+            "y": 1050,
+            "width": 686,
+            "height": 138
+          }
+        },
+        {
+          "id": "target-002",
+          "x": 47,
+          "y": 190,
+          "width": 74,
+          "height": 57,
+          "purpose": "selected home navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 64,
+            "y": 222,
+            "width": 74,
+            "height": 57
+          },
+          "pageBox": {
+            "x": 64,
+            "y": 1229,
+            "width": 74,
+            "height": 57
+          }
+        },
+        {
+          "id": "target-003",
+          "x": 240,
+          "y": 195,
+          "width": 57,
+          "height": 48,
+          "purpose": "gamepad navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 257,
+            "y": 227,
+            "width": 57,
+            "height": 48
+          },
+          "pageBox": {
+            "x": 257,
+            "y": 1234,
+            "width": 57,
+            "height": 48
+          }
+        },
+        {
+          "id": "target-004",
+          "x": 413,
+          "y": 192,
+          "width": 65,
+          "height": 45,
+          "purpose": "community chat navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 430,
+            "y": 224,
+            "width": 65,
+            "height": 45
+          },
+          "pageBox": {
+            "x": 430,
+            "y": 1231,
+            "width": 65,
+            "height": 45
+          }
+        },
+        {
+          "id": "target-005",
+          "x": 597,
+          "y": 185,
+          "width": 67,
+          "height": 55,
+          "purpose": "profile navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 614,
+            "y": 217,
+            "width": 67,
+            "height": 55
+          },
+          "pageBox": {
+            "x": 614,
+            "y": 1224,
+            "width": 67,
+            "height": 55
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "id": "target-002",
+        "x": 47,
+        "y": 190,
+        "width": 74,
+        "height": 57,
+        "purpose": "selected home navigation icon only, without its text label",
+        "approved": true,
+        "markedCropBox": {
+          "x": 64,
+          "y": 222,
+          "width": 74,
+          "height": 57
+        }
+      },
+      "extractedImageBox": {
+        "x": 57,
+        "y": 597,
+        "width": 166,
+        "height": 154
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-014",
+      "file": "region-004/object-003.png",
+      "sourceRegion": "region-004",
+      "sourceMarkedBox": {
+        "x": 17,
+        "y": 1039,
+        "width": 700,
+        "height": 282
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 1007,
+        "width": 749,
+        "height": 327
+      },
+      "sourceTargets": [
+        {
+          "id": "target-001",
+          "x": 11,
+          "y": 11,
+          "width": 686,
+          "height": 138,
+          "purpose": "complete weekend double-reward banner as one rectangular asset, preserving treasure artwork, orange background, Chinese text, and arrow button",
+          "approved": true,
+          "markedCropBox": {
+            "x": 28,
+            "y": 43,
+            "width": 686,
+            "height": 138
+          },
+          "pageBox": {
+            "x": 28,
+            "y": 1050,
+            "width": 686,
+            "height": 138
+          }
+        },
+        {
+          "id": "target-002",
+          "x": 47,
+          "y": 190,
+          "width": 74,
+          "height": 57,
+          "purpose": "selected home navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 64,
+            "y": 222,
+            "width": 74,
+            "height": 57
+          },
+          "pageBox": {
+            "x": 64,
+            "y": 1229,
+            "width": 74,
+            "height": 57
+          }
+        },
+        {
+          "id": "target-003",
+          "x": 240,
+          "y": 195,
+          "width": 57,
+          "height": 48,
+          "purpose": "gamepad navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 257,
+            "y": 227,
+            "width": 57,
+            "height": 48
+          },
+          "pageBox": {
+            "x": 257,
+            "y": 1234,
+            "width": 57,
+            "height": 48
+          }
+        },
+        {
+          "id": "target-004",
+          "x": 413,
+          "y": 192,
+          "width": 65,
+          "height": 45,
+          "purpose": "community chat navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 430,
+            "y": 224,
+            "width": 65,
+            "height": 45
+          },
+          "pageBox": {
+            "x": 430,
+            "y": 1231,
+            "width": 65,
+            "height": 45
+          }
+        },
+        {
+          "id": "target-005",
+          "x": 597,
+          "y": 185,
+          "width": 67,
+          "height": 55,
+          "purpose": "profile navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 614,
+            "y": 217,
+            "width": 67,
+            "height": 55
+          },
+          "pageBox": {
+            "x": 614,
+            "y": 1224,
+            "width": 67,
+            "height": 55
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "id": "target-003",
+        "x": 240,
+        "y": 195,
+        "width": 57,
+        "height": 48,
+        "purpose": "gamepad navigation icon only, without its text label",
+        "approved": true,
+        "markedCropBox": {
+          "x": 257,
+          "y": 227,
+          "width": 57,
+          "height": 48
+        }
+      },
+      "extractedImageBox": {
+        "x": 307,
+        "y": 597,
+        "width": 165,
+        "height": 154
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-015",
+      "file": "region-004/object-004.png",
+      "sourceRegion": "region-004",
+      "sourceMarkedBox": {
+        "x": 17,
+        "y": 1039,
+        "width": 700,
+        "height": 282
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 1007,
+        "width": 749,
+        "height": 327
+      },
+      "sourceTargets": [
+        {
+          "id": "target-001",
+          "x": 11,
+          "y": 11,
+          "width": 686,
+          "height": 138,
+          "purpose": "complete weekend double-reward banner as one rectangular asset, preserving treasure artwork, orange background, Chinese text, and arrow button",
+          "approved": true,
+          "markedCropBox": {
+            "x": 28,
+            "y": 43,
+            "width": 686,
+            "height": 138
+          },
+          "pageBox": {
+            "x": 28,
+            "y": 1050,
+            "width": 686,
+            "height": 138
+          }
+        },
+        {
+          "id": "target-002",
+          "x": 47,
+          "y": 190,
+          "width": 74,
+          "height": 57,
+          "purpose": "selected home navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 64,
+            "y": 222,
+            "width": 74,
+            "height": 57
+          },
+          "pageBox": {
+            "x": 64,
+            "y": 1229,
+            "width": 74,
+            "height": 57
+          }
+        },
+        {
+          "id": "target-003",
+          "x": 240,
+          "y": 195,
+          "width": 57,
+          "height": 48,
+          "purpose": "gamepad navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 257,
+            "y": 227,
+            "width": 57,
+            "height": 48
+          },
+          "pageBox": {
+            "x": 257,
+            "y": 1234,
+            "width": 57,
+            "height": 48
+          }
+        },
+        {
+          "id": "target-004",
+          "x": 413,
+          "y": 192,
+          "width": 65,
+          "height": 45,
+          "purpose": "community chat navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 430,
+            "y": 224,
+            "width": 65,
+            "height": 45
+          },
+          "pageBox": {
+            "x": 430,
+            "y": 1231,
+            "width": 65,
+            "height": 45
+          }
+        },
+        {
+          "id": "target-005",
+          "x": 597,
+          "y": 185,
+          "width": 67,
+          "height": 55,
+          "purpose": "profile navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 614,
+            "y": 217,
+            "width": 67,
+            "height": 55
+          },
+          "pageBox": {
+            "x": 614,
+            "y": 1224,
+            "width": 67,
+            "height": 55
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "id": "target-004",
+        "x": 413,
+        "y": 192,
+        "width": 65,
+        "height": 45,
+        "purpose": "community chat navigation icon only, without its text label",
+        "approved": true,
+        "markedCropBox": {
+          "x": 430,
+          "y": 224,
+          "width": 65,
+          "height": 45
+        }
+      },
+      "extractedImageBox": {
+        "x": 564,
+        "y": 597,
+        "width": 169,
+        "height": 154
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    },
+    {
+      "id": "asset-016",
+      "file": "region-004/object-005.png",
+      "sourceRegion": "region-004",
+      "sourceMarkedBox": {
+        "x": 17,
+        "y": 1039,
+        "width": 700,
+        "height": 282
+      },
+      "sourceCropBox": {
+        "x": 0,
+        "y": 1007,
+        "width": 749,
+        "height": 327
+      },
+      "sourceTargets": [
+        {
+          "id": "target-001",
+          "x": 11,
+          "y": 11,
+          "width": 686,
+          "height": 138,
+          "purpose": "complete weekend double-reward banner as one rectangular asset, preserving treasure artwork, orange background, Chinese text, and arrow button",
+          "approved": true,
+          "markedCropBox": {
+            "x": 28,
+            "y": 43,
+            "width": 686,
+            "height": 138
+          },
+          "pageBox": {
+            "x": 28,
+            "y": 1050,
+            "width": 686,
+            "height": 138
+          }
+        },
+        {
+          "id": "target-002",
+          "x": 47,
+          "y": 190,
+          "width": 74,
+          "height": 57,
+          "purpose": "selected home navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 64,
+            "y": 222,
+            "width": 74,
+            "height": 57
+          },
+          "pageBox": {
+            "x": 64,
+            "y": 1229,
+            "width": 74,
+            "height": 57
+          }
+        },
+        {
+          "id": "target-003",
+          "x": 240,
+          "y": 195,
+          "width": 57,
+          "height": 48,
+          "purpose": "gamepad navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 257,
+            "y": 227,
+            "width": 57,
+            "height": 48
+          },
+          "pageBox": {
+            "x": 257,
+            "y": 1234,
+            "width": 57,
+            "height": 48
+          }
+        },
+        {
+          "id": "target-004",
+          "x": 413,
+          "y": 192,
+          "width": 65,
+          "height": 45,
+          "purpose": "community chat navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 430,
+            "y": 224,
+            "width": 65,
+            "height": 45
+          },
+          "pageBox": {
+            "x": 430,
+            "y": 1231,
+            "width": 65,
+            "height": 45
+          }
+        },
+        {
+          "id": "target-005",
+          "x": 597,
+          "y": 185,
+          "width": 67,
+          "height": 55,
+          "purpose": "profile navigation icon only, without its text label",
+          "approved": true,
+          "markedCropBox": {
+            "x": 614,
+            "y": 217,
+            "width": 67,
+            "height": 55
+          },
+          "pageBox": {
+            "x": 614,
+            "y": 1224,
+            "width": 67,
+            "height": 55
+          }
+        }
+      ],
+      "matchedSourceTarget": {
+        "id": "target-005",
+        "x": 597,
+        "y": 185,
+        "width": 67,
+        "height": 55,
+        "purpose": "profile navigation icon only, without its text label",
+        "approved": true,
+        "markedCropBox": {
+          "x": 614,
+          "y": 217,
+          "width": 67,
+          "height": 55
+        }
+      },
+      "extractedImageBox": {
+        "x": 816,
+        "y": 597,
+        "width": 164,
+        "height": 154
+      },
+      "name": "",
+      "role": "image-asset",
+      "parent": "",
+      "zIndex": null,
+      "placement": {
+        "status": "needs-codex-review",
+        "bbox": null
+      },
+      "approved": false
+    }
+  ]
+}

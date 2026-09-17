@@ -1,0 +1,251 @@
+{
+  "canvas": {
+    "width": 750,
+    "height": 1334
+  },
+  "regions": [
+    {
+      "x": 3,
+      "y": 1,
+      "width": 747,
+      "height": 280,
+      "purpose": "",
+      "approved": true,
+      "targets": [
+        {
+          "name": "",
+          "parent": "",
+          "zIndex": null,
+          "backgroundTolerance": 34,
+          "edgeFeather": 48,
+          "reviewStatus": "confirmed",
+          "suggestion": {
+            "source": "manual"
+          },
+          "approved": true,
+          "x": 547,
+          "y": 12,
+          "width": 99,
+          "height": 84,
+          "purpose": "",
+          "elementType": "image-asset",
+          "processingMode": "ai-transparent",
+          "id": "target-001",
+          "extractionMode": "ai"
+        },
+        {
+          "name": "",
+          "parent": "",
+          "zIndex": null,
+          "backgroundTolerance": 34,
+          "edgeFeather": 48,
+          "reviewStatus": "confirmed",
+          "suggestion": {
+            "source": "manual"
+          },
+          "approved": true,
+          "x": 651,
+          "y": 9,
+          "width": 87,
+          "height": 89,
+          "purpose": "",
+          "elementType": "image-asset",
+          "processingMode": "ai-transparent",
+          "id": "target-002",
+          "extractionMode": "ai"
+        }
+      ],
+      "id": "region-001"
+    },
+    {
+      "x": 17,
+      "y": 311,
+      "width": 723,
+      "height": 907,
+      "purpose": "",
+      "approved": true,
+      "targets": [
+        {
+          "name": "",
+          "parent": "",
+          "zIndex": null,
+          "backgroundTolerance": 34,
+          "edgeFeather": 48,
+          "reviewStatus": "confirmed",
+          "suggestion": {
+            "source": "manual"
+          },
+          "approved": true,
+          "x": 20,
+          "y": 36,
+          "width": 183,
+          "height": 190,
+          "purpose": "",
+          "elementType": "image-asset",
+          "processingMode": "ai-transparent",
+          "id": "target-001",
+          "extractionMode": "ai"
+        },
+        {
+          "name": "",
+          "parent": "",
+          "zIndex": null,
+          "backgroundTolerance": 34,
+          "edgeFeather": 48,
+          "reviewStatus": "confirmed",
+          "suggestion": {
+            "source": "manual"
+          },
+          "approved": true,
+          "x": 15,
+          "y": 267,
+          "width": 192,
+          "height": 192,
+          "purpose": "",
+          "elementType": "image-asset",
+          "processingMode": "ai-transparent",
+          "id": "target-002",
+          "extractionMode": "ai"
+        },
+        {
+          "name": "",
+          "parent": "",
+          "zIndex": null,
+          "backgroundTolerance": 34,
+          "edgeFeather": 48,
+          "reviewStatus": "confirmed",
+          "suggestion": {
+            "source": "manual"
+          },
+          "approved": true,
+          "x": 16,
+          "y": 496,
+          "width": 191,
+          "height": 191,
+          "purpose": "",
+          "elementType": "image-asset",
+          "processingMode": "ai-transparent",
+          "id": "target-003",
+          "extractionMode": "ai"
+        },
+        {
+          "name": "",
+          "parent": "",
+          "zIndex": null,
+          "backgroundTolerance": 34,
+          "edgeFeather": 48,
+          "reviewStatus": "confirmed",
+          "suggestion": {
+            "source": "manual"
+          },
+          "approved": true,
+          "x": 21,
+          "y": 722,
+          "width": 188,
+          "height": 179,
+          "purpose": "",
+          "elementType": "image-asset",
+          "processingMode": "ai-transparent",
+          "id": "target-004",
+          "extractionMode": "ai"
+        }
+      ],
+      "id": "region-002"
+    },
+    {
+      "x": 9,
+      "y": 1218,
+      "width": 739,
+      "height": 116,
+      "purpose": "",
+      "approved": true,
+      "targets": [
+        {
+          "name": "",
+          "parent": "",
+          "zIndex": null,
+          "backgroundTolerance": 34,
+          "edgeFeather": 48,
+          "reviewStatus": "confirmed",
+          "suggestion": {
+            "source": "manual"
+          },
+          "approved": true,
+          "x": 49,
+          "y": 5,
+          "width": 79,
+          "height": 65,
+          "purpose": "",
+          "elementType": "image-asset",
+          "processingMode": "ai-transparent",
+          "id": "target-001",
+          "extractionMode": "ai"
+        },
+        {
+          "name": "",
+          "parent": "",
+          "zIndex": null,
+          "backgroundTolerance": 34,
+          "edgeFeather": 48,
+          "reviewStatus": "confirmed",
+          "suggestion": {
+            "source": "manual"
+          },
+          "approved": true,
+          "x": 239,
+          "y": 13,
+          "width": 69,
+          "height": 53,
+          "purpose": "",
+          "elementType": "image-asset",
+          "processingMode": "ai-transparent",
+          "id": "target-002",
+          "extractionMode": "ai"
+        },
+        {
+          "name": "",
+          "parent": "",
+          "zIndex": null,
+          "backgroundTolerance": 34,
+          "edgeFeather": 48,
+          "reviewStatus": "confirmed",
+          "suggestion": {
+            "source": "manual"
+          },
+          "approved": true,
+          "x": 423,
+          "y": 7,
+          "width": 68,
+          "height": 63,
+          "purpose": "",
+          "elementType": "image-asset",
+          "processingMode": "ai-transparent",
+          "id": "target-003",
+          "extractionMode": "ai"
+        },
+        {
+          "name": "",
+          "parent": "",
+          "zIndex": null,
+          "backgroundTolerance": 34,
+          "edgeFeather": 48,
+          "reviewStatus": "confirmed",
+          "suggestion": {
+            "source": "manual"
+          },
+          "approved": true,
+          "x": 601,
+          "y": 5,
+          "width": 78,
+          "height": 65,
+          "purpose": "",
+          "elementType": "image-asset",
+          "processingMode": "ai-transparent",
+          "id": "target-004",
+          "extractionMode": "ai"
+        }
+      ],
+      "id": "region-003"
+    }
+  ]
+}

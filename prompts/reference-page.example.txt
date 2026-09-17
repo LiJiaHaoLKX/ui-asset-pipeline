@@ -1,0 +1,4 @@
+Create a polished UI reference page using the accompanying design specification.
+Use the exact requested canvas size, typography hierarchy, colors, radii, and spacing system.
+Keep ordinary text and interface structure suitable for later HTML/CSS reconstruction.
+Use distinctive raster imagery only where the product brief calls for image assets.

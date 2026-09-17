@@ -1,0 +1,112 @@
+[
+  {
+    "file": "object-001.png",
+    "bbox": {
+      "x": 55,
+      "y": 267,
+      "width": 9,
+      "height": 26
+    },
+    "foreground_area": 18
+  },
+  {
+    "file": "object-002.png",
+    "bbox": {
+      "x": 57,
+      "y": 169,
+      "width": 223,
+      "height": 224
+    },
+    "foreground_area": 36601
+  },
+  {
+    "file": "object-003.png",
+    "bbox": {
+      "x": 314,
+      "y": 222,
+      "width": 281,
+      "height": 117
+    },
+    "foreground_area": 26558
+  },
+  {
+    "file": "object-004.png",
+    "bbox": {
+      "x": 648,
+      "y": 207,
+      "width": 145,
+      "height": 148
+    },
+    "foreground_area": 14921
+  },
+  {
+    "file": "object-005.png",
+    "bbox": {
+      "x": 841,
+      "y": 216,
+      "width": 133,
+      "height": 145
+    },
+    "foreground_area": 12457
+  },
+  {
+    "file": "object-006.png",
+    "bbox": {
+      "x": 41,
+      "y": 444,
+      "width": 944,
+      "height": 409
+    },
+    "foreground_area": 373933
+  },
+  {
+    "file": "object-007.png",
+    "bbox": {
+      "x": 976,
+      "y": 470,
+      "width": 9,
+      "height": 28
+    },
+    "foreground_area": 20
+  },
+  {
+    "file": "object-008.png",
+    "bbox": {
+      "x": 976,
+      "y": 506,
+      "width": 9,
+      "height": 33
+    },
+    "foreground_area": 25
+  },
+  {
+    "file": "object-009.png",
+    "bbox": {
+      "x": 976,
+      "y": 664,
+      "width": 9,
+      "height": 67
+    },
+    "foreground_area": 59
+  },
+  {
+    "file": "object-010.png",
+    "bbox": {
+      "x": 976,
+      "y": 724,
+      "width": 9,
+      "height": 44
+    },
+    "foreground_area": 36
+  },
+  {
+    "file": "object-011.png",
+    "bbox": {
+      "x": 976,
+      "y": 783,
+      "width": 9,
+      "height": 25
+    },
+    "foreground_area": 17
+  }
+]

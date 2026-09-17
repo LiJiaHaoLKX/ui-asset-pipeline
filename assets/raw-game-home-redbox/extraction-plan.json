@@ -1,0 +1,30 @@
+[
+  {
+    "id": "region-001",
+    "input": "C:\\Users\\Administrator\\Documents\\Codex\\2026-09-09\\new-chat-3\\outputs\\ui-asset-pipeline\\regions\\crops-redbox\\region-001.marked.png",
+    "output": "C:\\Users\\Administrator\\Documents\\Codex\\2026-09-09\\new-chat-3\\outputs\\ui-asset-pipeline\\assets\\raw-game-home-redbox\\region-001.png",
+    "purpose": "Top bar assets and one complete hero carousel",
+    "targetCount": 5
+  },
+  {
+    "id": "region-002",
+    "input": "C:\\Users\\Administrator\\Documents\\Codex\\2026-09-09\\new-chat-3\\outputs\\ui-asset-pipeline\\regions\\crops-redbox\\region-002.marked.png",
+    "output": "C:\\Users\\Administrator\\Documents\\Codex\\2026-09-09\\new-chat-3\\outputs\\ui-asset-pipeline\\assets\\raw-game-home-redbox\\region-002.png",
+    "purpose": "Four independent quick-entry icons",
+    "targetCount": 4
+  },
+  {
+    "id": "region-003",
+    "input": "C:\\Users\\Administrator\\Documents\\Codex\\2026-09-09\\new-chat-3\\outputs\\ui-asset-pipeline\\regions\\crops-redbox\\region-003.marked.png",
+    "output": "C:\\Users\\Administrator\\Documents\\Codex\\2026-09-09\\new-chat-3\\outputs\\ui-asset-pipeline\\assets\\raw-game-home-redbox\\region-003.png",
+    "purpose": "Two complete game cover artworks and one small player-count icon",
+    "targetCount": 3
+  },
+  {
+    "id": "region-004",
+    "input": "C:\\Users\\Administrator\\Documents\\Codex\\2026-09-09\\new-chat-3\\outputs\\ui-asset-pipeline\\regions\\crops-redbox\\region-004.marked.png",
+    "output": "C:\\Users\\Administrator\\Documents\\Codex\\2026-09-09\\new-chat-3\\outputs\\ui-asset-pipeline\\assets\\raw-game-home-redbox\\region-004.png",
+    "purpose": "One complete reward banner and four independent bottom navigation icons",
+    "targetCount": 5
+  }
+]

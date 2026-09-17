@@ -1,0 +1,520 @@
+{
+  "name": "Fresh Playmate Mini Program Design System",
+  "scope": "适用于游戏发现、陪玩列表、陪玩详情、下单、聊天、订单、优惠活动和个人中心等全项目页面。",
+  "canvas": {
+    "width": 750,
+    "height": 1334,
+    "unit": "design-px",
+    "devicePixelRatio": 1,
+    "safeArea": {
+      "top": 44,
+      "bottom": 34
+    }
+  },
+  "colors": {
+    "background": {
+      "page": "#F6F8FC",
+      "primary": "#FFFFFF",
+      "subtle": "#F1F5FB",
+      "selected": "#EDF4FF",
+      "disabled": "#F2F4F7",
+      "overlay": "#10182899"
+    },
+    "text": {
+      "primary": "#172033",
+      "secondary": "#59657A",
+      "tertiary": "#8791A5",
+      "inverse": "#FFFFFF",
+      "disabled": "#B5BDCA",
+      "link": "#246BFD"
+    },
+    "action": {
+      "primary": "#246BFD",
+      "primaryHover": "#1D5CE0",
+      "primaryPressed": "#174FC5",
+      "primaryDisabled": "#B8CDFD",
+      "secondary": "#EDF4FF",
+      "secondaryHover": "#DCE9FF",
+      "secondaryPressed": "#C7DCFF",
+      "focusRing": "#8CB3FF"
+    },
+    "accent": {
+      "primary": "#FF6B57",
+      "soft": "#FFF0ED",
+      "gold": "#F5A524",
+      "goldSoft": "#FFF6E5"
+    },
+    "border": {
+      "default": "#E3E8F0",
+      "strong": "#C8D0DC",
+      "focus": "#246BFD",
+      "disabled": "#E8EBF0"
+    },
+    "states": {
+      "success": "#3478F6",
+      "successBackground": "#EAF2FF",
+      "warning": "#D88700",
+      "warningBackground": "#FFF5DE",
+      "error": "#E5484D",
+      "errorBackground": "#FFF0F0",
+      "info": "#6D5CE7",
+      "infoBackground": "#F1EFFF"
+    },
+    "rating": {
+      "star": "#F5A524",
+      "background": "#FFF6E5"
+    },
+    "presence": {
+      "online": "#3478F6",
+      "busy": "#F5A524",
+      "offline": "#A6AFBD"
+    }
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "PingFang SC, Microsoft YaHei, Arial, sans-serif",
+      "numeric": "DIN Alternate, Arial, sans-serif"
+    },
+    "sizes": {
+      "display": 48,
+      "pageTitle": 36,
+      "title": 32,
+      "sectionTitle": 28,
+      "cardTitle": 26,
+      "bodyLarge": 26,
+      "body": 24,
+      "label": 22,
+      "caption": 20,
+      "micro": 18
+    },
+    "weights": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    },
+    "lineHeight": {
+      "display": 64,
+      "pageTitle": 50,
+      "title": 44,
+      "sectionTitle": 40,
+      "cardTitle": 38,
+      "bodyLarge": 38,
+      "body": 36,
+      "label": 32,
+      "caption": 30,
+      "micro": 26
+    },
+    "rules": [
+      "大多数标题使用 600 字重，避免界面显得厚重。",
+      "数字字体仅用于价格、评分、订单总额和时间。",
+      "字间距统一为 0。",
+      "正文优先限定为 26、24、20 三档字号。",
+      "单个组件内最多使用两种字重。"
+    ]
+  },
+  "spacing": {
+    "base": 4,
+    "scale": {
+      "0": 0,
+      "1": 4,
+      "2": 8,
+      "3": 12,
+      "4": 16,
+      "5": 20,
+      "6": 24,
+      "7": 28,
+      "8": 32,
+      "10": 40,
+      "12": 48,
+      "14": 56,
+      "16": 64
+    },
+    "layoutGutters": {
+      "compact": 24,
+      "default": 32,
+      "wide": 40
+    },
+    "sectionGap": 32,
+    "contentGap": 24,
+    "cardGap": 20,
+    "inlineGap": 12
+  },
+  "radii": {
+    "none": 0,
+    "small": 8,
+    "medium": 12,
+    "large": 16,
+    "card": 20,
+    "sheet": 24,
+    "pill": 999
+  },
+  "elevation": {
+    "none": "none",
+    "card": "0 4px 16px #1D2B4A0A",
+    "floating": "0 10px 30px #1D2B4A14",
+    "navigation": "0 -4px 20px #1D2B4A0D"
+  },
+  "layout": {
+    "gridColumns": 12,
+    "pagePadding": 32,
+    "topBarHeight": 88,
+    "bottomNavigationHeight": 108,
+    "minimumTouchTarget": 88,
+    "contentMaxWidth": 750,
+    "listItemMinimumHeight": 112,
+    "rules": [
+      "页面区块采用统一的 32px 水平边距，不把普通页面区块包装成装饰卡片。",
+      "卡片只用于陪玩、游戏、订单或可操作内容组。",
+      "详情页和结算页的主要操作放置在拇指易触达区域。",
+      "存在底部固定操作时，为内容预留至少 142px 底部空间。"
+    ]
+  },
+  "components": {
+    "buttons": {
+      "heights": {
+        "large": 88,
+        "medium": 72,
+        "small": 56,
+        "icon": 72
+      },
+      "horizontalPadding": {
+        "large": 32,
+        "medium": 28,
+        "small": 20
+      },
+      "radius": 16,
+      "labelSize": {
+        "large": 28,
+        "medium": 26,
+        "small": 22
+      },
+      "primary": {
+        "default": {
+          "background": "#246BFD",
+          "text": "#FFFFFF",
+          "border": "#246BFD"
+        },
+        "hover": {
+          "background": "#1D5CE0",
+          "text": "#FFFFFF",
+          "border": "#1D5CE0"
+        },
+        "pressed": {
+          "background": "#174FC5",
+          "text": "#FFFFFF",
+          "border": "#174FC5"
+        },
+        "disabled": {
+          "background": "#B8CDFD",
+          "text": "#FFFFFF",
+          "border": "#B8CDFD"
+        }
+      },
+      "secondary": {
+        "default": {
+          "background": "#EDF4FF",
+          "text": "#246BFD",
+          "border": "#C7DCFF"
+        },
+        "hover": {
+          "background": "#DCE9FF",
+          "text": "#1D5CE0",
+          "border": "#8CB3FF"
+        },
+        "pressed": {
+          "background": "#C7DCFF",
+          "text": "#174FC5",
+          "border": "#8CB3FF"
+        },
+        "disabled": {
+          "background": "#F2F4F7",
+          "text": "#B5BDCA",
+          "border": "#E8EBF0"
+        }
+      },
+      "danger": {
+        "default": {
+          "background": "#E5484D",
+          "text": "#FFFFFF",
+          "border": "#E5484D"
+        },
+        "pressed": {
+          "background": "#C73B40",
+          "text": "#FFFFFF",
+          "border": "#C73B40"
+        }
+      },
+      "rules": [
+        "每个操作区域只设置一个主按钮。",
+        "只有图标能够提高识别效率时才与文字组合使用。",
+        "纯图标按钮必须提供可访问名称或提示。"
+      ]
+    },
+    "cards": {
+      "background": "#FFFFFF",
+      "border": "#E3E8F0",
+      "borderWidth": 1,
+      "radius": 20,
+      "padding": 24,
+      "gap": 20,
+      "shadow": "0 4px 16px #1D2B4A0A",
+      "states": {
+        "default": {
+          "background": "#FFFFFF",
+          "border": "#E3E8F0"
+        },
+        "pressed": {
+          "background": "#F8FAFD",
+          "border": "#C8D0DC"
+        },
+        "selected": {
+          "background": "#EDF4FF",
+          "border": "#246BFD"
+        },
+        "disabled": {
+          "background": "#F2F4F7",
+          "border": "#E8EBF0"
+        }
+      },
+      "productCard": {
+        "minimumHeight": 220,
+        "avatarSize": 128,
+        "avatarRadius": 16,
+        "titleSize": 26,
+        "metadataSize": 20,
+        "priceSize": 30,
+        "priceColor": "#FF6B57",
+        "tagHeight": 40,
+        "tagRadius": 8,
+        "contentOrder": [
+          "avatar",
+          "display name and verification",
+          "game and rank",
+          "service tags",
+          "rating and completed orders",
+          "price and order action"
+        ]
+      }
+    },
+    "inputs": {
+      "heights": {
+        "default": 80,
+        "large": 88,
+        "textareaMinimum": 176
+      },
+      "paddingHorizontal": 24,
+      "radius": 16,
+      "labelSize": 22,
+      "inputSize": 26,
+      "helperSize": 20,
+      "states": {
+        "default": {
+          "background": "#FFFFFF",
+          "text": "#172033",
+          "placeholder": "#8791A5",
+          "border": "#C8D0DC"
+        },
+        "focus": {
+          "background": "#FFFFFF",
+          "text": "#172033",
+          "border": "#246BFD",
+          "focusRing": "#8CB3FF"
+        },
+        "error": {
+          "background": "#FFF0F0",
+          "text": "#172033",
+          "border": "#E5484D",
+          "helper": "#E5484D"
+        },
+        "disabled": {
+          "background": "#F2F4F7",
+          "text": "#B5BDCA",
+          "border": "#E8EBF0"
+        }
+      },
+      "search": {
+        "height": 72,
+        "background": "#F1F5FB",
+        "border": "#E3E8F0",
+        "radius": 16,
+        "iconSize": 32
+      }
+    },
+    "selectionControls": {
+      "checkboxSize": 40,
+      "radioSize": 40,
+      "switchWidth": 88,
+      "switchHeight": 48,
+      "selected": "#246BFD",
+      "unselected": "#C8D0DC",
+      "disabled": "#E8EBF0",
+      "focusRing": "#8CB3FF"
+    },
+    "tags": {
+      "height": 40,
+      "paddingHorizontal": 12,
+      "radius": 8,
+      "textSize": 20,
+      "neutral": {
+        "background": "#F1F5FB",
+        "text": "#59657A"
+      },
+      "game": {
+        "background": "#EDF4FF",
+        "text": "#246BFD"
+      },
+      "promotion": {
+        "background": "#FFF0ED",
+        "text": "#D84E3D"
+      },
+      "rating": {
+        "background": "#FFF6E5",
+        "text": "#B87000"
+      }
+    },
+    "navigation": {
+      "topBar": {
+        "height": 88,
+        "background": "#FFFFFF",
+        "titleSize": 32,
+        "titleWeight": 600,
+        "iconSize": 40,
+        "horizontalPadding": 32,
+        "divider": "#E3E8F0"
+      },
+      "bottomBar": {
+        "height": 108,
+        "background": "#FFFFFF",
+        "border": "#E3E8F0",
+        "shadow": "0 -4px 20px #1D2B4A0D",
+        "itemMinimumWidth": 120,
+        "iconSize": 40,
+        "labelSize": 20,
+        "activeColor": "#246BFD",
+        "inactiveColor": "#8791A5",
+        "items": [
+          "首页",
+          "分类",
+          "订单",
+          "我的"
+        ]
+      },
+      "tabs": {
+        "height": 72,
+        "labelSize": 24,
+        "activeColor": "#246BFD",
+        "inactiveColor": "#59657A",
+        "indicatorHeight": 4,
+        "indicatorRadius": 2,
+        "indicatorColor": "#246BFD"
+      }
+    },
+    "feedback": {
+      "toast": {
+        "background": "#172033",
+        "text": "#FFFFFF",
+        "radius": 12,
+        "padding": 20
+      },
+      "banner": {
+        "radius": 16,
+        "padding": 24
+      },
+      "loading": {
+        "color": "#246BFD",
+        "track": "#E3E8F0"
+      },
+      "emptyState": {
+        "illustrationMaximumSize": 240,
+        "titleSize": 28,
+        "bodySize": 22,
+        "textColor": "#59657A"
+      }
+    }
+  },
+  "assetRules": {
+    "raster": [
+      "玩家头像、游戏封面、活动摄影和复杂插画使用 WebP 或 AVIF。",
+      "人物照片导出尺寸不低于实际显示尺寸的 2 倍。",
+      "图片保持明亮、干净、自然肤色和简洁背景，不使用绿色主调。",
+      "用户图片缺失时使用统一的中性占位图。"
+    ],
+    "codeRendered": [
+      "文字、按钮、卡片、分割线、标签、徽标、状态和布局结构全部由代码渲染。",
+      "导航和常用操作图标使用代码图标组件。",
+      "简单几何装饰不使用位图。"
+    ],
+    "bakedText": [
+      "价格、姓名、评分、操作文案和促销信息不得烘焙进图片。",
+      "只有授权游戏原画或官方品牌标志允许保留图片内文字。",
+      "无法从图片中分离的有意义文字必须提供替代文本。"
+    ],
+    "iconStyle": {
+      "family": "统一的圆润线性图标族",
+      "strokeWidth": 2,
+      "defaultSize": 40,
+      "smallSize": 32,
+      "filledUsage": "填充图标仅用于底部导航激活项和已收藏状态。",
+      "rules": [
+        "不得混用图标族或描边粗细。",
+        "返回、搜索、收藏、分享和关闭使用平台熟悉的标准符号。",
+        "同一工具栏中的图标保持一致的视觉尺寸。"
+      ]
+    }
+  },
+  "accessibility": {
+    "minimumContrast": {
+      "normalText": "4.5:1",
+      "largeText": "3:1",
+      "interactiveBoundary": "3:1"
+    },
+    "minimumTouchTarget": {
+      "width": 88,
+      "height": 88
+    },
+    "focusIndicator": {
+      "color": "#8CB3FF",
+      "width": 4,
+      "offset": 4
+    },
+    "rules": [
+      "在线状态、校验、选择和评分不能只靠颜色表达，必须结合文字、形状或图标。",
+      "纯图标控件提供可访问名称，人物照片和游戏封面提供有意义的替代文本。",
+      "支持文字放大到 200%，不得裁切关键操作或数值。",
+      "关键信息放在纯色表面上，不直接覆盖复杂图片。",
+      "错误提示需要指出具体字段和修正方式。",
+      "尊重减少动态效果设置，非必要过渡不超过 200ms。",
+      "任何状态均不得使用绿色；成功状态使用蓝色、勾选图标和明确文字共同表达。"
+    ]
+  },
+  "responsive": {
+    "referenceWidth": 750,
+    "breakpoints": {
+      "compact": 640,
+      "standard": 750,
+      "expanded": 960
+    },
+    "rules": [
+      "低于 750px 时按比例调整布局尺寸，同时保证有效触控区域不小于 44 CSS px。",
+      "紧凑屏使用 24px 设计边距，标准屏使用 32px，扩展屏使用 40px。",
+      "750px 以下商品卡保持单列，仅当每张卡可保持至少 336px 宽时切换为双列。",
+      "标签空间不足时换行，不缩小文字。",
+      "手机布局固定底部导航；仅在 960px 以上且宿主环境支持时切换为侧边导航。",
+      "顶部栏、底部导航、底部弹层和固定结算操作必须适配安全区。",
+      "玩家名称在列表中单行截断，详情页显示全名。",
+      "字号不随视口宽度缩放，始终使用定义的字体令牌。"
+    ]
+  },
+  "motion": {
+    "fast": 120,
+    "standard": 180,
+    "slow": 240,
+    "easing": "cubic-bezier(0.2, 0, 0, 1)",
+    "rules": [
+      "按下和选中状态使用 120ms 过渡。",
+      "底部弹层、筛选和导航切换使用 180ms 过渡。",
+      "不使用循环装饰动画。"
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "generationSize": "750x1334",
+  "extractionSize": "1024x1024",
+  "finalSize": "750x1334",
+  "quality": "high",
+  "padding": 32,
+  "threshold": 20,
+  "codexMaxIterations": 8
+}

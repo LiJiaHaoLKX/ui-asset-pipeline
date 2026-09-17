@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "activePageId": "page-003",
+  "pages": [
+    {
+      "id": "game-home",
+      "name": "游戏首页",
+      "storage": "legacy",
+      "createdAt": "2026-09-14T16:37:15+08:00",
+      "updatedAt": "2026-09-14T16:37:15+08:00"
+    },
+    {
+      "id": "game-detail",
+      "name": "游戏详情页",
+      "storage": "page",
+      "createdAt": "2026-09-14T16:37:47+08:00",
+      "updatedAt": "2026-09-14T16:37:47+08:00"
+    },
+    {
+      "id": "page-001",
+      "name": "测试",
+      "storage": "page",
+      "createdAt": "2026-09-14T16:48:46+08:00",
+      "updatedAt": "2026-09-14T16:48:46+08:00"
+    },
+    {
+      "id": "page-002",
+      "name": "测试1",
+      "storage": "page",
+      "createdAt": "2026-09-14T17:15:41+08:00",
+      "updatedAt": "2026-09-15T10:17:40+08:00"
+    },
+    {
+      "id": "page-003",
+      "name": "测12",
+      "storage": "page",
+      "createdAt": "2026-09-15T10:18:12+08:00",
+      "updatedAt": "2026-09-17T00:43:37+08:00"
+    }
+  ],
+  "updatedAt": "2026-09-17T00:43:37+08:00"
+}
