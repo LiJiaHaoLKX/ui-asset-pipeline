@@ -100,6 +100,31 @@ def _save_result(body: bytes, content_type: str, output: Path, record_dir: Path)
         raise RuntimeError("Image API response has neither b64_json nor url.")
 
 
+def fit_reference_size(output: Path, requested_size: str, record_dir: Path) -> None:
+    """Keep every source pixel in the reference composition; never crop a UI."""
+    with Image.open(output) as source:
+        source.save(record_dir / 'original-response.png', format='PNG')
+        actual = source.size
+        if requested_size == 'auto':
+            return
+        expected = tuple(int(n) for n in requested_size.lower().split('x'))
+        if actual == expected:
+            return
+        ratio = min(expected[0] / actual[0], expected[1] / actual[1], 1)
+        fitted = (max(1, round(actual[0] * ratio)), max(1, round(actual[1] * ratio)))
+        offset = ((expected[0] - fitted[0]) // 2, (expected[1] - fitted[1]) // 2)
+        canvas = Image.new('RGBA', expected, (255, 255, 255, 255))
+        canvas.alpha_composite(source.convert('RGBA').resize(fitted, Image.Resampling.LANCZOS), offset)
+        canvas.convert('RGB').save(output, format='PNG')
+    (record_dir / 'normalization.json').write_text(json.dumps({
+        'requested': {'width': expected[0], 'height': expected[1]},
+        'received': {'width': actual[0], 'height': actual[1]},
+        'method': 'contain without cropping or upscaling; white padding',
+        'offset': list(offset), 'fitted': list(fitted),
+        'warning': '返回尺寸与目标不符，已等比缩放补白，未裁切；原图保存在 original-response.png'
+    }, ensure_ascii=False, indent=2), encoding='utf-8')
+
+
 def normalize_size(output: Path, requested_size: str, record_dir: Path) -> None:
     if requested_size == "auto" or "x" not in requested_size:
         return
@@ -219,9 +244,13 @@ def call_generate_api(
     stage = '解析生成响应、下载或保存图片'
     try:
         _save_result(body, content_type, output, record_dir)
+        # Always retain the exact downloaded result before optional CLI-only normalization.
+        if output.is_file() and not (record_dir / 'original-response.png').exists():
+            import shutil
+            shutil.copyfile(output, record_dir / 'original-response.png')
         stage = '本地图片尺寸处理'
         if normalized_size:
-            normalize_size(output, normalized_size, record_dir)
+            fit_reference_size(output, normalized_size, record_dir)
         elif normalize_output_size:
             normalize_size(output, size, record_dir)
     except Exception as error:

@@ -527,7 +527,7 @@ def create_job(kind: str, task) -> str:
         try:
             result = task() or {}
             with JOBS_LOCK:
-                JOBS[job_id].update(status="completed", completedAt=now_iso(), message="执行完成", result=result)
+                JOBS[job_id].update(status="completed", completedAt=now_iso(), message=result.get('warning') or "执行完成", result=result)
         except Exception as error:
             from scripts.request_diagnostics import diagnose
             diagnostic = getattr(error, 'diagnostic', None) or diagnose(error, '任务执行（未记录更细阶段）')
@@ -790,9 +790,14 @@ def generate_reference(body: dict) -> dict:
     run_id = "reference-web-" + datetime.now().strftime("%Y%m%d-%H%M%S")
     output = root / "reference" / "reference-page.png"
     with GENERATE_LOCK:
-        call_generate_api(prompt, output, root / "runs" / "gpt-image" / run_id, settings["generationSize"], settings["quality"], 1, normalized_size=settings["finalSize"])
+        # Keep the gateway's returned composition intact. A forced center crop or
+        # padded canvas can hide UI at the edges and corrupt later annotation.
+        call_generate_api(prompt, output, root / "runs" / "gpt-image" / run_id, settings["generationSize"], settings["quality"], 1)
     update_phase("draft-reference", "生成了新的参考图，等待审核")
-    return {"reference": image_info(output)}
+    run_dir = root / 'runs' / 'gpt-image' / run_id
+    normalization = read_json(run_dir / 'normalization.json', {})
+    return {"reference": image_info(output), "warning": normalization.get('warning'),
+            "originalUrl": file_url(run_dir / 'original-response.png') if (run_dir / 'original-response.png').exists() else file_url(output)}
 
 
 def generate_image_prompt(body: dict) -> dict:
