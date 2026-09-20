@@ -2,8 +2,8 @@
   "name": "Fresh Playmate Mini Program Design System",
   "scope": "适用于游戏发现、陪玩列表、陪玩详情、下单、聊天、订单、优惠活动和个人中心等全项目页面。",
   "canvas": {
-    "width": 750,
-    "height": 1334,
+    "width": 752,
+    "height": 1344,
     "unit": "design-px",
     "devicePixelRatio": 1,
     "safeArea": {

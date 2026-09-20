@@ -13,6 +13,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from image_dimensions import normalize_size as normalize_request_size
+
 try:
     from .gpt_image_api import call_edit_api
 except ImportError:  # Direct script execution.
@@ -67,6 +69,7 @@ def merge_repair_versions(previous: dict | None, current: dict) -> dict:
 
 
 def repair_one(job: dict, output_root: Path, runs_root: Path, size: str, quality: str, retries: int) -> dict:
+    size = normalize_request_size(size)
     region, target, source = job["region"], job["target"], job["source"]
     base_id = f"{region['id']}-{target['id']}"
     originals = output_root / "originals"

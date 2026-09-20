@@ -17,6 +17,8 @@ from contextlib import contextmanager
 from datetime import datetime
 from html.parser import HTMLParser
 from pathlib import Path
+
+from image_dimensions import normalize_size
 from urllib.parse import quote
 
 
@@ -651,7 +653,7 @@ class CodexTaskStore:
             destination = iterations_root / iteration
             destination.mkdir(parents=True, exist_ok=False)
             settings = read_json(self.root / "workspace" / "settings.json", {}) or {}
-            size = str(settings.get("finalSize", "750x1334"))
+            size = normalize_size(str(settings.get("finalSize", "752x1344")))
             width, height = (int(value) for value in size.split("x", 1))
             threshold_value = max(0, min(int(settings.get("threshold", 20) if threshold is None else threshold), 255))
             render = destination / "render.png"

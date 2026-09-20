@@ -1,6 +1,6 @@
 Create a polished Chinese mobile mini-program game home page reference image.
 
-Final API and design canvas: exactly 750 x 1334 design pixels, portrait. Compose directly for this canvas; do not add external margins and do not assume any later crop.
+Final API and design canvas: exactly 752 x 1344 design pixels, portrait. Compose directly for this canvas; do not add external margins and do not assume any later crop.
 
 Product direction: a premium futuristic casual gaming hub. Dark navy background, translucent deep-teal cards, cyan and mint glow, restrained orange highlights. Refined, energetic, and playful, but not childish or visually noisy.
 

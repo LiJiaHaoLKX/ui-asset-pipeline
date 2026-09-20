@@ -20,6 +20,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from image_dimensions import normalize_prompt_dimensions, normalize_size as normalize_request_size
+
 
 def read_image_config(env_file: Path | None = None) -> dict[str, str]:
     """Read one fresh snapshot; project settings override inherited process values."""
@@ -216,6 +218,10 @@ def call_generate_api(
     normalize_output_size: bool = False,
     normalized_size: str | None = None,
 ) -> None:
+    size = normalize_request_size(size)
+    if normalized_size:
+        normalized_size = normalize_request_size(normalized_size)
+    prompt = normalize_prompt_dimensions(prompt)
     config = read_image_config()
     base_url = config.get("GPT_IMAGE_BASE_URL", "http://154.12.91.166:3000/v1").rstrip("/")
     api_key = config.get("GPT_IMAGE_API_KEY")
@@ -299,6 +305,8 @@ def call_edit_api(
     quality: str,
     transparent_background: bool = True,
 ) -> None:
+    size = normalize_request_size(size)
+    prompt = normalize_prompt_dimensions(prompt)
     config = read_image_config()
     api_key = config.get("GPT_IMAGE_API_KEY")
     model = config.get("GPT_IMAGE_MODEL")

@@ -172,9 +172,9 @@ function renderConfig() {
   setImageModelOptions([], state.config.image.model || '');
   form.elements.textBaseUrl.value = state.config.text.baseUrl || '';
   form.elements.textModel.value = state.config.text.model || '';
-  form.elements.generationSize.value = state.settings.generationSize || '750x1334';
+  form.elements.generationSize.value = state.settings.generationSize || '752x1344';
   form.elements.extractionSize.value = state.settings.extractionSize || '1024x1024';
-  form.elements.finalSize.value = state.settings.finalSize || '750x1334';
+  form.elements.finalSize.value = state.settings.finalSize || '752x1344';
   form.elements.quality.value = state.settings.quality || 'medium';
   form.elements.padding.value = state.settings.padding ?? 32;
   form.elements.threshold.value = state.settings.threshold ?? 20;

@@ -28,6 +28,7 @@ from urllib.parse import unquote, urlparse
 from PIL import Image
 
 from pipeline_tasks import CodexTaskStore
+from image_dimensions import normalize_design_spec, normalize_prompt_dimensions, normalize_size
 
 
 ROOT = Path(__file__).resolve().parent
@@ -45,9 +46,9 @@ JOBS_LOCK = threading.Lock()
 PAGE_CONTEXT = threading.local()
 TASK_STORE = CodexTaskStore(ROOT)
 DEFAULT_SETTINGS = {
-    "generationSize": "750x1334",
+    "generationSize": "752x1344",
     "extractionSize": "1024x1024",
-    "finalSize": "750x1334",
+    "finalSize": "752x1344",
     "quality": "medium",
     "padding": 32,
     "threshold": 20,
@@ -353,6 +354,13 @@ def ensure_project_config() -> None:
             settings["generationSize"] = legacy_settings["size"]
         settings.pop("size", None)
         write_json(PROJECT_SETTINGS_PATH, settings)
+    else:
+        settings = read_json(PROJECT_SETTINGS_PATH, {}) or {}
+        normalized = {**DEFAULT_SETTINGS, **settings}
+        for key in ("generationSize", "extractionSize", "finalSize"):
+            normalized[key] = normalize_size(normalized[key])
+        if normalized != settings:
+            write_json(PROJECT_SETTINGS_PATH, normalized)
     state_paths = [ROOT / "workspace" / "state.json", *(ROOT / "pages").glob("*/state.json")]
     for path in state_paths:
         state = read_json(path, {}) or {}
@@ -363,22 +371,29 @@ def ensure_project_config() -> None:
 
 def load_project_design() -> dict:
     ensure_project_config()
-    return read_json(PROJECT_DESIGN_PATH, {}) or {}
+    return normalize_design_spec(read_json(PROJECT_DESIGN_PATH, {}) or {})
 
 
 def save_project_design(spec: dict) -> None:
-    write_json(PROJECT_DESIGN_PATH, spec)
-    write_json(ROOT / "design-spec.json", spec)
+    normalized = normalize_design_spec(spec)
+    write_json(PROJECT_DESIGN_PATH, normalized)
+    write_json(ROOT / "design-spec.json", normalized)
 
 
 def load_project_settings() -> dict:
     ensure_project_config()
     stored = read_json(PROJECT_SETTINGS_PATH, {}) or {}
-    return {**DEFAULT_SETTINGS, **stored}
+    settings = {**DEFAULT_SETTINGS, **stored}
+    for key in ("generationSize", "extractionSize", "finalSize"):
+        settings[key] = normalize_size(settings[key])
+    return settings
 
 
 def save_project_settings(settings: dict) -> None:
-    write_json(PROJECT_SETTINGS_PATH, {**DEFAULT_SETTINGS, **settings})
+    values = {**DEFAULT_SETTINGS, **settings}
+    for key in ("generationSize", "extractionSize", "finalSize"):
+        values[key] = normalize_size(values[key])
+    write_json(PROJECT_SETTINGS_PATH, values)
 
 
 def page_by_id(page_id: str | None = None) -> dict:
@@ -784,7 +799,7 @@ def generate_reference(body: dict) -> dict:
     settings = load_project_settings()
     root = data_root()
     prompt_path = root / "prompts" / "reference-page.txt"
-    prompt = body.get("prompt") or prompt_path.read_text(encoding="utf-8")
+    prompt = normalize_prompt_dimensions(body.get("prompt") or prompt_path.read_text(encoding="utf-8"))
     if not prompt.strip():
         raise ValueError("请先使用文本模型生成图片提示词")
     run_id = "reference-web-" + datetime.now().strftime("%Y%m%d-%H%M%S")
@@ -810,10 +825,12 @@ def generate_image_prompt(body: dict) -> dict:
     if not base_url or not api_key or not model:
         raise ValueError("请先配置文本 API 地址、密钥和模型")
     root = data_root()
-    spec = load_project_design()
-    notes = str(body.get("notes", "")).strip()
+    spec = normalize_design_spec(load_project_design())
+    notes = normalize_prompt_dimensions(str(body.get("notes", "")).strip())
     system_prompt = (ROOT / 'prompts' / 'page-image-system.txt').read_text(encoding='utf-8')
-    user_prompt = f"Page name: {current_page()['name']}\nDesign specification JSON:\n{json.dumps(spec, ensure_ascii=False, indent=2)}"
+    canvas = spec.get("canvas") or {}
+    canvas_size = f"{canvas.get('width', 752)}x{canvas.get('height', 1344)}"
+    user_prompt = f"Page name: {current_page()['name']}\nAuthoritative image canvas: {canvas_size}. Both dimensions must be multiples of 16.\nDesign specification JSON:\n{json.dumps(spec, ensure_ascii=False, indent=2)}"
     if notes:
         user_prompt += f"\nAdditional direction:\n{notes}"
     payload = {"model": model, "messages": [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}], "temperature": 0.3, "max_tokens": 3000}
@@ -829,7 +846,7 @@ def generate_image_prompt(body: dict) -> dict:
     content = (choices[0].get("message") or {}).get("content")
     if isinstance(content, list):
         content = "\n".join(item.get("text", "") for item in content if isinstance(item, dict))
-    prompt = str(content or "").strip()
+    prompt = normalize_prompt_dimensions(str(content or "").strip())
     if not prompt:
         raise RuntimeError("文本模型返回了空提示词")
     (root / "prompts" / "reference-page.txt").write_text(prompt + "\n", encoding="utf-8")
@@ -1126,7 +1143,7 @@ class AppHandler(BaseHTTPRequestHandler):
                     save_project_design(spec)
                 if spec is None and not any(key in body for key in ("prompt", "notes")):
                     raise ValueError("没有可保存的设计数据")
-                if "prompt" in body: (root / "prompts" / "reference-page.txt").write_text(str(body.get("prompt", "")), encoding="utf-8")
+                if "prompt" in body: (root / "prompts" / "reference-page.txt").write_text(normalize_prompt_dimensions(str(body.get("prompt", ""))), encoding="utf-8")
                 if "notes" in body: (root / "prompts" / "reference-page.notes.txt").write_text(str(body.get("notes", "")), encoding="utf-8")
                 self.send_json({"ok": True})
             elif parsed.path == "/api/prompt/generate":

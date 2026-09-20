@@ -13,7 +13,7 @@
   function render(fill = false) {
     if (!data) return;
     if (fill && !dirty) {
-      for (const [key, id] of Object.entries(fields)) el(id).value = data.brief[key] || (key === 'platform' ? '小程序' : key === 'canvas' ? '750x1334' : '');
+      for (const [key, id] of Object.entries(fields)) el(id).value = data.brief[key] || (key === 'platform' ? '小程序' : key === 'canvas' ? '752x1344' : '');
       el('studioModel').value = data.previewModel;
     }
     const busy = Boolean(working || data.busy);

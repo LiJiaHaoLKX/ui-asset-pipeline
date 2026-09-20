@@ -15,6 +15,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from image_dimensions import normalize_size as normalize_request_size
+
 from gpt_image_api import call_edit_api, ImageDownloadError, _save_result, normalize_size
 
 
@@ -89,6 +91,7 @@ def run_job(
     quality: str,
     retries: int,
 ) -> dict:
+    size = normalize_request_size(size)
     region_id = region["id"]
     targets = [target for target in region.get("targets", []) if is_ai_transparent_target(target)]
     if not targets:

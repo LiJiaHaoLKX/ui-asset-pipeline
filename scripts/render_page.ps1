@@ -1,8 +1,8 @@
 param(
   [string]$Url = 'http://127.0.0.1:8765/src/index.html',
   [Parameter(Mandatory=$true)][string]$Output,
-  [int]$Width = 750,
-  [int]$Height = 1334
+  [int]$Width = 752,
+  [int]$Height = 1344
 )
 
 $ErrorActionPreference = 'Stop'
