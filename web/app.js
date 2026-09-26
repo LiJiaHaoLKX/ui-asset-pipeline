@@ -525,7 +525,7 @@ function reloadPreview() {
 }
 
 const marker = {
-  regions: [], mode: 'crop', selectedRegion: -1, selectedTarget: -1, start: null, draft: null, ready: false,
+  regions: [], mode: 'crop', selectedRegion: -1, selectedTarget: -1, start: null, draft: null, ready: false, fullTargetView: false,
   loadState(nextState) {
     const image = $('#markerImage');
     if (!nextState.reference) { image.removeAttribute('src'); $('#markerOverlay').replaceChildren(); $('#targetOverlay').replaceChildren(); this.ready = false; this.regions = []; $('#markerStatus').textContent = '当前页面尚无参考图'; return; }
@@ -554,6 +554,7 @@ const marker = {
   setMode(mode) {
     if (mode === 'target' && !this.regions.length) return notify('请先画绿色切割框', true);
     this.mode = mode;
+    if (mode !== 'target') this.fullTargetView = false;
     if (mode === 'target' && this.selectedRegion < 0) this.selectedRegion = 0;
     $('#cropMode').classList.toggle('active', mode === 'crop');
     $('#targetMode').classList.toggle('active', mode === 'target');
@@ -621,14 +622,17 @@ const marker = {
     if (!region) return;
     const canvas = $('#targetCanvas');
     const stage = $('#targetStage');
-    canvas.width = region.width; canvas.height = region.height;
-    stage.style.width = `${region.width}px`; stage.style.height = `${region.height}px`;
-    canvas.getContext('2d').drawImage($('#markerImage'), region.x, region.y, region.width, region.height, 0, 0, region.width, region.height);
+    const full = this.fullTargetView;
+    const width = full ? $('#markerImage').naturalWidth : region.width;
+    const height = full ? $('#markerImage').naturalHeight : region.height;
+    canvas.width = width; canvas.height = height;
+    stage.style.width = `${width}px`; stage.style.height = `${height}px`;
+    canvas.getContext('2d').drawImage($('#markerImage'), full ? 0 : region.x, full ? 0 : region.y, width, height, 0, 0, width, height);
     const overlay = $('#targetOverlay');
     overlay.replaceChildren();
     region.targets.forEach((target, index) => {
       const box = document.createElement('div'); box.className = `marker-target${index === this.selectedTarget ? ' selected' : ''}`;
-      Object.assign(box.style, { left: `${target.x}px`, top: `${target.y}px`, width: `${target.width}px`, height: `${target.height}px` });
+      Object.assign(box.style, { left: `${(full ? region.x : 0) + target.x}px`, top: `${(full ? region.y : 0) + target.y}px`, width: `${target.width}px`, height: `${target.height}px` });
       box.innerHTML = `<span>${elementTypeLabels[target.elementType] || '图片素材'} · ${String(index + 1).padStart(2, '0')}</span>`;
       box.onpointerdown = event => event.stopPropagation();
       box.onclick = event => { event.stopPropagation(); this.selectedTarget = index; this.render(); };
@@ -654,8 +658,8 @@ const marker = {
   },
   draftBox(event, target) {
     const rect = target.getBoundingClientRect();
-    const maxW = this.mode === 'crop' ? $('#markerImage').naturalWidth : this.regions[this.selectedRegion].width;
-    const maxH = this.mode === 'crop' ? $('#markerImage').naturalHeight : this.regions[this.selectedRegion].height;
+    const maxW = this.mode === 'crop' ? $('#markerImage').naturalWidth : this.fullTargetView ? $('#markerImage').naturalWidth : this.regions[this.selectedRegion].width;
+    const maxH = this.mode === 'crop' ? $('#markerImage').naturalHeight : this.fullTargetView ? $('#markerImage').naturalHeight : this.regions[this.selectedRegion].height;
     const endX = Math.max(0, Math.min(maxW, Math.round(event.clientX - rect.left)));
     const endY = Math.max(0, Math.min(maxH, Math.round(event.clientY - rect.top)));
     const x = Math.min(this.start.x, endX);
@@ -673,7 +677,15 @@ const marker = {
         this.regions.push({ x, y, width, height, purpose: '', approved: true, targets: [] });
         this.selectedRegion = this.regions.length - 1; this.selectedTarget = -1;
       } else {
-        this.regions[this.selectedRegion].targets.push(normalizeTarget({ x, y, width, height, purpose: '', approved: true, elementType: 'image-asset', processingMode: 'local-transparent', reviewStatus: 'needs-review', suggestion: { source: 'manual' } }));
+        const region = this.regions[this.selectedRegion];
+        const localX = this.fullTargetView ? x - region.x : x;
+        const localY = this.fullTargetView ? y - region.y : y;
+        if (localX < 0 || localY < 0 || localX + width > region.width || localY + height > region.height) {
+          this.start = null;
+          this.render();
+          return;
+        }
+        this.regions[this.selectedRegion].targets.push(normalizeTarget({ x: localX, y: localY, width, height, purpose: '', approved: true, elementType: 'image-asset', processingMode: 'local-transparent', reviewStatus: 'needs-review', suggestion: { source: 'manual' } }));
         this.selectedTarget = this.regions[this.selectedRegion].targets.length - 1;
         openConfig = true;
       }
@@ -726,6 +738,7 @@ const marker = {
     this.selectedRegion = this.regions.length ? 0 : -1;
     this.selectedTarget = this.regions[0]?.targets?.length ? 0 : -1;
     this.dirty = true;
+    this.fullTargetView = true;
     this.setMode(this.regions.length ? 'target' : 'crop');
   },
 };
@@ -808,6 +821,27 @@ function bindEvents() {
     const reader = new FileReader();
     reader.onload = async () => { try { await api('/api/reference/upload', { method: 'POST', body: { data: reader.result } }); await refreshState(true); notify('参考图已上传'); } catch (error) { notify(error.message, true); } };
     reader.readAsDataURL(file);
+  };
+  $('#referenceEditFile').onchange = () => {
+    const file = $('#referenceEditFile').files[0];
+    $('#referenceEditFileName').textContent = file ? file.name : '未选择文件';
+  };
+  $('#editReference').onclick = async () => {
+    const prompt = $('#referenceEditPrompt').value.trim();
+    if (!prompt) return notify('请先输入修改提示词', true);
+    if (!$('#referenceEditFile').files[0]) return notify('请先上传参考图', true);
+    if (!confirm('确认调用图片编辑 API 修改参考图？此操作会产生费用。')) return;
+    const file = $('#referenceEditFile').files[0];
+    try {
+      const image = file ? await new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(reader.result); reader.onerror = reject; reader.readAsDataURL(file); }) : '';
+      const { jobId } = await api('/api/generate', {method: 'POST', body: {prompt, image, includeOriginal: $('#referenceIncludeOriginal').checked, edit: true, confirmed: true}});
+      await waitForJob(jobId);
+      $('#referenceEditPrompt').value = '';
+      $('#referenceEditFile').value = '';
+      $('#referenceEditFileName').textContent = '未选择文件';
+      await refreshState(true);
+      notify('参考图已修改，等待审核');
+    } catch (error) { notify(error.message, true); }
   };
   $('#approveReference').onclick = async () => { try { await api('/api/reference/approve', { method: 'POST', body: { approved: true } }); await refreshState(true); notify('参考图已批准'); } catch (error) { notify(error.message, true); } };
   $('#rejectReference').onclick = async () => { try { await api('/api/reference/approve', { method: 'POST', body: { approved: false } }); await refreshState(true); notify('已标记为待修改'); } catch (error) { notify(error.message, true); } };

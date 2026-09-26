@@ -1,91 +1,119 @@
 {
-  "name": "Fresh Playmate Mini Program Design System",
-  "scope": "适用于游戏发现、陪玩列表、陪玩详情、下单、聊天、订单、优惠活动和个人中心等全项目页面。",
+  "name": "Playmate 清爽游戏陪玩 H5 设计系统",
+  "version": "1.1-clean-ios",
+  "scope": [
+    "首页",
+    "陪玩师发现与筛选",
+    "陪玩师详情",
+    "游戏选择",
+    "服务套餐与预约",
+    "订单确认与支付",
+    "聊天与语音房",
+    "评价与订单完成",
+    "优惠券",
+    "消息通知",
+    "个人中心",
+    "客服与反馈"
+  ],
   "canvas": {
     "width": 752,
-    "height": 1344,
-    "unit": "design-px",
-    "devicePixelRatio": 1,
-    "safeArea": {
-      "top": 44,
-      "bottom": 34
-    }
+    "height": 1344
   },
+  "designPrinciples": [
+    "白色为主，使用连续背景、清晰层级和充足留白，避免每个信息区都被卡片包裹。",
+    "采用清爽、轻量、圆润的 iOS 风格，使用细边框、柔和阴影和明确文字层级。",
+    "蓝色用于主要行动、选中、在线、可预约和完成状态，不使用绿色。",
+    "浅紫和蓝紫渐变只用于活动横幅、游戏封面遮罩或重点入口，不使用深紫色作为背景、主按钮或主要文字。",
+    "每个操作区域只保留一个主操作，关键行为使用明确动词，例如预约陪玩、立即下单、进入语音房。",
+    "陪玩师、游戏、价格、时长、评分和可预约状态优先可扫描展示。",
+    "内容过长时自然换行，不通过过度缩小字号容纳文字。",
+    "游戏氛围通过头像、真实游戏封面和少量低饱和渐变表达，界面本身保持可信、清洁和易读。",
+    "不使用夸张胜率、虚假等级或绝对化承诺诱导消费。"
+  ],
   "colors": {
     "background": {
-      "page": "#F6F8FC",
+      "page": "#F7F9FC",
       "primary": "#FFFFFF",
-      "subtle": "#F1F5FB",
-      "selected": "#EDF4FF",
+      "subtle": "#F1F5FA",
+      "raised": "#FFFFFF",
+      "selected": "#EAF2FF",
       "disabled": "#F2F4F7",
-      "overlay": "#10182899"
+      "overlay": "#18223099"
     },
     "text": {
-      "primary": "#172033",
-      "secondary": "#59657A",
-      "tertiary": "#8791A5",
+      "primary": "#182230",
+      "secondary": "#566274",
+      "tertiary": "#667386",
       "inverse": "#FFFFFF",
-      "disabled": "#B5BDCA",
-      "link": "#246BFD"
+      "disabled": "#A8B1BF",
+      "link": "#2463C7"
     },
     "action": {
-      "primary": "#246BFD",
-      "primaryHover": "#1D5CE0",
-      "primaryPressed": "#174FC5",
-      "primaryDisabled": "#B8CDFD",
-      "secondary": "#EDF4FF",
-      "secondaryHover": "#DCE9FF",
-      "secondaryPressed": "#C7DCFF",
-      "focusRing": "#8CB3FF"
+      "primary": "#2F6FE4",
+      "primaryHover": "#2860C6",
+      "primaryPressed": "#204C9D",
+      "primaryDisabled": "#B9CBEA",
+      "secondary": "#EAF2FF",
+      "secondaryHover": "#DCEAFF",
+      "secondaryPressed": "#C9DDFB",
+      "focusRing": "#2F6FE4"
     },
     "accent": {
-      "primary": "#FF6B57",
-      "soft": "#FFF0ED",
-      "gold": "#F5A524",
-      "goldSoft": "#FFF6E5"
+      "sky": "#65B8F4",
+      "skySoft": "#EAF7FF",
+      "violet": "#8276C7",
+      "violetSoft": "#F1EFFF",
+      "warm": "#F3B45F",
+      "warmSoft": "#FFF5E5",
+      "gradientStart": "#6DBAF5",
+      "gradientEnd": "#8075D0"
     },
     "border": {
-      "default": "#E3E8F0",
-      "strong": "#C8D0DC",
-      "focus": "#246BFD",
-      "disabled": "#E8EBF0"
+      "default": "#DFE5EE",
+      "strong": "#8491A3",
+      "focus": "#2F6FE4",
+      "disabled": "#E6EAF0"
     },
     "states": {
-      "success": "#3478F6",
+      "success": "#2463C7",
       "successBackground": "#EAF2FF",
-      "warning": "#D88700",
-      "warningBackground": "#FFF5DE",
-      "error": "#E5484D",
-      "errorBackground": "#FFF0F0",
-      "info": "#6D5CE7",
-      "infoBackground": "#F1EFFF"
+      "warning": "#9A651A",
+      "warningBackground": "#FFF4DF",
+      "error": "#C7464D",
+      "errorPressed": "#A93A40",
+      "errorBackground": "#FDEEEF",
+      "info": "#426C9D",
+      "infoBackground": "#EAF1F8",
+      "online": "#2463C7",
+      "busy": "#9A651A",
+      "offline": "#667386"
     },
-    "rating": {
-      "star": "#F5A524",
-      "background": "#FFF6E5"
-    },
-    "presence": {
-      "online": "#3478F6",
-      "busy": "#F5A524",
-      "offline": "#A6AFBD"
-    }
+    "colorRules": [
+      "所有界面、图标、图表和装饰不得使用绿色或偏绿灰色。",
+      "禁止使用深紫色作为页面背景、主按钮或主要文字；紫色只作为少量辅助色。",
+      "蓝色不应铺满整屏，仅用于行动、链接、选中、在线和可预约状态。",
+      "蓝色到浅紫色渐变仅用于活动横幅、游戏封面遮罩或重点入口，渐变角度保持柔和，不用于大面积页面背景。",
+      "暖黄色只用于优惠、限时提示和轻量强调，不替代主要操作色。",
+      "所有组件必须引用语义令牌，禁止添加未定义的局部品牌色。",
+      "错误、成功、在线、离线、已选和优惠状态必须同时使用文字、图标、形状或位置表达，不能只依赖颜色。"
+    ]
   },
   "typography": {
     "fontFamilies": {
-      "primary": "PingFang SC, Microsoft YaHei, Arial, sans-serif",
-      "numeric": "DIN Alternate, Arial, sans-serif"
+      "primary": "PingFang SC, -apple-system, BlinkMacSystemFont, Microsoft YaHei, Arial, sans-serif",
+      "numeric": "SF Pro Rounded, DIN Alternate, Arial, sans-serif"
     },
     "sizes": {
-      "display": 48,
-      "pageTitle": 36,
-      "title": 32,
-      "sectionTitle": 28,
-      "cardTitle": 26,
-      "bodyLarge": 26,
-      "body": 24,
-      "label": 22,
-      "caption": 20,
-      "micro": 18
+      "display": 52,
+      "pageTitle": 40,
+      "title": 34,
+      "sectionTitle": 30,
+      "cardTitle": 28,
+      "bodyLarge": 28,
+      "body": 26,
+      "label": 24,
+      "caption": 22,
+      "micro": 20
     },
     "weights": {
       "regular": 400,
@@ -94,48 +122,53 @@
       "bold": 700
     },
     "lineHeight": {
-      "display": 64,
-      "pageTitle": 50,
-      "title": 44,
-      "sectionTitle": 40,
-      "cardTitle": 38,
-      "bodyLarge": 38,
-      "body": 36,
-      "label": 32,
-      "caption": 30,
-      "micro": 26
+      "display": 68,
+      "pageTitle": 54,
+      "title": 48,
+      "sectionTitle": 42,
+      "cardTitle": 40,
+      "bodyLarge": 42,
+      "body": 40,
+      "label": 34,
+      "caption": 32,
+      "micro": 28
     },
+    "letterSpacing": 0,
     "rules": [
-      "大多数标题使用 600 字重，避免界面显得厚重。",
-      "数字字体仅用于价格、评分、订单总额和时间。",
-      "字间距统一为 0。",
-      "正文优先限定为 26、24、20 三档字号。",
-      "单个组件内最多使用两种字重。"
+      "标题使用 600 或 700，正文默认使用 400。",
+      "陪玩师名称、游戏名称和价格可以使用 600，避免所有文字都使用粗体。",
+      "价格、时长、订单编号和日期使用 numeric 字体。",
+      "紧凑组件内最多使用两种字号和两种字重。",
+      "micro 只用于非关键辅助信息，不用于错误、支付、价格或服务状态。",
+      "标题左对齐，避免超大展示字压缩实际操作区域。",
+      "文字必须支持自然换行，核心价格、日期、状态和操作文案不得截断。"
     ]
   },
   "spacing": {
     "base": 4,
-    "scale": {
-      "0": 0,
-      "1": 4,
-      "2": 8,
-      "3": 12,
-      "4": 16,
-      "5": 20,
-      "6": 24,
-      "7": 28,
-      "8": 32,
-      "10": 40,
-      "12": 48,
-      "14": 56,
-      "16": 64
-    },
+    "scale": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      40,
+      48,
+      56,
+      64,
+      80,
+      96
+    ],
     "layoutGutters": {
       "compact": 24,
       "default": 32,
       "wide": 40
     },
-    "sectionGap": 32,
+    "sectionGap": 40,
     "contentGap": 24,
     "cardGap": 20,
     "inlineGap": 12
@@ -146,14 +179,14 @@
     "medium": 12,
     "large": 16,
     "card": 20,
-    "sheet": 24,
+    "sheet": 32,
     "pill": 999
   },
   "elevation": {
     "none": "none",
-    "card": "0 4px 16px #1D2B4A0A",
-    "floating": "0 10px 30px #1D2B4A14",
-    "navigation": "0 -4px 20px #1D2B4A0D"
+    "card": "0 4px 16px #1822300A",
+    "floating": "0 12px 32px #18223014",
+    "navigation": "0 -4px 20px #1822300D"
   },
   "layout": {
     "gridColumns": 12,
@@ -161,139 +194,241 @@
     "topBarHeight": 88,
     "bottomNavigationHeight": 108,
     "minimumTouchTarget": 88,
-    "contentMaxWidth": 750,
     "listItemMinimumHeight": 112,
+    "contentMaxWidth": 752,
+    "fixedBottomActionReservedSpace": 142,
     "rules": [
-      "页面区块采用统一的 32px 水平边距，不把普通页面区块包装成装饰卡片。",
-      "卡片只用于陪玩、游戏、订单或可操作内容组。",
-      "详情页和结算页的主要操作放置在拇指易触达区域。",
-      "存在底部固定操作时，为内容预留至少 142px 底部空间。"
+      "卡片用于陪玩师、游戏、订单、套餐和消息等可独立操作的信息组。",
+      "连续内容区优先使用白色背景，分组可使用浅蓝灰色背景带区分。",
+      "固定底部操作必须预留组件高度和实际底部安全区，至少预留 142 design-px。",
+      "固定底部 tabbar 使用白色背景和轻柔向上阴影，不使用上边框。",
+      "避免卡片套卡片，卡片内部使用间距、分割线或轻背景组织信息。",
+      "活动横幅和游戏封面可以使用圆角图片，但不把所有内容都设计成浮动面板。"
     ]
   },
   "components": {
+    "interactionDefaults": {
+      "focusRing": {
+        "color": "colors.action.focusRing",
+        "width": 4,
+        "offset": 4
+      },
+      "disabled": {
+        "interactive": false,
+        "announceDisabled": true
+      },
+      "loading": {
+        "preserveWidth": true,
+        "preventDuplicateSubmit": true,
+        "label": "处理中"
+      },
+      "hoverRule": "仅在支持指针悬停的宿主启用，移动端不模拟悬停。",
+      "touchTargetRule": "视觉尺寸小于 88 design-px 的组件扩展无重叠热区至至少 88x88 design-px。"
+    },
     "buttons": {
       "heights": {
         "large": 88,
         "medium": 72,
         "small": 56,
-        "icon": 72
+        "icon": 72,
+        "floating": 96
       },
       "horizontalPadding": {
         "large": 32,
         "medium": 28,
         "small": 20
       },
-      "radius": 16,
+      "radius": {
+        "standard": 16,
+        "floating": 48
+      },
       "labelSize": {
         "large": 28,
         "medium": 26,
         "small": 22
       },
-      "primary": {
-        "default": {
-          "background": "#246BFD",
-          "text": "#FFFFFF",
-          "border": "#246BFD"
+      "labelWeight": 600,
+      "states": {
+        "primary": {
+          "default": {
+            "background": "colors.action.primary",
+            "text": "colors.text.inverse"
+          },
+          "hover": {
+            "background": "colors.action.primaryHover",
+            "text": "colors.text.inverse"
+          },
+          "pressed": {
+            "background": "colors.action.primaryPressed",
+            "text": "colors.text.inverse"
+          },
+          "focus": {
+            "background": "colors.action.primary",
+            "text": "colors.text.inverse",
+            "ring": "colors.action.focusRing"
+          },
+          "disabled": {
+            "background": "colors.action.primaryDisabled",
+            "text": "colors.text.inverse"
+          }
         },
-        "hover": {
-          "background": "#1D5CE0",
-          "text": "#FFFFFF",
-          "border": "#1D5CE0"
+        "secondary": {
+          "default": {
+            "background": "colors.action.secondary",
+            "text": "colors.text.link"
+          },
+          "hover": {
+            "background": "colors.action.secondaryHover",
+            "text": "colors.text.link"
+          },
+          "pressed": {
+            "background": "colors.action.secondaryPressed",
+            "text": "colors.action.primaryPressed"
+          },
+          "focus": {
+            "background": "colors.action.secondary",
+            "text": "colors.text.link",
+            "ring": "colors.action.focusRing"
+          },
+          "disabled": {
+            "background": "colors.background.disabled",
+            "text": "colors.text.disabled"
+          }
         },
-        "pressed": {
-          "background": "#174FC5",
-          "text": "#FFFFFF",
-          "border": "#174FC5"
+        "tertiary": {
+          "default": {
+            "background": "colors.background.primary",
+            "text": "colors.action.primary",
+            "border": "colors.border.strong"
+          },
+          "hover": {
+            "background": "colors.background.subtle",
+            "text": "colors.text.link"
+          },
+          "pressed": {
+            "background": "colors.action.secondaryPressed",
+            "text": "colors.action.primaryPressed"
+          },
+          "focus": {
+            "ring": "colors.action.focusRing"
+          },
+          "disabled": {
+            "background": "colors.background.disabled",
+            "text": "colors.text.disabled",
+            "border": "colors.border.disabled"
+          }
         },
-        "disabled": {
-          "background": "#B8CDFD",
-          "text": "#FFFFFF",
-          "border": "#B8CDFD"
-        }
-      },
-      "secondary": {
-        "default": {
-          "background": "#EDF4FF",
-          "text": "#246BFD",
-          "border": "#C7DCFF"
-        },
-        "hover": {
-          "background": "#DCE9FF",
-          "text": "#1D5CE0",
-          "border": "#8CB3FF"
-        },
-        "pressed": {
-          "background": "#C7DCFF",
-          "text": "#174FC5",
-          "border": "#8CB3FF"
-        },
-        "disabled": {
-          "background": "#F2F4F7",
-          "text": "#B5BDCA",
-          "border": "#E8EBF0"
-        }
-      },
-      "danger": {
-        "default": {
-          "background": "#E5484D",
-          "text": "#FFFFFF",
-          "border": "#E5484D"
-        },
-        "pressed": {
-          "background": "#C73B40",
-          "text": "#FFFFFF",
-          "border": "#C73B40"
+        "danger": {
+          "default": {
+            "background": "colors.states.error",
+            "text": "colors.text.inverse"
+          },
+          "hover": {
+            "background": "colors.states.errorPressed",
+            "text": "colors.text.inverse"
+          },
+          "pressed": {
+            "background": "colors.states.errorPressed",
+            "text": "colors.text.inverse"
+          },
+          "focus": {
+            "ring": "colors.action.focusRing"
+          },
+          "disabled": {
+            "background": "colors.background.disabled",
+            "text": "colors.text.disabled"
+          }
         }
       },
       "rules": [
-        "每个操作区域只设置一个主按钮。",
-        "只有图标能够提高识别效率时才与文字组合使用。",
-        "纯图标按钮必须提供可访问名称或提示。"
+        "每个操作区域只有一个主按钮。",
+        "主按钮使用具体动词，例如预约陪玩、立即下单、进入语音房。",
+        "纯图标按钮必须提供可访问名称和悬停提示。",
+        "按钮文字必须完整显示，不通过压缩字号解决溢出。",
+        "下单和支付按钮加载时保持原宽度并防止重复提交。"
       ]
     },
     "cards": {
-      "background": "#FFFFFF",
-      "border": "#E3E8F0",
+      "background": "colors.background.primary",
+      "border": "colors.border.default",
       "borderWidth": 1,
       "radius": 20,
       "padding": 24,
       "gap": 20,
-      "shadow": "0 4px 16px #1D2B4A0A",
+      "shadow": "elevation.card",
       "states": {
         "default": {
-          "background": "#FFFFFF",
-          "border": "#E3E8F0"
+          "background": "colors.background.primary",
+          "border": "colors.border.default"
+        },
+        "hover": {
+          "background": "colors.background.page",
+          "border": "colors.border.strong"
         },
         "pressed": {
-          "background": "#F8FAFD",
-          "border": "#C8D0DC"
+          "background": "colors.background.page",
+          "border": "colors.border.strong"
         },
         "selected": {
-          "background": "#EDF4FF",
-          "border": "#246BFD"
+          "background": "colors.background.selected",
+          "border": "colors.action.primary",
+          "indicator": "勾选图标与已选文字"
+        },
+        "focus": {
+          "ring": "colors.action.focusRing"
         },
         "disabled": {
-          "background": "#F2F4F7",
-          "border": "#E8EBF0"
+          "background": "colors.background.disabled",
+          "border": "colors.border.disabled"
         }
       },
       "productCard": {
-        "minimumHeight": 220,
-        "avatarSize": 128,
-        "avatarRadius": 16,
-        "titleSize": 26,
-        "metadataSize": 20,
+        "semanticRole": "陪玩师服务卡",
+        "minimumHeight": 248,
+        "portraitSize": 136,
+        "portraitRadius": 16,
+        "titleSize": 28,
+        "metadataSize": 22,
         "priceSize": 30,
-        "priceColor": "#FF6B57",
+        "priceColor": "colors.text.primary",
         "tagHeight": 40,
         "tagRadius": 8,
         "contentOrder": [
-          "avatar",
-          "display name and verification",
-          "game and rank",
-          "service tags",
-          "rating and completed orders",
-          "price and order action"
+          "头像",
+          "昵称与在线状态",
+          "主玩游戏与段位",
+          "陪玩风格与服务形式",
+          "评分与完成单数",
+          "价格与最近可预约时间",
+          "预约操作"
+        ],
+        "example": {
+          "name": "小满",
+          "status": "在线",
+          "game": "王者荣耀",
+          "rank": "荣耀王者",
+          "specialties": [
+            "轻松开黑",
+            "排位陪练"
+          ],
+          "experience": "已完成 126 单",
+          "rating": "5.0",
+          "availability": "最近可约：今晚 20:00",
+          "price": "¥28 / 小时",
+          "action": "预约陪玩",
+          "disclaimer": "示例资料，非真实服务承诺"
+        }
+      },
+      "gameCard": {
+        "semanticRole": "游戏入口卡",
+        "imageRatio": "16:9",
+        "imageRadius": 16,
+        "titleSize": 28,
+        "metadataSize": 22,
+        "contentOrder": [
+          "游戏封面",
+          "游戏名称",
+          "热门陪玩人数或服务标签"
         ]
       }
     },
@@ -301,119 +436,175 @@
       "heights": {
         "default": 80,
         "large": 88,
-        "textareaMinimum": 176
+        "textareaMinimum": 192
       },
       "paddingHorizontal": 24,
       "radius": 16,
-      "labelSize": 22,
+      "labelSize": 24,
       "inputSize": 26,
-      "helperSize": 20,
+      "helperSize": 22,
+      "borderWidth": 2,
       "states": {
         "default": {
-          "background": "#FFFFFF",
-          "text": "#172033",
-          "placeholder": "#8791A5",
-          "border": "#C8D0DC"
+          "background": "colors.background.primary",
+          "text": "colors.text.primary",
+          "placeholder": "colors.text.tertiary",
+          "border": "colors.border.strong"
+        },
+        "hover": {
+          "border": "colors.text.secondary"
         },
         "focus": {
-          "background": "#FFFFFF",
-          "text": "#172033",
-          "border": "#246BFD",
-          "focusRing": "#8CB3FF"
+          "background": "colors.background.primary",
+          "text": "colors.text.primary",
+          "border": "colors.border.focus",
+          "ring": "colors.action.focusRing"
         },
         "error": {
-          "background": "#FFF0F0",
-          "text": "#172033",
-          "border": "#E5484D",
-          "helper": "#E5484D"
+          "background": "colors.states.errorBackground",
+          "text": "colors.text.primary",
+          "border": "colors.states.error",
+          "helper": "colors.states.error",
+          "icon": "alert-circle"
         },
         "disabled": {
-          "background": "#F2F4F7",
-          "text": "#B5BDCA",
-          "border": "#E8EBF0"
+          "background": "colors.background.disabled",
+          "text": "colors.text.disabled",
+          "border": "colors.border.disabled"
         }
       },
       "search": {
         "height": 72,
-        "background": "#F1F5FB",
-        "border": "#E3E8F0",
+        "background": "colors.background.subtle",
+        "border": "colors.border.strong",
         "radius": 16,
         "iconSize": 32
+      },
+      "selectionControls": {
+        "checkboxSize": 40,
+        "radioSize": 40,
+        "switchWidth": 88,
+        "switchHeight": 48,
+        "states": {
+          "unselected": {
+            "border": "colors.border.strong",
+            "background": "colors.background.primary"
+          },
+          "selected": {
+            "background": "colors.action.primary",
+            "indicator": "colors.text.inverse"
+          },
+          "pressed": {
+            "background": "colors.action.primaryPressed"
+          },
+          "focus": {
+            "ring": "colors.action.focusRing"
+          },
+          "disabled": {
+            "background": "colors.border.disabled",
+            "indicator": "colors.text.disabled"
+          }
+        },
+        "rule": "选择状态同时使用勾选、内圆或文字表达；开关使用位置和状态文案，不使用系统默认绿色。"
       }
     },
-    "selectionControls": {
-      "checkboxSize": 40,
-      "radioSize": 40,
-      "switchWidth": 88,
-      "switchHeight": 48,
-      "selected": "#246BFD",
-      "unselected": "#C8D0DC",
-      "disabled": "#E8EBF0",
-      "focusRing": "#8CB3FF"
+    "segmentedControl": {
+      "height": 72,
+      "padding": 6,
+      "background": "colors.background.subtle",
+      "radius": 20,
+      "labelSize": 24,
+      "selected": {
+        "background": "colors.background.primary",
+        "text": "colors.text.primary",
+        "shadow": "0 3px 10px #18223012"
+      },
+      "unselected": {
+        "background": "transparent",
+        "text": "colors.text.secondary"
+      },
+      "pressed": {
+        "background": "colors.action.secondaryPressed"
+      },
+      "focus": {
+        "ring": "colors.action.focusRing"
+      },
+      "disabled": {
+        "text": "colors.text.disabled"
+      }
     },
     "tags": {
       "height": 40,
       "paddingHorizontal": 12,
       "radius": 8,
       "textSize": 20,
-      "neutral": {
-        "background": "#F1F5FB",
-        "text": "#59657A"
-      },
       "game": {
-        "background": "#EDF4FF",
-        "text": "#246BFD"
+        "background": "colors.background.selected",
+        "text": "colors.text.link"
+      },
+      "service": {
+        "background": "colors.states.infoBackground",
+        "text": "colors.states.info"
       },
       "promotion": {
-        "background": "#FFF0ED",
-        "text": "#D84E3D"
+        "background": "colors.accent.warmSoft",
+        "text": "colors.states.warning"
       },
-      "rating": {
-        "background": "#FFF6E5",
-        "text": "#B87000"
+      "neutral": {
+        "background": "colors.background.subtle",
+        "text": "colors.text.secondary"
       }
     },
     "navigation": {
       "topBar": {
         "height": 88,
-        "background": "#FFFFFF",
+        "background": "colors.background.primary",
         "titleSize": 32,
         "titleWeight": 600,
         "iconSize": 40,
         "horizontalPadding": 32,
-        "divider": "#E3E8F0"
+        "divider": "none"
       },
       "bottomBar": {
         "height": 108,
-        "background": "#FFFFFF",
-        "border": "#E3E8F0",
-        "shadow": "0 -4px 20px #1D2B4A0D",
+        "background": "colors.background.primary",
+        "border": "none",
+        "shadow": "elevation.navigation",
         "itemMinimumWidth": 120,
         "iconSize": 40,
         "labelSize": 20,
-        "activeColor": "#246BFD",
-        "inactiveColor": "#8791A5",
+        "activeColor": "colors.action.primary",
+        "inactiveColor": "colors.text.tertiary",
         "items": [
           "首页",
-          "分类",
-          "订单",
+          "发现",
+          "消息",
           "我的"
-        ]
+        ],
+        "activeIconStyle": "filled",
+        "inactiveIconStyle": "outlined"
       },
       "tabs": {
         "height": 72,
         "labelSize": 24,
-        "activeColor": "#246BFD",
-        "inactiveColor": "#59657A",
+        "activeColor": "colors.text.primary",
+        "inactiveColor": "colors.text.tertiary",
         "indicatorHeight": 4,
         "indicatorRadius": 2,
-        "indicatorColor": "#246BFD"
+        "indicatorColor": "colors.action.primary"
+      },
+      "states": {
+        "active": "使用蓝色图标与文字；底部导航使用填充图标，标签页显示蓝色下划线。",
+        "inactive": "使用次级文字与线性图标。",
+        "pressed": "使用 colors.background.selected 背景。",
+        "focus": "使用 colors.action.focusRing 外环。",
+        "disabled": "使用 colors.text.disabled，禁止点击并声明不可用。"
       }
     },
     "feedback": {
       "toast": {
-        "background": "#172033",
-        "text": "#FFFFFF",
+        "background": "colors.text.primary",
+        "text": "colors.text.inverse",
         "radius": 12,
         "padding": 20
       },
@@ -422,44 +613,55 @@
         "padding": 24
       },
       "loading": {
-        "color": "#246BFD",
-        "track": "#E3E8F0"
+        "color": "colors.action.primary",
+        "track": "colors.border.default"
       },
       "emptyState": {
         "illustrationMaximumSize": 240,
-        "titleSize": 28,
-        "bodySize": 22,
-        "textColor": "#59657A"
+        "titleSize": 30,
+        "bodySize": 24,
+        "textColor": "colors.text.secondary"
+      },
+      "serviceNotice": {
+        "background": "colors.states.infoBackground",
+        "border": "colors.border.default",
+        "title": "colors.text.primary",
+        "body": "colors.text.secondary",
+        "icon": "info"
       }
     }
   },
   "assetRules": {
     "raster": [
-      "玩家头像、游戏封面、活动摄影和复杂插画使用 WebP 或 AVIF。",
-      "人物照片导出尺寸不低于实际显示尺寸的 2 倍。",
-      "图片保持明亮、干净、自然肤色和简洁背景，不使用绿色主调。",
-      "用户图片缺失时使用统一的中性占位图。"
+      "真实陪玩师头像、游戏封面和复杂插画使用 WebP；AVIF 只有在宿主支持并提供回退时使用。",
+      "图片至少满足实际 CSS 显示尺寸的 2 倍像素密度；136 design-px 头像至少使用 272 像素源图。",
+      "头像使用自然、清晰、不过度磨皮的照片或统一人物占位图，避免绿色服饰与大面积绿色背景。",
+      "游戏封面应展示真实游戏氛围、角色或场景，避免模糊、过暗、过度裁切和纯装饰图片。",
+      "营销插画使用简洁的游戏手柄、耳机、语音或组队元素，避免夸张表情和视觉噪音。",
+      "图片避免大面积强渐变、噪点和过度模糊；渐变只作为轻量遮罩或背景辅助。"
     ],
     "codeRendered": [
-      "文字、按钮、卡片、分割线、标签、徽标、状态和布局结构全部由代码渲染。",
-      "导航和常用操作图标使用代码图标组件。",
-      "简单几何装饰不使用位图。"
+      "所有文字、按钮、价格、标签、表单、状态、导航、评分、筛选条件和订单信息均由代码渲染。",
+      "图标使用统一矢量组件；简单几何、分割线、评分符号和状态标识不导出位图。",
+      "在线、忙碌、离线、已预约和订单状态必须使用可读文本或可访问标签。"
     ],
     "bakedText": [
-      "价格、姓名、评分、操作文案和促销信息不得烘焙进图片。",
-      "只有授权游戏原画或官方品牌标志允许保留图片内文字。",
-      "无法从图片中分离的有意义文字必须提供替代文本。"
+      "陪玩师昵称、游戏名称、段位、价格、时间、评分、订单状态和操作文案不得烘焙进图片。",
+      "只有品牌授权标志或原始游戏官方素材中的不可分离文字可以保留；有意义的图片文字必须提供等效替代文本。"
     ],
     "iconStyle": {
-      "family": "统一的圆润线性图标族",
+      "family": "统一 iOS 风格圆润线性图标",
       "strokeWidth": 2,
       "defaultSize": 40,
       "smallSize": 32,
-      "filledUsage": "填充图标仅用于底部导航激活项和已收藏状态。",
+      "filledUsage": "仅激活导航、收藏、已选和在线状态使用填充图标。",
+      "preferredLibrary": "项目已有图标库或 Lucide 风格图标",
       "rules": [
-        "不得混用图标族或描边粗细。",
-        "返回、搜索、收藏、分享和关闭使用平台熟悉的标准符号。",
-        "同一工具栏中的图标保持一致的视觉尺寸。"
+        "统一描边、视觉尺寸、圆角和基线。",
+        "优先使用返回、关闭、搜索、筛选、游戏手柄、麦克风、耳机、消息、日历、收藏和支付符号。",
+        "不使用表情符号替代产品图标。",
+        "图标不能单独承担错误、成功、支付或服务状态的信息。",
+        "纯图标按钮必须提供可访问名称和悬停提示。"
       ]
     }
   },
@@ -471,39 +673,46 @@
     },
     "minimumTouchTarget": {
       "width": 88,
-      "height": 88
+      "height": 88,
+      "cssEquivalent": "44x44 CSS px"
     },
     "focusIndicator": {
-      "color": "#8CB3FF",
+      "color": "#2F6FE4",
       "width": 4,
       "offset": 4
     },
     "rules": [
-      "在线状态、校验、选择和评分不能只靠颜色表达，必须结合文字、形状或图标。",
-      "纯图标控件提供可访问名称，人物照片和游戏封面提供有意义的替代文本。",
-      "支持文字放大到 200%，不得裁切关键操作或数值。",
-      "关键信息放在纯色表面上，不直接覆盖复杂图片。",
-      "错误提示需要指出具体字段和修正方式。",
-      "尊重减少动态效果设置，非必要过渡不超过 200ms。",
-      "任何状态均不得使用绿色；成功状态使用蓝色、勾选图标和明确文字共同表达。"
+      "对比度按最终 CSS 字号判定，不能把 2x 设计稿中的 26px 误认为网页大字。",
+      "关键价格、时间、服务状态和订单状态使用 primary 或 secondary 文字色。",
+      "错误、成功、在线、离线、已选和优惠状态必须同时使用文字或形状提示。",
+      "图标按钮提供可访问名称，表单保留可见标签，不用占位符替代标签。",
+      "支持文字放大到 200%，内容自然增高；价格、日期、支付和主要操作不截断。",
+      "语音房、麦克风、订单和支付状态变化通过可访问通知反馈。",
+      "错误文案指出原因和修正方法，避免责备式语气。",
+      "支付前明确展示陪玩师、游戏、时长、价格、优惠和总计，避免隐藏费用。",
+      "尊重减少动态效果设置，避免闪烁、循环呼吸动画和焦虑式倒计时。",
+      "头像和游戏封面提供有意义的替代文本；纯装饰图片使用空替代文本。"
     ]
   },
   "responsive": {
-    "referenceWidth": 750,
+    "referenceWidth": 752,
     "breakpoints": {
       "compact": 640,
-      "standard": 750,
+      "standard": 752,
       "expanded": 960
     },
+    "breakpointUnit": "design-px equivalent，分别对应约 320、376、480 CSS px",
     "rules": [
-      "低于 750px 时按比例调整布局尺寸，同时保证有效触控区域不小于 44 CSS px。",
-      "紧凑屏使用 24px 设计边距，标准屏使用 32px，扩展屏使用 40px。",
-      "750px 以下商品卡保持单列，仅当每张卡可保持至少 336px 宽时切换为双列。",
-      "标签空间不足时换行，不缩小文字。",
-      "手机布局固定底部导航；仅在 960px 以上且宿主环境支持时切换为侧边导航。",
-      "顶部栏、底部导航、底部弹层和固定结算操作必须适配安全区。",
-      "玩家名称在列表中单行截断，详情页显示全名。",
-      "字号不随视口宽度缩放，始终使用定义的字体令牌。"
+      "字号与组件高度按 design-px 除以 2 转为固定 CSS px，不随视口整体缩放。",
+      "布局使用弹性容器；紧凑边距 24，标准 32，扩展 40 design-px。",
+      "触控区域始终不小于 44x44 CSS px。",
+      "陪玩师卡在手机上保持单列；只有每卡至少 336 CSS px 时才允许扩展为双列。",
+      "内容默认最大宽度 752 design-px 并居中，扩展模式不放大文字。",
+      "手机使用底部导航；960 design-px 以上且宿主允许时可评估侧边导航。",
+      "标签、陪玩师昵称和服务描述不足时换行，不强制单行截断核心信息。",
+      "固定操作、导航和弹层读取实际安全区；键盘弹出时当前字段、错误与提交操作保持可达。",
+      "游戏分类和筛选条件可以水平滚动，但必须显示可发现的继续内容，不依赖精细滑动。",
+      "横屏或窄屏时优先保证价格、主要操作和导航可达，次要装饰可以隐藏。"
     ]
   },
   "motion": {
@@ -512,9 +721,12 @@
     "slow": 240,
     "easing": "cubic-bezier(0.2, 0, 0, 1)",
     "rules": [
-      "按下和选中状态使用 120ms 过渡。",
-      "底部弹层、筛选和导航切换使用 180ms 过渡。",
-      "不使用循环装饰动画。"
+      "按下、选择和开关反馈使用 120ms。",
+      "筛选、底部抽屉和导航切换使用 180ms。",
+      "预约成功、支付成功和消息提示可以使用一次性 240ms 淡入。",
+      "减少动态效果模式下关闭非必要位移、缩放和视差。",
+      "不使用循环呼吸动画、闪烁和制造紧迫感的倒计时。",
+      "语音房状态动画应提供静态状态替代，不依赖动画表达麦克风或连接状态。"
     ]
   }
 }

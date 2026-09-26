@@ -31,7 +31,40 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-001",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 22,
+            "y": 35,
+            "width": 97,
+            "height": 89
+          }
+        },
+        {
+          "name": "",
+          "parent": "",
+          "zIndex": null,
+          "backgroundTolerance": 34,
+          "edgeFeather": 48,
+          "reviewStatus": "confirmed",
+          "suggestion": {
+            "source": "manual"
+          },
+          "approved": true,
+          "x": 42,
+          "y": 145,
+          "width": 47,
+          "height": 50,
+          "purpose": "",
+          "elementType": "image-asset",
+          "processingMode": "ai-transparent",
+          "id": "target-002",
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 42,
+            "y": 145,
+            "width": 47,
+            "height": 50
+          }
         },
         {
           "name": "",
@@ -52,7 +85,13 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-003",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 41,
+            "y": 219,
+            "width": 106,
+            "height": 94
+          }
         },
         {
           "name": "",
@@ -73,7 +112,13 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-004",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 180,
+            "y": 217,
+            "width": 110,
+            "height": 99
+          }
         },
         {
           "name": "",
@@ -94,7 +139,13 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-005",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 321,
+            "y": 218,
+            "width": 110,
+            "height": 94
+          }
         },
         {
           "name": "",
@@ -115,7 +166,13 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-006",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 449,
+            "y": 216,
+            "width": 125,
+            "height": 96
+          }
         },
         {
           "name": "",
@@ -136,7 +193,13 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-007",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 600,
+            "y": 219,
+            "width": 108,
+            "height": 95
+          }
         },
         {
           "name": "",
@@ -157,7 +220,13 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-008",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 33,
+            "y": 348,
+            "width": 104,
+            "height": 93
+          }
         },
         {
           "name": "",
@@ -178,7 +247,13 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-009",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 179,
+            "y": 355,
+            "width": 102,
+            "height": 88
+          }
         },
         {
           "name": "",
@@ -199,7 +274,13 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-010",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 316,
+            "y": 353,
+            "width": 122,
+            "height": 95
+          }
         },
         {
           "name": "",
@@ -220,7 +301,13 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-011",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 461,
+            "y": 356,
+            "width": 105,
+            "height": 91
+          }
         },
         {
           "name": "",
@@ -241,10 +328,24 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-012",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 585,
+            "y": 355,
+            "width": 128,
+            "height": 92
+          }
         }
       ],
-      "id": "region-001"
+      "id": "region-001",
+      "cropFile": "region-001.png",
+      "markedCropFile": "region-001.marked.png",
+      "cropBox": {
+        "x": 0,
+        "y": 0,
+        "width": 752,
+        "height": 511
+      }
     },
     {
       "x": 0,
@@ -273,7 +374,13 @@
           "elementType": "image-asset",
           "processingMode": "background-repair",
           "id": "target-001",
-          "extractionMode": "background-repair"
+          "extractionMode": "background-repair",
+          "markedCropBox": {
+            "x": 27,
+            "y": 49,
+            "width": 698,
+            "height": 209
+          }
         },
         {
           "name": "",
@@ -294,7 +401,13 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-002",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 48,
+            "y": 336,
+            "width": 133,
+            "height": 135
+          }
         },
         {
           "name": "",
@@ -315,7 +428,13 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-003",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 50,
+            "y": 581,
+            "width": 125,
+            "height": 128
+          }
         },
         {
           "name": "",
@@ -336,10 +455,24 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-004",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 313,
+            "y": 343,
+            "width": 38,
+            "height": 44
+          }
         }
       ],
-      "id": "region-002"
+      "id": "region-002",
+      "cropFile": "region-002.png",
+      "markedCropFile": "region-002.marked.png",
+      "cropBox": {
+        "x": 0,
+        "y": 448,
+        "width": 752,
+        "height": 823
+      }
     },
     {
       "x": 1,
@@ -368,7 +501,13 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-001",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 63,
+            "y": 43,
+            "width": 79,
+            "height": 49
+          }
         },
         {
           "name": "",
@@ -389,7 +528,13 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-002",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 243,
+            "y": 40,
+            "width": 74,
+            "height": 50
+          }
         },
         {
           "name": "",
@@ -410,7 +555,13 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-003",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 433,
+            "y": 41,
+            "width": 72,
+            "height": 49
+          }
         },
         {
           "name": "",
@@ -431,10 +582,24 @@
           "elementType": "image-asset",
           "processingMode": "ai-transparent",
           "id": "target-004",
-          "extractionMode": "ai"
+          "extractionMode": "ai",
+          "markedCropBox": {
+            "x": 625,
+            "y": 40,
+            "width": 60,
+            "height": 51
+          }
         }
       ],
-      "id": "region-003"
+      "id": "region-003",
+      "cropFile": "region-003.png",
+      "markedCropFile": "region-003.marked.png",
+      "cropBox": {
+        "x": 0,
+        "y": 1216,
+        "width": 752,
+        "height": 128
+      }
     }
   ]
 }

@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import shutil
+import tempfile
 import time
 import uuid
 import urllib.error
@@ -15,9 +16,15 @@ from pathlib import Path
 
 from PIL import Image
 
+import sys
+
+# Direct script execution must resolve shared modules in the project root.
+if not __package__:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 from image_dimensions import normalize_size as normalize_request_size
 
-from gpt_image_api import call_edit_api, ImageDownloadError, _save_result, normalize_size
+from scripts.gpt_image_api import call_edit_api, ImageDownloadError, _save_result, normalize_size
 
 
 DEFAULT_PROMPT = """TASK: Faithful cutout of existing pixels, NOT UI design, icon generation, or creative restoration.
@@ -39,6 +46,8 @@ Only mild compression-noise reduction and edge cleanup are allowed, and only whe
 
 OUTPUT:
 EXACT GROUP COUNT: Return exactly {target_count} complete asset group(s): ONE red rectangle = ONE whole icon or composite. Count rectangles, NOT disconnected strokes or shapes. Do not output parts as separate assets or make an exploded view.
+MANDATORY ONE-TO-ONE CHECK: Before extracting, inventory all {target_count} red rectangles in reading order. Each rectangle must contribute exactly one corresponding whole asset to the output, including tiny, pale, simple or isolated symbols such as search/magnifying-glass icons. Never omit a rectangle because its content seems minor or similar to another.
+Before returning, verify every source rectangle has its own matching asset and the total is exactly {target_count}. If one is missing, extract that missing source asset; never substitute another asset, duplicate an existing one, invent content, or split an icon into pieces to reach the count.
 A document/order icon's outline and its inner horizontal lines belong to the SAME icon, in their original relative positions. A user icon's head and shoulders, a slider icon's bars and dots, and a button's surface and symbol must each remain one complete group. Transparent gaps inside a group are normal: do not join strokes with invented bridges, fill the gaps, or separate the pieces for display.
 Use larger transparent spacing BETWEEN different groups than the internal gaps WITHIN each group. Preserve the original internal spacing and keep all parts of each marked icon together. Verify there are exactly {target_count} whole icons/composites before returning.
 Keep the assets in the same reading order, separate and non-overlapping, with transparent gaps. Do not merge assets, add duplicates, add labels for identification, or split an existing composite. Preserve each asset's aspect ratio and relative internal geometry; never stretch or squash it.
@@ -68,6 +77,20 @@ class TransparencyError(ValueError):
     pass
 
 
+class AssetCountError(ValueError):
+    pass
+
+
+def validate_assets(path: Path, expected_count: int) -> None:
+    from scripts.split_transparent_objects import split_objects
+    validate_transparency(path)
+    with tempfile.TemporaryDirectory(prefix='asset-validation-') as temporary:
+        try:
+            split_objects(path, Path(temporary), 8, 0, 256, 4, 4, expected_count)
+        except ValueError as error:
+            raise AssetCountError(str(error)) from error
+
+
 def validate_transparency(path: Path) -> None:
     with Image.open(path) as image:
         if "A" not in image.getbands() and "transparency" not in image.info:
@@ -78,8 +101,8 @@ def validate_transparency(path: Path) -> None:
 
 def retryable(error: Exception) -> bool:
     if isinstance(error, urllib.error.HTTPError):
-        return error.code in {429, 500, 502, 503, 504}
-    return isinstance(error, (TransparencyError, urllib.error.URLError, TimeoutError, ConnectionError))
+        return error.code in {429, 500, 502, 503, 504, 524}
+    return isinstance(error, (TransparencyError, AssetCountError, urllib.error.URLError, TimeoutError, ConnectionError))
 
 
 def run_job(
@@ -118,7 +141,7 @@ def run_job(
         try:
             previous_status = json.loads(status_path.read_text(encoding="utf-8"))
             if previous_status.get("fingerprint") == fingerprint:
-                validate_transparency(output)
+                validate_assets(output, len(targets))
                 return {"id": region_id, "status": "skipped", "output": str(output), "fingerprint": fingerprint}
         except Exception:
             pass
@@ -135,14 +158,14 @@ def run_job(
         try:
             _save_result(response_path.read_bytes(), "application/json", candidate, response_path.parent)
             normalize_size(candidate, size, response_path.parent)
-            validate_transparency(candidate)
+            validate_assets(candidate, len(targets))
             shutil.copy2(candidate, output)
             result = {"id": region_id, "status": "completed", "output": str(output), "fingerprint": fingerprint}
             status_path.write_text(json.dumps(result), encoding="utf-8")
             return result
         except ImageDownloadError as exc:
             return {**previous, "error": str(exc)}
-        except TransparencyError:
+        except (TransparencyError, AssetCountError):
             pass
     run_dir = record_dir / ("run-" + uuid.uuid4().hex)
     for attempt in range(1, retries + 2):
@@ -150,7 +173,7 @@ def run_job(
             attempt_dir = run_dir / f"attempt-{attempt}"
             candidate = attempt_dir / "result.png"
             call_edit_api(request_prompt, crop, candidate, attempt_dir, size, quality)
-            validate_transparency(candidate)
+            validate_assets(candidate, len(targets))
             output.parent.mkdir(parents=True, exist_ok=True)
             # Only validated results enter the directory consumed by splitting.
             shutil.copy2(candidate, output)
@@ -165,16 +188,22 @@ def run_job(
             status_path.write_text(json.dumps(result, indent=2), encoding="utf-8")
             return result
         except Exception as exc:
+            if isinstance(exc, AssetCountError):
+                request_prompt = prompt + f'\nCORRECTION: The previous output failed whole-asset count validation: {exc}. Re-extract every one of the {len(targets)} red rectangles, including portraits and small symbols. Do not omit, duplicate or split assets to meet the count. Return actual transparent PNG.'
             if isinstance(exc, TransparencyError):
                 request_prompt = prompt + "\nCORRECTION: The previous output was rejected because its background was opaque. Return RGBA PNG with actual alpha=0 outside the assets and in their gaps. Do NOT paint a checkerboard or flatten onto any background. Preserve all content inside each target."
             if attempt > retries or not retryable(exc):
                 result = {"id": region_id, "status": "failed", "attempt": attempt, "error": str(exc)}
+                if isinstance(exc, urllib.error.HTTPError) and exc.code == 524:
+                    result["error"] = "图片 API 返回 HTTP 524（远端网关等待上游响应超时）；已成功区域保留，可再次点击提取重试失败区域"
                 if isinstance(exc, ImageDownloadError):
                     result.update(fingerprint=fingerprint, downloadResponse=str(attempt_dir / "response.json"))
                 record_dir.mkdir(parents=True, exist_ok=True)
                 status_path.write_text(json.dumps(result, indent=2), encoding="utf-8")
                 return result
-            time.sleep(min(2 ** attempt, 8))
+            delay = min(2 ** attempt, 8)
+            print(f"{region_id}: 第 {attempt} 次请求失败（{exc}），{delay} 秒后重试", flush=True)
+            time.sleep(delay)
     raise AssertionError("unreachable")
 
 

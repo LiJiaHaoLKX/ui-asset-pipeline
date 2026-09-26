@@ -7,6 +7,20 @@ from scripts.split_transparent_objects import split_objects
 
 
 class IconGroupingTest(unittest.TestCase):
+    def test_narrow_gap_between_head_and_body_preserves_transparency(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            image = Image.new('RGBA', (100, 100))
+            draw = ImageDraw.Draw(image)
+            draw.rectangle((10, 10, 30, 30), fill='white')
+            draw.rectangle((10, 35, 30, 65), fill='white')
+            draw.rectangle((70, 10, 90, 65), fill='red')
+            image.save(root / 'input.png')
+            result = split_objects(root / 'input.png', root / 'out', 8, 0, 256, 4, 4, 2)
+            self.assertEqual(len(result), 2)
+            with Image.open(root / 'out' / result[0]['file']) as output:
+                self.assertEqual(output.getpixel((10, 26))[3], 0)
+
     def test_order_outline_and_disconnected_lines_stay_one_icon(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

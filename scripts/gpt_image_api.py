@@ -20,6 +20,11 @@ from pathlib import Path
 
 from PIL import Image
 
+
+# Direct script execution must resolve shared modules in the project root.
+if not __package__:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 from image_dimensions import normalize_prompt_dimensions, normalize_size as normalize_request_size
 
 
@@ -271,7 +276,7 @@ def call_generate_api(
     print(output)
 
 
-def _multipart(fields: dict[str, str], file_field: str, image_path: Path) -> tuple[bytes, str]:
+def _multipart(fields: dict[str, str], file_field: str, image_path: Path | list[Path]) -> tuple[bytes, str]:
     boundary = f"----ui-asset-pipeline-{uuid.uuid4().hex}"
     chunks: list[bytes] = []
     for name, value in fields.items():
@@ -283,36 +288,38 @@ def _multipart(fields: dict[str, str], file_field: str, image_path: Path) -> tup
                 b"\r\n",
             ]
         )
-    chunks.extend(
-        [
+    for path in image_path if isinstance(image_path, list) else [image_path]:
+        chunks.extend([
             f"--{boundary}\r\n".encode(),
-            f'Content-Disposition: form-data; name="{file_field}"; filename="{image_path.name}"\r\n'.encode(),
+            f'Content-Disposition: form-data; name="{file_field}"; filename="{path.name}"\r\n'.encode(),
             b"Content-Type: image/png\r\n\r\n",
-            image_path.read_bytes(),
+            path.read_bytes(),
             b"\r\n",
-            f"--{boundary}--\r\n".encode(),
-        ]
-    )
+        ])
+    chunks.append(f"--{boundary}--\r\n".encode())
     return b"".join(chunks), f"multipart/form-data; boundary={boundary}"
 
 
 def call_edit_api(
     prompt: str,
-    image: Path,
+    image: Path | list[Path],
     output: Path,
     record_dir: Path,
     size: str,
     quality: str,
     transparent_background: bool = True,
+    model: str | None = None,
+    base_url: str | None = None,
+    api_key: str | None = None,
 ) -> None:
     size = normalize_request_size(size)
     prompt = normalize_prompt_dimensions(prompt)
     config = read_image_config()
-    api_key = config.get("GPT_IMAGE_API_KEY")
-    model = config.get("GPT_IMAGE_MODEL")
+    api_key = api_key or config.get("GPT_IMAGE_API_KEY")
+    model = model or config.get("GPT_IMAGE_MODEL")
     if not api_key or not model:
         raise RuntimeError("Set GPT_IMAGE_API_KEY and GPT_IMAGE_MODEL before calling the API.")
-    base_url = config.get("GPT_IMAGE_BASE_URL", "http://154.12.91.166:3000/v1").rstrip("/")
+    base_url = (base_url or config.get("GPT_IMAGE_BASE_URL", "http://154.12.91.166:3000/v1")).rstrip("/")
     edit_url = f"{base_url}/images/edits"
     fields = {
         "model": model,
@@ -326,7 +333,7 @@ def call_edit_api(
         fields["background"] = "transparent"
     record_dir.mkdir(parents=True, exist_ok=True)
     (record_dir / "request.json").write_text(
-        json.dumps({**fields, "endpoint": edit_url, "image": str(image)}, indent=2), encoding="utf-8"
+        json.dumps({**fields, "endpoint": edit_url, "images": [str(path) for path in image] if isinstance(image, list) else [str(image)]}, indent=2), encoding="utf-8"
     )
     body, content_type = _multipart(fields, "image[]", image)
     request = urllib.request.Request(

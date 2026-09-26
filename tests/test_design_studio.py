@@ -74,13 +74,15 @@ class DesignStudioTest(unittest.TestCase):
         self.assertTrue(self.studio.current(self.studio.state())['previewId'])
         self.save_design.assert_not_called()
 
-    def test_feedback_uses_previous_preview_and_preserves_history(self):
+    def test_feedback_is_fresh_and_preserves_history_without_previous_context(self):
         first = self.generate()
         self.preview(first)
         self.studio.generate({'feedback': '文字大一点'})
         content = self.chat.call_args.args[2]['messages'][1]['content']
-        self.assertEqual(json.loads(content[0]['text'])['feedback'], '文字大一点')
-        self.assertEqual(content[-1]['type'], 'image_url')
+        request = json.loads(content[0]['text'])
+        self.assertEqual(request['feedback'], '文字大一点')
+        self.assertNotIn('previousSpec', request)
+        self.assertEqual(len(content), 1)
         state = self.studio.state()
         self.assertEqual(len(state['versions']), 2)
         self.assertTrue(state['versions'][0]['previewId'])

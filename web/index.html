@@ -99,6 +99,7 @@
           <div class="canvas-panel checker"><img id="referenceImage" alt="参考图预览"><div id="referenceEmpty" class="empty-canvas">上传图片或从页面需求生成参考图</div></div>
           <aside class="context-panel"><h3>审核重点</h3><p>确认整体风格、信息层级、文字内容和主要图片位置。批准后再进入标注。</p><div class="status-block"><span>审核状态</span><strong id="referenceStatus">未生成</strong></div></aside>
         </div>
+        <section class="reference-edit-panel"><div class="section-head compact"><div><h2>重新修改参考图</h2><p class="field-help">上传参考图；勾选后会同时发送当前原图作为图一，上传图固定为图二。</p></div></div><label for="referenceEditPrompt"><span>修改提示词</span><textarea id="referenceEditPrompt" rows="4" placeholder="例如：请按照图二的角色风格修改图一中的角色，其他内容保持不变"></textarea></label><div class="reference-edit-actions"><label class="file-button secondary" for="referenceEditFile">上传参考图</label><input id="referenceEditFile" type="file" accept="image/png,image/jpeg,image/webp" hidden><span id="referenceEditFileName" class="toolbar-meta">未选择文件</span><label class="check-row reference-original-toggle"><input id="referenceIncludeOriginal" type="checkbox"><span>同时发送原图（图一）</span></label><button id="editReference" type="button" class="primary">AI 重新修改</button></div></section>
       </section>
 
       <section class="view" data-view="design">

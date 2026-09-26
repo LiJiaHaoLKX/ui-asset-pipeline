@@ -198,6 +198,9 @@ def split_objects(
                 groups.append(item)
         objects = groups
     objects = reading_order([item for item in objects if item['area'] >= min_area])
+    if expected_count is not None and len(objects) > expected_count and join_gap == 0:
+        # Join narrowly separated strokes, preserving the original alpha pixels.
+        return split_objects(source, output_dir, alpha_threshold, 4, min_area, padding, edge_halo, expected_count)
     if expected_count is not None and len(objects) != expected_count:
         raise ValueError(f"红框有 {expected_count} 个，但识别到 {len(objects)} 组素材。已停止拆分，请检查图标是否散开、合并或漏生成；不会将笔画碎片作为独立素材进入审核。")
     output_dir.mkdir(parents=True, exist_ok=True)

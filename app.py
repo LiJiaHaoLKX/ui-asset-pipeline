@@ -63,6 +63,22 @@ def now_iso() -> str:
     return datetime.now().astimezone().isoformat(timespec="seconds")
 
 
+def parse_model_json(value: str):
+    """Parse the first complete JSON value from a model response."""
+    text = str(value or "").strip()
+    text = re.sub(r"^```(?:json)?\s*", "", text, count=1, flags=re.IGNORECASE)
+    decoder = json.JSONDecoder()
+    for start, character in enumerate(text):
+        if character not in "{[":
+            continue
+        try:
+            parsed, _ = decoder.raw_decode(text[start:])
+            return parsed
+        except json.JSONDecodeError:
+            continue
+    raise ValueError("文本模型未返回可解析的 JSON")
+
+
 def read_json(path: Path, default=None):
     if not path.exists():
         return default
@@ -792,9 +808,11 @@ def state_payload() -> dict:
 
 
 def generate_reference(body: dict) -> dict:
+    if body.get("edit"):
+        return edit_reference(body)
     if not body.get("confirmed"):
         raise ValueError("生成参考图会调用付费 API，请先确认")
-    from scripts.gpt_image_api import call_generate_api
+    from scripts.gpt_image_api import call_edit_api, call_generate_api
 
     settings = load_project_settings()
     root = data_root()
@@ -804,15 +822,118 @@ def generate_reference(body: dict) -> dict:
         raise ValueError("请先使用文本模型生成图片提示词")
     run_id = "reference-web-" + datetime.now().strftime("%Y%m%d-%H%M%S")
     output = root / "reference" / "reference-page.png"
+    studio_state = read_json(root / "workspace" / "design-studio" / "studio.json", {}) or {}
+    current_version = next(
+        (version for version in studio_state.get("versions", []) if version.get("id") == studio_state.get("current")),
+        None,
+    )
+    preview_id = current_version.get("previewId") if current_version else None
+    preview_path = root / "workspace" / "design-studio" / "images" / f"{preview_id}.png" if preview_id else None
+    if preview_path and not preview_path.is_file():
+        preview_path = None
+    if preview_path:
+        prompt = (
+            f"{prompt}\n\n"
+            "Use the supplied design-system preview image as a visual reference for the page. "
+            "Preserve its established color palette, typography hierarchy, spacing rhythm, corner radii, "
+            "component language, and overall visual character. Generate the requested page as a complete "
+            "single UI screen; do not reproduce the preview board, token swatches, or device mockup."
+        )
     with GENERATE_LOCK:
         # Keep the gateway's returned composition intact. A forced center crop or
         # padded canvas can hide UI at the edges and corrupt later annotation.
-        call_generate_api(prompt, output, root / "runs" / "gpt-image" / run_id, settings["generationSize"], settings["quality"], 1)
+        run_dir = root / "runs" / "gpt-image" / run_id
+        if preview_path:
+            call_edit_api(
+                prompt,
+                preview_path,
+                output,
+                run_dir,
+                settings["generationSize"],
+                settings["quality"],
+                transparent_background=False,
+                model=read_env().get("GPT_IMAGE_MODEL"),
+                base_url=read_env().get("GPT_IMAGE_BASE_URL"),
+                api_key=read_env().get("GPT_IMAGE_API_KEY"),
+            )
+        else:
+            call_generate_api(prompt, output, run_dir, settings["generationSize"], settings["quality"], 1)
     update_phase("draft-reference", "生成了新的参考图，等待审核")
     run_dir = root / 'runs' / 'gpt-image' / run_id
     normalization = read_json(run_dir / 'normalization.json', {})
     return {"reference": image_info(output), "warning": normalization.get('warning'),
             "originalUrl": file_url(run_dir / 'original-response.png') if (run_dir / 'original-response.png').exists() else file_url(output)}
+
+
+def edit_reference(body: dict) -> dict:
+    """Edit the current reference or an uploaded source, publishing only a successful result."""
+    if not body.get("confirmed"):
+        raise ValueError("修改参考图会调用付费 API，请先确认")
+    from scripts.gpt_image_api import call_edit_api
+
+    settings = load_project_settings()
+    root = data_root()
+    prompt = normalize_prompt_dimensions(str(body.get("prompt") or "").strip())
+    if not prompt:
+        raise ValueError("请输入本次修改提示词")
+    run_id = "reference-edit-" + uuid.uuid4().hex
+    run_dir = root / "runs" / "gpt-image" / run_id
+    run_dir.mkdir(parents=True, exist_ok=False)
+    include_original = body.get("includeOriginal", False) is True
+    current = root / "reference" / "reference-page.png"
+    if include_original and not current.is_file():
+        raise ValueError("当前页面没有原图，无法作为图一发送")
+    sources = []
+    if include_original:
+        original = run_dir / "image-1-original.png"
+        shutil.copy2(current, original)
+        sources.append(original)
+    encoded = str(body.get("image") or "")
+    if encoded:
+        uploaded = run_dir / ("image-2-uploaded.png" if include_original else "image-1-uploaded.png")
+        try:
+            raw = base64.b64decode(encoded.split(",", 1)[-1], validate=True)
+            if len(raw) > 20 * 1024 * 1024:
+                raise ValueError("编辑参考图不能超过 20 MB")
+            with Image.open(io.BytesIO(raw)) as image:
+                image.load()
+                image.convert("RGBA").save(uploaded, format="PNG")
+        except (ValueError, OSError, SyntaxError) as error:
+            raise ValueError("上传的编辑参考图无法读取") from error
+        sources.append(uploaded)
+    if not encoded and not include_original:
+        raise ValueError("未勾选发送原图时，请上传一张参考图")
+    output = root / "reference" / "reference-page.png"
+    candidate = run_dir / "edited-reference.png"
+    role_prompt = (
+        "Image 1 is the generated original UI page and the authoritative base for editing. "
+        "Image 2 is the uploaded reference image; use it only to guide the changes requested below. "
+        "Return one complete edited version of Image 1, not a collage or a copy of Image 2."
+        if include_original and encoded else
+        "Image 1 is the uploaded reference image. Edit this image according to the request below."
+        if encoded else
+        "Image 1 is the generated original UI page. Edit this image according to the request below."
+    )
+    edit_prompt = (
+        f"{role_prompt}\n\nRequested changes: {prompt}\n\n"
+        "Edit the supplied UI reference image. Preserve the original canvas framing, complete left and right edges, "
+        "all unchanged text, icons, layout, and proportions. Apply only the requested changes. Do not add, remove, "
+        "split, crop, zoom, or invent UI content unless explicitly requested."
+    )
+    with GENERATE_LOCK:
+        call_edit_api(
+            edit_prompt, sources, candidate, run_dir, settings["generationSize"], settings["quality"],
+            transparent_background=False, model=read_env().get("GPT_IMAGE_MODEL"),
+            base_url=read_env().get("GPT_IMAGE_BASE_URL"), api_key=read_env().get("GPT_IMAGE_API_KEY"),
+        )
+        with Image.open(candidate) as result:
+            result.verify()
+        output.parent.mkdir(parents=True, exist_ok=True)
+        candidate.replace(output)
+    update_phase("draft-reference", "参考图已重新修改，等待审核")
+    normalization = read_json(run_dir / "normalization.json", {})
+    return {"reference": image_info(output), "warning": normalization.get("warning"),
+            "originalUrl": file_url(run_dir / "original-response.png") if (run_dir / "original-response.png").exists() else file_url(output)}
 
 
 def generate_image_prompt(body: dict) -> dict:
@@ -909,8 +1030,7 @@ def generate_region_suggestions(body: dict) -> dict:
     content = ((response_document.get("choices") or [{}])[0].get("message") or {}).get("content", "")
     if isinstance(content, list):
         content = "\n".join(item.get("text", "") for item in content if isinstance(item, dict))
-    cleaned = re.sub(r"^```(?:json)?\s*|\s*```$", "", str(content).strip(), flags=re.IGNORECASE)
-    suggestions = normalize_regions_document(json.loads(cleaned), suggested=True)
+    suggestions = normalize_regions_document(parse_model_json(content), suggested=True)
     suggestions["canvas"] = {"width": width, "height": height}
     for region in suggestions.get("regions", []):
         region["x"] = max(0, min(int(region.get("x", 0)), width - 1))
@@ -1152,6 +1272,8 @@ class AppHandler(BaseHTTPRequestHandler):
                 self.send_json({"jobId": create_job("suggest-ui-elements", lambda: generate_region_suggestions(body))}, HTTPStatus.ACCEPTED)
             elif parsed.path == "/api/generate":
                 self.send_json({"jobId": create_job("generate-reference", lambda: generate_reference(body))}, HTTPStatus.ACCEPTED)
+            elif parsed.path == "/api/reference/edit":
+                self.send_json({"jobId": create_job("edit-reference", lambda: edit_reference(body))}, HTTPStatus.ACCEPTED)
             elif parsed.path == "/api/reference/upload":
                 encoded = str(body.get("data", ""))
                 if "," in encoded: encoded = encoded.split(",", 1)[1]
